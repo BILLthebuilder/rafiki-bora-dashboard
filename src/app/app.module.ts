@@ -16,6 +16,9 @@ import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
+    RolesComponent,
+    WorkgroupsComponent,
+    UsersComponent,
     LoginComponent,
     DashboardComponent
   ],
