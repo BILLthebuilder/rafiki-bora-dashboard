@@ -33,13 +33,14 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
+import { FormsModule }   from '@angular/forms';
 
 const imports: any = [
     CommonModule,
-    CommonModule,
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
+  AppRoutingModule,
+  BrowserAnimationsModule,
+    FormsModule,
     MatCheckboxModule,
     MatCheckboxModule,
     MatButtonModule,
@@ -75,10 +76,10 @@ const imports: any = [
 
 const exports: any = [
   CommonModule,
-  CommonModule,
   BrowserModule,
   AppRoutingModule,
   BrowserAnimationsModule,
+  FormsModule,
   MatCheckboxModule,
   MatCheckboxModule,
   MatButtonModule,
