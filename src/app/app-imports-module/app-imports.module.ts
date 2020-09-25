@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -31,15 +29,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule }   from '@angular/forms';
 
 const imports: any = [
-    CommonModule,
-    BrowserModule,
-  AppRoutingModule,
-  BrowserAnimationsModule,
     FormsModule,
     MatCheckboxModule,
     MatCheckboxModule,
@@ -75,10 +67,6 @@ const imports: any = [
 ]
 
 const exports: any = [
-  CommonModule,
-  BrowserModule,
-  AppRoutingModule,
-  BrowserAnimationsModule,
   FormsModule,
   MatCheckboxModule,
   MatCheckboxModule,
