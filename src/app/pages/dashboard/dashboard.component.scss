@@ -1,3 +1,34 @@
-mat-sidenav-content {
-  height: 100vh;
+$spacing: 3%;
+mat-sidenav-container {
+  height: 100%;
+  mat-sidenav {
+    background: black;
+    width: 250px;
+    color: white;
+    .nav-list {
+      margin-left: 10%;
+      h3 {
+        text-transform: uppercase;
+        margin-bottom: 1%;
+        margin-top: $spacing;
+      }
+      hr {
+        width: 80%;
+        margin-left: 0;
+      }
+    }
+  }
+  mat-sidenav-content {
+    height: 100vh;
+    margin: $spacing;
+    left: $spacing;
+  }
+}
+
+a {
+  color: white !important;
+}
+
+.active{
+  background-color: red;
 }
