@@ -1,40 +1,46 @@
-$gray:#f5f5f5;
+$gray: #f5f5f5;
 $spacing: 2%;
 table {
   width: 100%;
 }
-th{
+th {
   background-color: maroon;
   color: white;
 }
 
 // Table even row colour
-.gray { 
-  background-color: $gray
+.gray {
+  background-color: $gray;
 }
 
-.workgroup-buttons{
+.workgroup-buttons {
   margin: $spacing;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  button{
+  button {
     margin: 1%;
   }
 }
 
-.workgroup-filters{
+.workgroup-filters {
   margin: $spacing;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  mat-form-field{
+  mat-form-field {
     margin: 1%;
   }
-  button{
+  button {
     align-self: center !important;
     margin-bottom: 1.5%;
     margin-left: 1%;
     height: 49px;
   }
 }
+// .mat-header-cell , .mat-cell{
+//   font-size: 14px;
+//   min-height: 48px;
+//   text-align: center;
+//   border-right: 0.1px solid gray;
+// }
