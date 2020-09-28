@@ -28,7 +28,13 @@ th{
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  button, mat-form-field{
+  mat-form-field{
     margin: 1%;
+  }
+  button{
+    align-self: center !important;
+    margin-bottom: 1.5%;
+    margin-left: 1%;
+    height: 49px;
   }
 }
