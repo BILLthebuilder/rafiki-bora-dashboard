@@ -3,7 +3,7 @@
     <h1>Workgroups</h1>
 </div>
 <div class="workgroup-buttons">
-        <button mat-raised-button color="warn">
+        <button mat-raised-button color="warn" [routerLink]="['savewg']">
             <mat-icon>add</mat-icon>
             New
         </button>
@@ -16,6 +16,7 @@
             Decline
         </button>
 </div>
+<router-outlet></router-outlet>
 <div class="workgroup-filters">
 <mat-form-field appearance="outline">
     <mat-label>Status</mat-label>
@@ -102,5 +103,4 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns;"[ngClass]="{gray:even}"></tr>
     </table>
-
 </div>
