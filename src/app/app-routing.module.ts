@@ -19,11 +19,14 @@ const routes: Routes = [
     children: [
       {
         path: 'roles',
-        component: RolesComponent,
         children: [
           {
             path: 'new-role',
             component: NewRoleComponent,
+          },
+          {
+            path: '',
+            component: RolesComponent,
           },
         ],
       },

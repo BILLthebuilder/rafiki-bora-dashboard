@@ -12,6 +12,7 @@ import { WorkgroupsComponent } from './pages/workgroups/workgroups.component';
 import { UsersComponent } from './pages/users/users.component';
 import { AppRoutingModule } from './app-routing.module';
 import { WgDetailsComponent } from './pages/workgroups/wg-details/wg-details.component';
+import { NewRoleComponent } from './pages/roles/new-role/new-role.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { WgDetailsComponent } from './pages/workgroups/wg-details/wg-details.com
     LoginComponent,
     DashboardComponent,
     WgDetailsComponent,
+    NewRoleComponent,
   ],
   imports: [
     AppImportsModule,
