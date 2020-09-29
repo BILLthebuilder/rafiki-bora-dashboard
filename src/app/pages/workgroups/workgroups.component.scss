@@ -2,6 +2,7 @@ $gray: #f5f5f5;
 $spacing: 2%;
 table {
   width: 99%;
+  margin-bottom: 100px;
 }
 th {
   background-color: maroon;
@@ -15,7 +16,7 @@ th {
 
 // container for everything 
 .container {
-  height: 200vh;
+  height: 100vh;
   background-color: rgb(255, 255, 255);
   padding: 1%;
   margin: 1%;
