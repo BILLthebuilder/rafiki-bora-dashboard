@@ -1,8 +1,20 @@
 $gray: #f5f5f5;
 $spacing: 2%;
 table {
-  width: 100%;
+  width: 99%;
 }
+
+.page-title {
+  margin-bottom: 20px;
+  padding: 1%;
+}
+.container {
+  height: 200vh;
+  background-color: rgb(255, 255, 255);
+  padding: 1%;
+  margin: 1%;
+}
+
 .gray {
   background-color: $gray;
 }
@@ -45,8 +57,11 @@ Table even row colour .gray {
     margin: 1%;
   }
   .filterBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 49px;
-    margin: 0 1%;
+    margin: 0;
     margin-bottom: 20px;
   }
   .roleSelect {
