@@ -1,0 +1,19 @@
+.page-title {
+  margin-bottom: 20px;
+  padding: 1%;
+  font-weight: 500;
+  font-size: medium;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  button {
+    width: 30%;
+  }
+
+  mat-form-field {
+    width: 40%;
+  }
+}

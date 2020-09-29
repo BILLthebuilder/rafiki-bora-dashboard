@@ -7,6 +7,8 @@ table {
 .page-title {
   margin-bottom: 20px;
   padding: 1%;
+  font-weight: 500;
+  font-size: medium;
 }
 .container {
   height: 200vh;
@@ -22,11 +24,6 @@ table {
 th {
   background-color: maroon;
   color: white;
-}
-
-.page-title {
-  font-weight: 500;
-  font-size: medium;
 }
 
 Table even row colour .gray {
@@ -52,6 +49,7 @@ Table even row colour .gray {
   align-items: center;
   justify-content: flex-end;
   margin-right: 1.5%;
+  flex-wrap: wrap;
 
   mat-form-field {
     margin: 1%;

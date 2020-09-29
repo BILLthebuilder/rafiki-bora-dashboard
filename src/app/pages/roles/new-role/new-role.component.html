@@ -1,1 +1,24 @@
-<p>new-role works!</p>
+<!---------------------------PAGE TITLE---------------------------------------->
+<!----------------------------------------------------------------------------->
+<div class="page-title"><h1>Role</h1></div>
+
+<!---------------------------ROLES FORM---------------------------------------->
+<!----------------------------------------------------------------------------->
+<div class="container">
+  <mat-form-field appearance="outline">
+    <mat-label>Role Name</mat-label>
+    <input matInput required />
+  </mat-form-field>
+  <br />
+
+  <mat-form-field appearance="outline">
+    <mat-label>Role Description</mat-label>
+    <input matInput required />
+  </mat-form-field>
+  <br />
+
+  <button mat-raised-button routerLink="/dashboard/roles" color="warn">
+    <mat-icon>save</mat-icon>
+    Save
+  </button>
+</div>
