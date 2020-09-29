@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WgDetailsComponent } from './wg-details.component';
+import { WgDetailsComponent } from './new-wg.component';
 
 const routes: Routes = [{ path: ' ', component: WgDetailsComponent }];
 
