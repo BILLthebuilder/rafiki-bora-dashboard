@@ -22,13 +22,16 @@ const routes: Routes = [
       },
       {
         path: 'workgroups',
-        component: WorkgroupsComponent,
         children: [
           {
             path: 'savewg',
             component: WgDetailsComponent,
           },
-        ]
+          {
+            path: '',
+            component: WorkgroupsComponent,
+          },
+        ],
       },
       {
         path: 'users',
