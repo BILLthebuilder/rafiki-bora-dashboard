@@ -11,7 +11,7 @@ import { RolesComponent } from './pages/roles/roles.component';
 import { WorkgroupsComponent } from './pages/workgroups/workgroups.component';
 import { UsersComponent } from './pages/users/users.component';
 import { AppRoutingModule } from './app-routing.module';
-import { WgDetailsComponent } from './pages/workgroups/wg-details/wg-details.component';
+import { WgDetailsComponent } from './pages/workgroups/new-wg/new-wg.component';
 import { NewRoleComponent } from './pages/roles/new-role/new-role.component';
 
 @NgModule({

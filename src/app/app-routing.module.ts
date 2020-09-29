@@ -5,7 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { NewRoleComponent } from './pages/roles/new-role/new-role.component';
 import { RolesComponent } from './pages/roles/roles.component';
 import { UsersComponent } from './pages/users/users.component';
-import { WgDetailsComponent } from './pages/workgroups/wg-details/wg-details.component';
+import { WgDetailsComponent } from './pages/workgroups/new-wg/new-wg.component';
 import { WorkgroupsComponent } from './pages/workgroups/workgroups.component';
 
 const routes: Routes = [
@@ -38,7 +38,7 @@ const routes: Routes = [
         path: 'workgroups',
         children: [
           {
-            path: 'savewg',
+            path: 'new-wg',
             component: WgDetailsComponent,
           },
           {

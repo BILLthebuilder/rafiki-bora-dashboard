@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { WgDetailsRoutingModule } from './wg-details-routing.module';
+import { WgDetailsRoutingModule } from './new-wg-routing.module';
 
 @NgModule({
   declarations: [],

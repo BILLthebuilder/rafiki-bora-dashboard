@@ -1,0 +1,47 @@
+<!-- Insert AppBar component -->
+
+    <div class="page-tittle">
+        <h1>Create a New Workgroup</h1>
+    </div>
+    
+    <div class="container">
+        <div class="workgroup-details">
+            <h2>Workgroup details</h2>
+            <div class="detail-form-fields">
+                <mat-form-field id="wg-name" class="wg-name" appearance="outline">
+                    <mat-label>Workgroup Name</mat-label>
+                    <input matInput placeholder="Enter Workgroup Name" name="text" type="text" required />
+                </mat-form-field>
+                <mat-form-field id="wg-description" class="wg-description" appearance="outline">
+                    <mat-label>Workgroup Description</mat-label>
+                    <input matInput placeholder="Enter Workgroup Description" name="text" type="text" required />
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="roles-to-assign">
+            <h2>Roles</h2>
+            <div class="role-sections">
+                <div class="section1">
+                    <mat-checkbox class="checkBtn">Role 1</mat-checkbox>
+                    <mat-checkbox class="checkBtn">Role 2</mat-checkbox>
+                    <mat-checkbox class="checkBtn">Role 3</mat-checkbox>
+                </div>
+                <div class="section2">
+                    <mat-checkbox class="checkBtn">Role 4</mat-checkbox>
+                    <mat-checkbox class="checkBtn">Role 5</mat-checkbox>
+                    <mat-checkbox class="checkBtn">Role 6</mat-checkbox>
+                </div>
+                <div class="section3">
+                    <mat-checkbox class="checkBtn">Role 7</mat-checkbox>
+                    <mat-checkbox class="checkBtn">Role 8</mat-checkbox>
+                    <mat-checkbox class="checkBtn">Role 9</mat-checkbox>
+                </div>
+            </div>
+            <div class="btn-container">
+                <button mat-raised-button routerLink="/dashboard/workgroups">
+                    <mat-icon>save</mat-icon>
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>

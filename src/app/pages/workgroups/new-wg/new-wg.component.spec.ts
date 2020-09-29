@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WgDetailsComponent } from './wg-details.component';
+import { WgDetailsComponent } from './new-wg.component';
 
 describe('WgDetailsComponent', () => {
   let component: WgDetailsComponent;
