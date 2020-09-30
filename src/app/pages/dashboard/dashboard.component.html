@@ -1,21 +1,39 @@
 <mat-sidenav-container>
-    <mat-sidenav opened mode="side">
-        <div class="nav-list">
-            <mat-nav-list>
-                <!-- TODO: Add router link here -->
-                <h3 class="heading-top-dashboard"><a>Dashboard</a></h3>
-                <hr class="heading-line">
-            </mat-nav-list>
-            <mat-nav-list>
-                <h3 class="heading-user-management">User Management</h3>
-                <!-- <hr class="heading-line"> -->
-                <a mat-list-item  [routerLink]="['roles']" [routerLinkActive]="['active']">Roles</a>
-                <a mat-list-item  [routerLink]="['workgroups']" [routerLinkActive]="['active']" >Workgroups</a>
-                <a mat-list-item [routerLink]="['users']" [routerLinkActive]="['active']" >Users</a>
-            </mat-nav-list>
-        </div>      
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
+  <mat-sidenav opened mode="side">
+    <div class="nav-list">
+      <div class="logo">
+        <img src="../../../assets/img/logo.png" alt="" />
+      </div>
+      <mat-nav-list>
+        <!-- TODO: Add router link here -->
+        <h3 class="heading-top-dashboard"><a>Dashboard</a></h3>
+        <hr class="heading-line" />
+      </mat-nav-list>
+      <mat-nav-list>
+        <h3 class="heading-user-management">User Management</h3>
+
+        <a
+          mat-list-item
+          [routerLink]="['roles']"
+          [routerLinkActive]="['active']"
+          >Roles</a
+        >
+        <a
+          mat-list-item
+          [routerLink]="['workgroups']"
+          [routerLinkActive]="['active']"
+          >Workgroups</a
+        >
+        <a
+          mat-list-item
+          [routerLink]="['users']"
+          [routerLinkActive]="['active']"
+          >Users</a
+        >
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
 </mat-sidenav-container>

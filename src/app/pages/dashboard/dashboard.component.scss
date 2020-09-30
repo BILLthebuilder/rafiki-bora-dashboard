@@ -22,7 +22,7 @@ mat-sidenav-container {
     height: 100vh;
     margin: $spacing;
     left: $spacing;
-    background-color: #F7FBFC ;
+    background-color: #f7fbfc;
   }
 }
 
@@ -30,6 +30,11 @@ a {
   color: white !important;
 }
 
-.active{
+.active {
   background-color: red;
+}
+.logo img {
+  height: 100px;
+  width: auto;
+  padding-left: 15%;
 }
