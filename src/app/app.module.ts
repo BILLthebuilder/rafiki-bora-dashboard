@@ -5,14 +5,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppImportsModule } from './app-imports-module/app-imports.module';
-import { LoginComponent } from './pages/login/login.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { RolesComponent } from './pages/roles/roles.component';
-import { WorkgroupsComponent } from './pages/workgroups/workgroups.component';
-import { UsersComponent } from './pages/users/users.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { RolesComponent } from './roles/roles.component';
+import { WorkgroupsComponent } from './workgroups/workgroups.component';
+import { UsersComponent } from './users/users.component';
 import { AppRoutingModule } from './app-routing.module';
-import { WgDetailsComponent } from './pages/workgroups/new-wg/new-wg.component';
-import { NewRoleComponent } from './pages/roles/new-role/new-role.component';
+import { WgDetailsComponent } from './workgroups/new-wg/new-wg.component';
+import { NewRoleComponent } from './roles/new-role/new-role.component';
+import { NewUserComponent } from './users/new-user/new-user.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { NewRoleComponent } from './pages/roles/new-role/new-role.component';
     DashboardComponent,
     WgDetailsComponent,
     NewRoleComponent,
+    NewUserComponent,
   ],
   imports: [
     AppImportsModule,

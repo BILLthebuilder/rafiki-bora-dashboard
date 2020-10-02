@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { LoginComponent } from './pages/login/login.component';
-import { NewRoleComponent } from './pages/roles/new-role/new-role.component';
-import { RolesComponent } from './pages/roles/roles.component';
-import { UsersComponent } from './pages/users/users.component';
-import { WgDetailsComponent } from './pages/workgroups/new-wg/new-wg.component';
-import { WorkgroupsComponent } from './pages/workgroups/workgroups.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
+import { NewRoleComponent } from './roles/new-role/new-role.component';
+import { RolesComponent } from './roles/roles.component';
+import { NewUserComponent } from './users/new-user/new-user.component';
+import { UsersComponent } from './users/users.component';
+import { WgDetailsComponent } from './workgroups/new-wg/new-wg.component';
+import { WorkgroupsComponent } from './workgroups/workgroups.component';
 
 const routes: Routes = [
   {
@@ -49,7 +50,16 @@ const routes: Routes = [
       },
       {
         path: 'users',
-        component: UsersComponent,
+        children: [
+          {
+            path: 'new-user',
+            component: NewUserComponent,
+          },
+          {
+            path: '',
+            component: UsersComponent,
+          },
+       ]
       },
     ],
   },
