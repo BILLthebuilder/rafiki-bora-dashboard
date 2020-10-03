@@ -7,29 +7,19 @@
       <mat-nav-list>
         <!-- TODO: Add router link here -->
         <h3 class="heading-top-dashboard"><a>Dashboard</a></h3>
-        <hr class="heading-line" />
+        <hr class="heading-line-user" />
       </mat-nav-list>
       <mat-nav-list>
         <h3 class="heading-user-management">User Management</h3>
 
-        <a
-          mat-list-item
-          [routerLink]="['roles']"
-          [routerLinkActive]="['active']"
-          >Roles</a
-        >
-        <a
-          mat-list-item
-          [routerLink]="['workgroups']"
-          [routerLinkActive]="['active']"
-          >Workgroups</a
-        >
-        <a
-          mat-list-item
-          [routerLink]="['users']"
-          [routerLinkActive]="['active']"
-          >Users</a
-        >
+        <a mat-list-item [routerLink]="['roles']" [routerLinkActive]="['active']">Roles</a>
+        <a mat-list-item [routerLink]="['workgroups']" [routerLinkActive]="['active']">Workgroups</a>
+        <a mat-list-item [routerLink]="['users']" [routerLinkActive]="['active']">Users</a>
+      </mat-nav-list>
+      <hr class="heading-line-merchant" />
+      <mat-nav-list>
+        <h3 class="heading-user-management">Merchants Management</h3>
+        <a mat-list-item [routerLink]="['merchants']" [routerLinkActive]="['active']">Merchants</a>
       </mat-nav-list>
     </div>
   </mat-sidenav>
