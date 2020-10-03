@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { WgDetailsComponent } from './workgroups/new-wg/new-wg.component';
 import { NewRoleComponent } from './roles/new-role/new-role.component';
 import { NewUserComponent } from './users/new-user/new-user.component';
+import { CustomersComponent } from './customers/customers.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NewUserComponent } from './users/new-user/new-user.component';
     WgDetailsComponent,
     NewRoleComponent,
     NewUserComponent,
+    CustomersComponent,
   ],
   imports: [
     AppImportsModule,
