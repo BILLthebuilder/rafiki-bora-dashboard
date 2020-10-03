@@ -14,6 +14,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { WgDetailsComponent } from './workgroups/new-wg/new-wg.component';
 import { NewRoleComponent } from './roles/new-role/new-role.component';
 import { NewUserComponent } from './users/new-user/new-user.component';
+import { MerchantsComponent } from './merchants/merchants.component';
+import { MerchantsDashComponent } from './merchants-dash/merchants-dash.component';
+import { NewMerchantComponent } from './merchants/new-merchant/new-merchant.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { NewUserComponent } from './users/new-user/new-user.component';
     WgDetailsComponent,
     NewRoleComponent,
     NewUserComponent,
+    MerchantsComponent,
+    MerchantsDashComponent,
+    NewMerchantComponent,
   ],
   imports: [
     AppImportsModule,
