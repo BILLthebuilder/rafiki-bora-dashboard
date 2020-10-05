@@ -1,1 +1,44 @@
-<p>new-customer works!</p>
+<!---------------------------PAGE TITLE---------------------------------------->
+<!----------------------------------------------------------------------------->
+<div class="page-title"><h1>Create a New Customer</h1></div>
+
+<!---------------------------New Customer FORM---------------------------------------->
+<!----------------------------------------------------------------------------->
+
+<div class="container">
+  <h2>Customer Details</h2>
+  <div class="forms">
+    <mat-form-field appearance="outline">
+      <mat-label>Customer Name</mat-label>
+      <input matInput required />
+    </mat-form-field>
+    <br />
+
+    <mat-form-field appearance="outline">
+      <mat-label>Phone Number</mat-label>
+      <input matInput required />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput required />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+
+      <mat-label>Select Merchant</mat-label>
+      <mat-select>
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+
+    <button mat-raised-button routerLink="/dashboard/customers" color="warn">
+      <mat-icon>save</mat-icon>
+      Save
+    </button>
+
+  </div>
+
+
+
+</div>

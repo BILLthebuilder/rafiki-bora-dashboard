@@ -14,13 +14,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { WgDetailsComponent } from './workgroups/new-wg/new-wg.component';
 import { NewRoleComponent } from './roles/new-role/new-role.component';
 import { NewUserComponent } from './users/new-user/new-user.component';
-<<<<<<< HEAD
-import { CustomersComponent } from './customers/customers.component';
-=======
 import { MerchantsComponent } from './merchants/merchants.component';
-import { MerchantsDashComponent } from './merchants-dash/merchants-dash.component';
+// import { MerchantsDashComponent } from './merchants-dash/merchants-dash.component';
 import { NewMerchantComponent } from './merchants/new-merchant/new-merchant.component';
->>>>>>> 7ba4fe8b54b90085cb5b8012449370dac448e2b5
+import { CustomersComponent } from './customers/customers.component';
+import { NewCustomerComponent } from './customers/new-customer/new-customer.component';
 
 @NgModule({
   declarations: [
@@ -33,13 +31,11 @@ import { NewMerchantComponent } from './merchants/new-merchant/new-merchant.comp
     WgDetailsComponent,
     NewRoleComponent,
     NewUserComponent,
-<<<<<<< HEAD
-    CustomersComponent,
-=======
     MerchantsComponent,
-    MerchantsDashComponent,
+    // MerchantsDashComponent,
     NewMerchantComponent,
->>>>>>> 7ba4fe8b54b90085cb5b8012449370dac448e2b5
+    CustomersComponent,
+    NewCustomerComponent,
   ],
   imports: [
     AppImportsModule,
