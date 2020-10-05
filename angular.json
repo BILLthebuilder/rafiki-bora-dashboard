@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "rafiki-bora-dashboard"
+  "defaultProject": "rafiki-bora-dashboard",
+  "cli": {
+    "analytics": "fb7fe49a-4f69-40fd-84b3-e813cf4d6402"
+  }
 }
