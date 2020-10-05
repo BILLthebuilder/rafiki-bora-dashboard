@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChartsModule } from 'ng2-charts';
 import { AppComponent } from './app.component';
 import { AppImportsModule } from './app-imports-module/app-imports.module';
 import { LoginComponent } from './login/login.component';
@@ -15,7 +16,7 @@ import { WgDetailsComponent } from './workgroups/new-wg/new-wg.component';
 import { NewRoleComponent } from './roles/new-role/new-role.component';
 import { NewUserComponent } from './users/new-user/new-user.component';
 import { MerchantsComponent } from './merchants/merchants.component';
-// import { MerchantsDashComponent } from './merchants-dash/merchants-dash.component';
+import { MerchantsDashComponent } from './merchants-dash/merchants-dash.component';
 import { NewMerchantComponent } from './merchants/new-merchant/new-merchant.component';
 import { CustomersComponent } from './customers/customers.component';
 import { NewCustomerComponent } from './customers/new-customer/new-customer.component';
@@ -34,7 +35,7 @@ import { NewAgentComponent } from './agents/new-agent/new-agent.component';
     NewRoleComponent,
     NewUserComponent,
     MerchantsComponent,
-    // MerchantsDashComponent,
+    MerchantsDashComponent,
     NewMerchantComponent,
     CustomersComponent,
     NewCustomerComponent,
@@ -47,6 +48,7 @@ import { NewAgentComponent } from './agents/new-agent/new-agent.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,53 @@
+.top-title {
+  h1 {
+    margin-left: 4%;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .mat-form-field {
+    margin-right: 4%;
+  }
+}
+
+.main-container {
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 1%;
+  margin-right: 6%;
+}
+.consumptions-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f7fbfc;
+  height: 250px;
+  border-radius: 10px;
+  .mat-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    top: 10%;
+    width: 25%;
+    height: 150px;
+    box-shadow: 0.5px 0.5px 4px gray;
+  }
+}
+.performance-filters {
+  display: flex;
+  margin-top: 2%;
+}
+.form-fields {
+  display: flex;
+  justify-content: flex-end;
+  //border: 0.1px solid black;
+  .mat-form-field {
+    margin-right: 10px;
+    width: 10%;
+  }
+}
+.chart-wrapper{
+  margin-bottom: 100px;
+  // height: 10px;
+}
