@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChartsModule } from 'ng2-charts';
 import { AppComponent } from './app.component';
 import { AppImportsModule } from './app-imports-module/app-imports.module';
 import { LoginComponent } from './login/login.component';
@@ -39,6 +40,7 @@ import { NewMerchantComponent } from './merchants/new-merchant/new-merchant.comp
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
