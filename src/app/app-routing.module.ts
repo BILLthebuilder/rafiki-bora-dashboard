@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
+import { MerchantsDashComponent } from './merchants-dash/merchants-dash.component';
+import { MerchantsComponent } from './merchants/merchants.component';
+import { NewMerchantComponent } from './merchants/new-merchant/new-merchant.component';
 import { NewRoleComponent } from './roles/new-role/new-role.component';
 import { RolesComponent } from './roles/roles.component';
 import { NewUserComponent } from './users/new-user/new-user.component';
@@ -59,7 +62,24 @@ const routes: Routes = [
             path: '',
             component: UsersComponent,
           },
-       ]
+        ],
+      },
+      {
+        path: 'merchants',
+        children: [
+          {
+            path: 'new-merchant',
+            component: NewMerchantComponent,
+          },
+          {
+            path: '',
+            component: MerchantsComponent,
+          }
+        ],
+      },
+      {
+        path: 'merchants-dash',
+        component: MerchantsDashComponent,
       },
     ],
   },
