@@ -7,4 +7,4 @@ const routes: Routes = [];
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class NewCustomerRoutingModule {}
+export class AgentsRoutingModule {}

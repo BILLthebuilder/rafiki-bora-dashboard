@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AgentsComponent } from './agents/agents.component';
+import { NewAgentComponent } from './agents/new-agent/new-agent.component';
 import { CustomersComponent } from './customers/customers.component';
 import { NewCustomerComponent } from './customers/new-customer/new-customer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -90,6 +92,20 @@ const routes: Routes = [
           {
             path: '',
             component: CustomersComponent,
+          },
+        ],
+      },
+
+      {
+        path: 'agents',
+        children: [
+          {
+            path: 'new-agent',
+            component: NewAgentComponent,
+          },
+          {
+            path: '',
+            component: AgentsComponent,
           },
         ],
       },

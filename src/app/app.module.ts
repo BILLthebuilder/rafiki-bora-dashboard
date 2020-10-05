@@ -19,6 +19,8 @@ import { MerchantsComponent } from './merchants/merchants.component';
 import { NewMerchantComponent } from './merchants/new-merchant/new-merchant.component';
 import { CustomersComponent } from './customers/customers.component';
 import { NewCustomerComponent } from './customers/new-customer/new-customer.component';
+import { AgentsComponent } from './agents/agents.component';
+import { NewAgentComponent } from './agents/new-agent/new-agent.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { NewCustomerComponent } from './customers/new-customer/new-customer.comp
     NewMerchantComponent,
     CustomersComponent,
     NewCustomerComponent,
+    AgentsComponent,
+    NewAgentComponent,
   ],
   imports: [
     AppImportsModule,
