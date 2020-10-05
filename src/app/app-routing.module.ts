@@ -4,7 +4,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { NewCustomerComponent } from './customers/new-customer/new-customer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
-// import { MerchantsDashComponent } from './merchants-dash/merchants-dash.component';
+import { MerchantsDashComponent } from './merchants-dash/merchants-dash.component';
 import { MerchantsComponent } from './merchants/merchants.component';
 import { NewMerchantComponent } from './merchants/new-merchant/new-merchant.component';
 import { NewRoleComponent } from './roles/new-role/new-role.component';
@@ -93,10 +93,10 @@ const routes: Routes = [
           },
         ],
       },
-      // {
-      //   path: 'merchants-dash',
-      //   component: MerchantsDashComponent,
-      // },
+      {
+        path: 'merchants-dash',
+        component: MerchantsDashComponent,
+      },
     ],
   },
 ];
