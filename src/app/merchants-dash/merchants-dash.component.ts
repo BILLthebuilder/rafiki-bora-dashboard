@@ -44,12 +44,15 @@ export class MerchantsDashComponent implements OnInit {
 
   lineChartColors: Color[] = [
     {
+      backgroundColor: 'rgba(247, 251, 252, 0.2)',
       borderColor: '#A8385D',
     },
     {
+      backgroundColor: 'rgba(247, 251, 252, 0.2)',
       borderColor: '#7AA3E5',
     },
     {
+      backgroundColor: 'rgba(247, 251, 252, 0.2)',
       borderColor: 'green',
     },
   ];
