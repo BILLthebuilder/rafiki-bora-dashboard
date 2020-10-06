@@ -23,6 +23,7 @@ import { NewCustomerComponent } from './customers/new-customer/new-customer.comp
 import { AgentsComponent } from './agents/agents.component';
 import { NewAgentComponent } from './agents/new-agent/new-agent.component';
 import { ReportsComponent } from './reports/reports.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ReportsComponent } from './reports/reports.component';
     AgentsComponent,
     NewAgentComponent,
     ReportsComponent,
+    HomeComponent,
   ],
   imports: [
     AppImportsModule,

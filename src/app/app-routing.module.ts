@@ -5,6 +5,7 @@ import { NewAgentComponent } from './agents/new-agent/new-agent.component';
 import { CustomersComponent } from './customers/customers.component';
 import { NewCustomerComponent } from './customers/new-customer/new-customer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MerchantsDashComponent } from './merchants-dash/merchants-dash.component';
 import { MerchantsComponent } from './merchants/merchants.component';
@@ -26,6 +27,10 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     children: [
+      {
+        path: 'home',
+        component: HomeComponent,
+      },
       {
         path: 'roles',
         children: [
