@@ -31,6 +31,7 @@ mat-sidenav-container {
       }
       mat-nav-list a:hover{
         background-color: rgb(179, 23, 23);
+        transition: 0.3s;
       }
       mat-nav-list a:focus{
         background-color: red;
