@@ -18,9 +18,9 @@ export class MerchantsDashComponent implements OnInit {
     { value: 'rafiki2', viewValue: 'Rafiki2' },
   ];
   lineChartData: ChartDataSets[] = [
-    { data: [1, 5, 4, 6, 4, 5], label: 'Sales' },
-    { data: [2, 4, 3, 5, 3, 6], label: 'Deposits' },
-    { data: [3, 4, 6, 4, 2, 4], label: 'Withdrawals' },
+    { data: [1, 5, 4, 6, 4, 5, 3, 2, 1, 4, 2, 3], label: 'Sales' },
+    { data: [2, 4, 3, 5, 3, 6, 4, 3, 2, 3, 4, 5], label: 'Deposits' },
+    { data: [3, 4, 6, 4, 2, 4, 6, 3, 5, 4, 5, 6], label: 'Withdrawals' },
   ];
 
   lineChartLabels: Label[] = [
@@ -30,15 +30,30 @@ export class MerchantsDashComponent implements OnInit {
     'April',
     'May',
     'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ];
 
   lineChartOptions = {
-    // responsive: true,
+    responsive: true,
   };
 
   lineChartColors: Color[] = [
     {
+      backgroundColor: 'rgba(247, 251, 252, 0.2)',
       borderColor: '#A8385D',
+    },
+    {
+      backgroundColor: 'rgba(247, 251, 252, 0.2)',
+      borderColor: '#7AA3E5',
+    },
+    {
+      backgroundColor: 'rgba(247, 251, 252, 0.2)',
+      borderColor: 'green',
     },
   ];
 
