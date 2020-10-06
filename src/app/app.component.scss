@@ -1,4 +1,76 @@
-.app-view{
-    height: 100vh;
-    width: 100vw;
+.app-view {
+  height: 100vh;
+  width: 100vw;
 }
+
+$gray: #f5f5f5;
+$spacing: 2%;
+table {
+  width: 99%;
+  margin-bottom: 100px;
+}
+.mat-table {
+  border-radius: 5px;
+  overflow: hidden !important;
+}
+th {
+  background-color: maroon;
+  color: white;
+}
+
+// Table even row colour
+.gray {
+  background-color: $gray;
+}
+
+// container for everything
+.container {
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 1%;
+  margin: 1%;
+}
+
+.checkBtn {
+  margin-left: 20px;
+}
+
+.top-buttons {
+  margin: $spacing;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  button {
+    margin: 1%;
+  }
+}
+
+.item-filters {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 1.5%;
+  flex-wrap: wrap;
+
+  mat-form-field {
+    margin: 1%;
+  }
+  .filterBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 49px;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  .statusSelect {
+    margin-right: 15%;
+  }
+}
+// .mat-header-cell , .mat-cell{
+//   font-size: 14px;
+//   min-height: 48px;
+//   text-align: center;
+//   border-right: 0.1px solid gray;
+// }
