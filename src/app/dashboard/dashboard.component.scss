@@ -12,6 +12,12 @@ mat-sidenav-container {
         text-transform: uppercase;
         margin-bottom: 1%;
         margin-top: $spacing;
+        opacity: .6;
+      }
+      h2{
+        text-transform: uppercase;
+        margin-bottom: 1%;
+        margin-top: $spacing;
       }
       hr {
         width: 80%;
