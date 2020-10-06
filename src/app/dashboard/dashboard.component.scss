@@ -3,8 +3,10 @@ mat-sidenav-container {
   height: 100%;
 
   mat-sidenav {
+    display: flex;
+    flex-direction: column;
     background: black;
-    width: 250px;
+    width: 280px;
     color: white;
     .nav-list {
       margin-left: 10%;
@@ -18,6 +20,9 @@ mat-sidenav-container {
         text-transform: uppercase;
         margin-bottom: 1%;
         margin-top: $spacing;
+       text-align: center;
+       border: 0.1px solid rgba(255, 0, 0, .4);
+       width: 78%;
       }
       hr {
         width: 80%;
