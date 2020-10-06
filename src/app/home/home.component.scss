@@ -1,0 +1,33 @@
+.main-container {
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 1%;
+  margin-right: 6%;
+}
+.cards-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .mat-card {
+    margin: 2%;
+    width: 30%;
+    height: 180px;
+    background: #f7fbfc;
+    cursor: pointer;
+    .mat-card-title {
+      display: flex;
+      flex-direction: column;
+      .mat-icon {
+        margin-bottom: 20%;
+        font-size: 100px;
+       align-self: center;
+       margin-right: 15%;
+       color: #3598DC;
+      }
+      span {
+        align-self: center;
+      }
+    }
+  }
+}
