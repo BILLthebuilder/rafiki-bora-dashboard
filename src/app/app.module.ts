@@ -22,6 +22,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { NewCustomerComponent } from './customers/new-customer/new-customer.component';
 import { AgentsComponent } from './agents/agents.component';
 import { NewAgentComponent } from './agents/new-agent/new-agent.component';
+import { ReportsComponent } from './reports/reports.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { NewAgentComponent } from './agents/new-agent/new-agent.component';
     NewCustomerComponent,
     AgentsComponent,
     NewAgentComponent,
+    ReportsComponent,
   ],
   imports: [
     AppImportsModule,
