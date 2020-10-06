@@ -24,6 +24,9 @@ mat-sidenav-container {
        border: 0.1px solid rgba(255, 0, 0, .4);
        width: 78%;
       }
+      h2:hover{
+        background-color: none;
+      }
       hr {
         width: 80%;
         margin-left: 0;
@@ -31,9 +34,9 @@ mat-sidenav-container {
       }
       mat-nav-list a:hover{
         background-color: rgb(179, 23, 23);
-        transition: 0.3s;
+
       }
-      mat-nav-list a:focus{
+      mat-nav-list a:focus,mat-nav-list a:active{
         background-color: red;
 
       }
@@ -54,9 +57,9 @@ a {
 
 
 
-// .active {
-//   background-color: red;
-// }
+.active {
+  background-color: red;
+}
 .logo img {
   height: 100px;
   width: auto;
