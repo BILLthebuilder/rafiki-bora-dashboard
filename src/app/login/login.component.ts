@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router) { }
 
   public login(email: string, password: string) {
-    this.router.navigate(['dashboard'], { replaceUrl: true });
+    this.router.navigateByUrl('/dashboard/home', { replaceUrl: true });
   }
 
   ngOnInit(): void {
