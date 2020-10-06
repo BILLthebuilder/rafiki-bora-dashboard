@@ -38,16 +38,55 @@
   display: flex;
   margin-top: 2%;
 }
+.reports-header{
+  margin-top: 2%;
+}
 .form-fields {
   display: flex;
   justify-content: flex-end;
-  //border: 0.1px solid black;
   .mat-form-field {
     margin-right: 10px;
     width: 10%;
   }
 }
-.chart-wrapper{
+.chart-wrapper {
+  margin-left: 2%;
+  position: relative;
+  width: 100vh;
+}
+.chart-items {
   margin-bottom: 100px;
-  // height: 10px;
+  display: flex;
+  justify-content: space-between;
+  .mat-card {
+    .mat-card-content{
+      display: flex;
+      align-items: center;
+      span{
+        margin-right: 2%;
+      }
+    }
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+    margin-top: 2%;
+    margin-right: 6%;
+    height: 250px;
+    width: 250px;
+  }
+}
+.indicator{
+   height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.i-sale{
+   background-color: #A8385D;
+}
+.i-deposit{
+  background-color: #7AA3E5;
+}
+.i-withdrawal{
+  background-color: green;
 }

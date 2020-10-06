@@ -13,18 +13,18 @@
     <div class="consumptions-container">
         <mat-card>
             <mat-card-title>KES 3,500</mat-card-title>
-            <mat-card-content>Total Consumptions</mat-card-content>
+            <mat-card-content>Total Sales</mat-card-content>
         </mat-card>
         <mat-card>
             <mat-card-title>KES 3,500</mat-card-title>
-            <mat-card-content>Total Collections</mat-card-content>
+            <mat-card-content>Total Deposits</mat-card-content>
         </mat-card>
         <mat-card>
             <mat-card-title>KES 3,500</mat-card-title>
-            <mat-card-content>Total Topups</mat-card-content>
+            <mat-card-content>Total Withdrawals</mat-card-content>
         </mat-card>
     </div>
-    <div>
+    <div class="reports-header">
         <h2>Performance Reports</h2>
     </div>
     <div class="form-fields">
@@ -41,10 +41,26 @@
             <mat-datepicker #pickerTo></mat-datepicker>
         </mat-form-field>
     </div>
-    <div class="chart-wrapper">
-        <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
-            [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
-            [plugins]="lineChartPlugins">
-        </canvas>
-    </div>
+    <div class="chart-items">
+        <div class="chart-wrapper">
+            <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+            </canvas>
+        </div>
+        <mat-card>
+            <mat-card-title>Graph Content</mat-card-title>
+            <mat-card-content>
+                <span class="indicator i-sale"></span>
+                Total Sales
+            </mat-card-content>
+            <mat-card-content>
+                <span class="indicator i-deposit"></span>
+                Total Deposits
+            </mat-card-content>
+            <mat-card-content>
+                <span class="indicator i-withdrawal"></span>
+                Total Withdrawals
+            </mat-card-content>
+        </mat-card>
+        </div>
 </div>
