@@ -29,6 +29,14 @@ mat-sidenav-container {
         margin-left: 0;
         opacity: .4;
       }
+      mat-nav-list a:hover{
+        background-color: rgb(179, 23, 23);
+      }
+      mat-nav-list a:focus{
+        background-color: red;
+
+      }
+
     }
   }
   mat-sidenav-content {
@@ -43,9 +51,11 @@ a {
   color: white !important;
 }
 
-.active {
-  background-color: red;
-}
+
+
+// .active {
+//   background-color: red;
+// }
 .logo img {
   height: 100px;
   width: auto;
