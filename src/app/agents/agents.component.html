@@ -5,7 +5,7 @@
 <!--------------------------------AGENTS BUTTONS---------------------------------->
 <!----------------------------------------------------------------------------->
 <div class="container">
-  <div class="agents-buttons">
+  <div class="top-buttons">
     <button [routerLink]="['new-agent']" mat-raised-button color="warn">
       <mat-icon>add</mat-icon>
       New
@@ -25,8 +25,8 @@
   <!--------------------------------AGENTS FILTERS---------------------------------->
   <!----------------------------------------------------------------------------->
 
-  <div class="agents-filters">
-    <mat-form-field appearance="outline" class="agentsSelect">
+  <div class="item-filters">
+    <mat-form-field appearance="outline" class="statusSelect">
       <mat-label>Status</mat-label>
       <mat-select>
         <mat-option *ngFor="let filter of filters" [value]="filter.value">
@@ -61,7 +61,7 @@
   <!--------------------------------AGENTS TABLE---------------------------------->
   <!----------------------------------------------------------------------------->
 
-  <div class="agents-table">
+  <div class="item-table">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->

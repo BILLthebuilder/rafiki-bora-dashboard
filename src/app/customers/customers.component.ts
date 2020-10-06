@@ -119,7 +119,7 @@ const customers: Customer[] = [
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
-  styleUrls: ['./customers.component.scss'],
+  styleUrls: ['./customers.component.scss', '../app.component.scss'],
 })
 export class CustomersComponent implements OnInit {
   displayedColumns: string[] = [

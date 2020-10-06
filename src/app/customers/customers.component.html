@@ -4,7 +4,7 @@
 <!--------------------------------ROLE BUTTONS---------------------------------->
 <!----------------------------------------------------------------------------->
 <div class="container">
-  <div class="customer-buttons">
+  <div class="top-buttons">
     <button [routerLink]="['new-customer']" mat-raised-button color="warn">
       <mat-icon>add</mat-icon>
       New
@@ -24,8 +24,8 @@
   <!--------------------------------ROLE FILTERS---------------------------------->
   <!----------------------------------------------------------------------------->
 
-  <div class="customer-filters">
-    <mat-form-field appearance="outline" class="customerSelect">
+  <div class="item-filters">
+    <mat-form-field appearance="outline" class="statusSelect">
       <mat-label>Status</mat-label>
       <mat-select>
         <mat-option *ngFor="let filter of filters" [value]="filter.value">
@@ -60,7 +60,7 @@
   <!--------------------------------CUSTOMER TABLE---------------------------------->
   <!----------------------------------------------------------------------------->
 
-  <div class="customer-table">
+  <div class="item-table">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->

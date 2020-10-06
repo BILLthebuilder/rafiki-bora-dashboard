@@ -100,7 +100,7 @@ const roles: Role[] = [
 @Component({
   selector: 'app-roles',
   templateUrl: './roles.component.html',
-  styleUrls: ['./roles.component.scss'],
+  styleUrls: ['./roles.component.scss', '../app.component.scss'],
 })
 export class RolesComponent implements OnInit {
   displayedColumns: string[] = [

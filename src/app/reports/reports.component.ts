@@ -29,7 +29,7 @@ const reports: Reports[] = [
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
-  styleUrls: ['./reports.component.scss'],
+  styleUrls: ['./reports.component.scss', '../app.component.scss'],
 })
 export class ReportsComponent implements OnInit {
   displayedColumns: string[] = [

@@ -4,7 +4,7 @@
 </div>
 
 <div class="container">
-    <div class="workgroup-buttons">
+    <div class="top-buttons">
         <button mat-raised-button color="warn" [routerLink]="['new-wg']">
             <mat-icon>add</mat-icon>
             New
@@ -18,7 +18,7 @@
             Decline
         </button>
     </div>
-    <div class="workgroup-filters">
+    <div class="item-filters">
         <mat-form-field appearance="outline" class="statusSelect">
             <mat-label>Status</mat-label>
             <mat-select>
@@ -56,7 +56,7 @@
         </button>
     </div>
 
-    <div class="workgroups-table">
+    <div class="item-table">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
             <!-- Workgroup Id Column -->

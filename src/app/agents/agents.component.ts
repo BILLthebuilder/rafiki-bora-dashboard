@@ -131,7 +131,7 @@ const agents: Agent[] = [
 @Component({
   selector: 'app-agents',
   templateUrl: './agents.component.html',
-  styleUrls: ['./agents.component.scss'],
+  styleUrls: ['./agents.component.scss', '../app.component.scss'],
 })
 export class AgentsComponent implements OnInit {
   displayedColumns: string[] = [

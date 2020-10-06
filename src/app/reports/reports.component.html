@@ -8,8 +8,8 @@
  <!--------------------------------ROLE FILTERS---------------------------------->
   <!----------------------------------------------------------------------------->
 
-  <div class="reports-filters">
-    <mat-form-field appearance="outline" class="reportsSelect">
+  <div class="item-filters">
+    <mat-form-field appearance="outline" class="statusSelect merchantSelect">
       <mat-label>Merchant</mat-label>
       <mat-select>
         <mat-option *ngFor="let filter of merchantFilters" [value]="filter.value">
@@ -33,14 +33,14 @@
       <mat-datepicker #pickerTo></mat-datepicker>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" >
+    <!-- <mat-form-field appearance="outline" >
       <mat-label>Status</mat-label>
       <mat-select>
         <mat-option *ngFor="let filter of filters" [value]="filter.value">
           {{ filter.viewValue }}
         </mat-option>
       </mat-select>
-    </mat-form-field>
+    </mat-form-field> -->
 
     <mat-form-field class="search-field" appearance="outline">
       <input matInput placeholder="search" name="search" type="search" />
@@ -54,7 +54,7 @@
   <!--------------------------------CUSTOMER TABLE---------------------------------->
   <!----------------------------------------------------------------------------->
 
-  <div class="reports-table">
+  <div class="item-table">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->

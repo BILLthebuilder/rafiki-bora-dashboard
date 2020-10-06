@@ -167,7 +167,7 @@ const workGroups: WorkGroup[] = [
 @Component({
   selector: 'app-workgroups',
   templateUrl: './workgroups.component.html',
-  styleUrls: ['./workgroups.component.scss'],
+  styleUrls: ['./workgroups.component.scss', '../app.component.scss'],
 })
 export class WorkgroupsComponent implements OnInit {
   displayedColumns: string[] = [

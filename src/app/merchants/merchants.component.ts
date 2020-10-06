@@ -100,7 +100,7 @@ const merchants: Merchant[] = [
 @Component({
   selector: 'app-roles',
   templateUrl: './merchants.component.html',
-  styleUrls: ['./merchants.component.scss'],
+  styleUrls: ['./merchants.component.scss', '../app.component.scss'],
 })
 export class MerchantsComponent implements OnInit {
   displayedColumns: string[] = [

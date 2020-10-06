@@ -5,7 +5,7 @@
 </div>
 
 <div class="container">
-    <div class="merchants-buttons">
+    <div class="top-buttons">
         <button [routerLink]="['new-merchant']" mat-raised-button color="warn">
             <mat-icon>add</mat-icon>
             New
@@ -20,8 +20,8 @@
             Decline
         </button>
     </div>
-    <div class="merchants-filters">
-        <mat-form-field appearance="outline" class="merchantSelect">
+    <div class="item-filters">
+        <mat-form-field appearance="outline" class="statusSelect">
             <mat-label>Status</mat-label>
             <mat-select>
                 <mat-option *ngFor="let filter of filters" [value]="filter.value">
@@ -50,7 +50,7 @@
         </button>
     </div>
 
-    <div class="merchants-table">
+    <div class="item-table">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
             <!-- id Column -->
