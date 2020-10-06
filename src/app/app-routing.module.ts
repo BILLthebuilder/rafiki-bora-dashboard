@@ -99,6 +99,20 @@ const routes: Routes = [
         path: 'merchants-dash',
         component: MerchantsDashComponent,
       },
+
+      {
+        path: 'agents',
+        children: [
+          {
+            path: 'new-agent',
+            component: NewAgentComponent,
+          },
+          {
+            path: '',
+            component: AgentsComponent,
+          },
+        ],
+      },
     ],
   },
 ];

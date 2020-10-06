@@ -1,1 +1,49 @@
-<p>new-agent works!</p>
+<!---------------------------PAGE TITLE---------------------------------------->
+<!----------------------------------------------------------------------------->
+<div class="page-title"><h1>Create a New Agent</h1></div>
+
+<!---------------------------New AGENT FORM---------------------------------------->
+<!----------------------------------------------------------------------------->
+
+<div class="container">
+  <h2>Agent Details</h2>
+  <div class="forms">
+    <mat-form-field appearance="outline">
+      <mat-label>Agent Name</mat-label>
+      <input matInput required />
+    </mat-form-field>
+    <br />
+
+    <mat-form-field appearance="outline">
+      <mat-label>Phone Number</mat-label>
+      <input matInput required />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput required />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Terminal Id</mat-label>
+      <input type="text" matInput required />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+
+      <mat-label>Select Merchant</mat-label>
+      <mat-select>
+        <mat-option value="option">Tracom</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+
+    <button mat-raised-button routerLink="/dashboard/agents" color="warn">
+      <mat-icon>save</mat-icon>
+      Save
+    </button>
+
+  </div>
+
+
+
+</div>
+
