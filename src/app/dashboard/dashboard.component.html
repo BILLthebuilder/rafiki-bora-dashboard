@@ -20,7 +20,7 @@
       <hr class="heading-line-merchant" />
       <mat-nav-list>
         <h3 class="heading-user-management">Merchants Management</h3>
-        <a mat-list-item [routerLink]="['merchants']">Merchants</a>
+        <a mat-list-item [routerLink]="['merchants']" [routerLinkActive]="['active']">Merchants</a>
         <a mat-list-item [routerLink]="['merchants-dash']" [routerLinkActive]="['active']">Merchants Dashboard</a>
       </mat-nav-list>
       <hr class="heading-line-user" />
@@ -31,13 +31,13 @@
       <hr class="heading-line-user" />
       <mat-nav-list>
         <h3 class="heading-user-management">AGENTS</h3>
-        <a mat-list-item [routerLink]="['agents']">Agents List</a>
+        <a mat-list-item [routerLink]="['agents']" [routerLinkActive]="['active']">Agents List</a>
       </mat-nav-list>
       <hr class="heading-line-user" />
 
       <mat-nav-list>
         <h3 class="heading-user-management">Reports</h3>
-        <a mat-list-item [routerLink]="['reports']">Show Reports</a>
+        <a mat-list-item [routerLink]="['reports']" [routerLinkActive]="['active']">Show Reports</a>
       </mat-nav-list>
     </div>
   </mat-sidenav>

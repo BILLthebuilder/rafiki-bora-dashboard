@@ -23,9 +23,15 @@ mat-sidenav-container {
        text-align: center;
        border: 0.1px solid rgba(255, 0, 0, .4);
        width: 78%;
+       .heading-top-dashboard a:hover{
+         background-color: none;
+       }
+      a:link{
+         text-decoration: none;
+       }
       }
-      h2:hover{
-        background-color: none;
+      mat-nav-list h2:hover{
+        background-color: rgb(179, 23, 23);
       }
       hr {
         width: 80%;
