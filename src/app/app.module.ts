@@ -24,6 +24,7 @@ import { AgentsComponent } from './agents/agents.component';
 import { NewAgentComponent } from './agents/new-agent/new-agent.component';
 import { ReportsComponent } from './reports/reports.component';
 import { HomeComponent } from './home/home.component';
+import { RafikiBoraService } from './rafiki-bora.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     ChartsModule,
   ],
-  providers: [],
+  providers: [RafikiBoraService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

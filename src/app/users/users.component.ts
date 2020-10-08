@@ -1,76 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface User {
-  id: number;
-  name: string;
-  description: string;
-  createdBy: string;
-  approvedBy: string;
-  status: string;
-  dateCreated: string;
-}
+import { RafikiBoraService } from '../rafiki-bora.service';
 
 export interface Option {
   value: string;
   viewValue: string;
 }
 
-const users: User[] = [
-  {
-    id: 1,
-    name: 'admins',
-    description: 'Administrators of stuff',
-    createdBy: 'John Doe',
-    approvedBy: 'John Doe',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 2,
-    name: 'admins',
-    description: 'Administrators of stuff',
-    createdBy: 'John Doe',
-    approvedBy: 'John Doe',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 3,
-    name: 'admins',
-    description: 'Administrators of stuff',
-    createdBy: 'John Doe',
-    approvedBy: 'John Doe',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 4,
-    name: 'admins',
-    description: 'Administrators of stuff',
-    createdBy: 'John Doe',
-    approvedBy: 'John Doe',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 5,
-    name: 'admins',
-    description: 'Administrators of stuff',
-    createdBy: 'John Doe',
-    approvedBy: 'John Doe',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 6,
-    name: 'admins',
-    description: 'Administrators of stuff',
-    createdBy: 'John Doe',
-    approvedBy: 'John Doe',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-]
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -91,10 +26,13 @@ export class UsersComponent implements OnInit {
     { value: 'approved', viewValue: 'Approved' },
     { value: 'declined', viewValue: 'Declined' },
   ];
+  public dataSource = [];
 
-  dataSource = users;
+  // dataSource = users;
 
-  constructor() {}
+  constructor(private _rafikiBoraService: RafikiBoraService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dataSource = this._rafikiBoraService.getMyData();
+  }
 }
