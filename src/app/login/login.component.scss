@@ -1,13 +1,52 @@
-.full-page{
-  height: 100%;
+.full-page {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.712)),
+    url(../../assets/img/rafikiBora.svg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-attachment: fixed;
   display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 100px;
 }
 
 .login-card {
-  margin: auto;
-  width: 300px;
+
+  width: 400px;
+  height: 600px;
+  text-align: center;
+
 }
 
 .login-field {
   width: 100%;
+  padding-top: 10px;
+
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  align-self: center;
+  padding-top: 30px;
+}
+
+button {
+  height: 55px;
+  width: 25%;
+}
+
+button:hover {
+  background-color: rgb(179, 23, 23);
+}
+
+input[type="password"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 6px;
+  border-radius: 3px;
+  border: rgb(122, 82, 82);
 }
