@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { RafikiBoraService } from '../rafiki-bora.service';
 
 export interface Option {
@@ -15,10 +16,11 @@ export class UsersComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
     'name',
-    'description',
-    'createdBy',
-    'approvedBy',
+    'accountNumber',
+    'pan',
+    'phoneNumber',
     'status',
+    'balance',
     'dateCreated',
   ];
 
@@ -26,13 +28,17 @@ export class UsersComponent implements OnInit {
     { value: 'approved', viewValue: 'Approved' },
     { value: 'declined', viewValue: 'Declined' },
   ];
-  public dataSource = [];
-
-  // dataSource = users;
+  public dataSource: any = [];
 
   constructor(private _rafikiBoraService: RafikiBoraService) {}
 
   ngOnInit(): void {
-    this.dataSource = this._rafikiBoraService.getMyData();
+    this._rafikiBoraService
+      .getMyData()
+      .subscribe((data) => (this.dataSource = new MatTableDataSource(data)));
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
