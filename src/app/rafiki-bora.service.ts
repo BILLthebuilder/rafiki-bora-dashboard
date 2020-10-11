@@ -1,93 +1,28 @@
 /* eslint-disable @angular-eslint/contextual-lifecycle */
+import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-
-export interface User {
-  id: number;
-  name: string;
-  description: string;
-  createdBy: string;
-  approvedBy: string;
-  status: string;
-  dateCreated: string;
-}
-
-export interface Option {
-  value: string;
-  viewValue: string;
-}
+import { Observable } from 'rxjs';
+import { User } from './rafikiboraInterface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RafikiBoraService implements OnInit {
-  // eslint-disable-next-line @typescript-eslint/member-ordering
+  private url = 'http://127.0.0.1:1233/listAccounts';
+
   displayedColumns: string[] = [
     'id',
     'name',
-    'description',
-    'createdBy',
-    'approvedBy',
+    'accountNumber',
+    'pan',
+    'phoneNumber',
     'status',
+    'balance',
     'dateCreated',
   ];
-  constructor() {}
-  getMyData() {
-    return [
-      {
-        id: 1,
-        name: 'admins',
-        description: 'Administrators of stuff',
-        createdBy: 'John Doe Ngechu',
-        approvedBy: 'John Doe',
-        status: 'Approved',
-        dateCreated: '26/09/2020',
-      },
-      {
-        id: 2,
-        name: 'admins',
-        description: 'Administrators of stuff',
-        createdBy: 'John Doe',
-        approvedBy: 'John Doe',
-        status: 'Approved',
-        dateCreated: '26/09/2020',
-      },
-      {
-        id: 3,
-        name: 'admins',
-        description: 'Administrators of stuff',
-        createdBy: 'John Doe',
-        approvedBy: 'John Doe',
-        status: 'Approved',
-        dateCreated: '26/09/2020',
-      },
-      {
-        id: 4,
-        name: 'admins',
-        description: 'Administrators of stuff',
-        createdBy: 'John Doe',
-        approvedBy: 'John Doe',
-        status: 'Approved',
-        dateCreated: '26/09/2020',
-      },
-      {
-        id: 5,
-        name: 'admins',
-        description: 'Administrators of stuff',
-        createdBy: 'John Doe',
-        approvedBy: 'John Doe',
-        status: 'Approved',
-        dateCreated: '26/09/2020',
-      },
-      {
-        id: 6,
-        name: 'admins',
-        description: 'Administrators of stuff',
-        createdBy: 'John Doe',
-        approvedBy: 'John Doe',
-        status: 'Approved',
-        dateCreated: '26/09/2020',
-      },
-    ];
+  constructor(private http: HttpClient) {}
+  getMyData(): Observable<User[]> {
+    return this.http.get<User[]>(this.url);
   }
   ngOnInit() {}
 }
