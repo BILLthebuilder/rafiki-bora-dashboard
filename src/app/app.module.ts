@@ -60,6 +60,7 @@ import { LoginService } from './login/login.service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+
   ],
   providers: [RafikiBoraService, LoginService],
   bootstrap: [AppComponent],
