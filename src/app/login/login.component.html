@@ -3,14 +3,21 @@
     <img src="../../assets/img/logo.png" class="logo" alt="" />
     <mat-card-title> Login </mat-card-title>
     <mat-card-content>
-      <form [formGroup]='formGroup' (ngSubmit)='loginProcess()'>
+      <form (ngSubmit)='login()'>
         <mat-form-field class="login-field" appearance="outline">
-          <input matInput placeholder="Email" name="email" formControlName="email" type="email" required />
+          <input matInput placeholder="Email" name="email"  
+           [(ngModel)]="email"
+          type="email" required />
         </mat-form-field>
         <mat-form-field class="login-field" appearance="outline">
-          <input matInput placeholder="Password" name="password" formControlName="password" type="password" required />
+          <input matInput placeholder="Password" name="password"
+           [(ngModel)]="password"
+            type="password" required />
         </mat-form-field>
 
+        <div *ngIf="loginError">
+          Login failed. Please try again.
+        </div>
         <mat-card-actions>
           <button mat-raised-button color="warn" class="login-field" type="submit">
             Login
