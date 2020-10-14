@@ -18,7 +18,7 @@ export class JwtInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     // add JWT auth header if a user is logged in for API requests
-    const accessToken = localStorage.getItem('access_token');
+    const accessToken = localStorage.getItem('access-token');
     const isApiUrl = request.url.startsWith('http://localhost:8080/');
     if (accessToken && isApiUrl) {
       request = request.clone({
