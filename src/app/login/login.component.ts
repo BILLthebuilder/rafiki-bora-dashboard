@@ -34,9 +34,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.authService.user$.subscribe((x) => {
       if (this.router.url === '') {
-        // if (this.route.snapshot.url[0].path === 'login') {
-        const accessToken = localStorage.getItem('access_token');
-        // const refreshToken = localStorage.getItem('refresh_token');
+        const accessToken = localStorage.getItem('access-token');
         if (x && accessToken) {
           const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '';
           this.router.navigate([returnUrl]);
