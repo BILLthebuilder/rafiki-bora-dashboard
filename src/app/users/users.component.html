@@ -19,21 +19,11 @@
     </button>
   </div>
   <div class="item-filters">
-    <mat-form-field appearance="outline" class="statusSelect">
-      <mat-label>Status</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let filter of filters" [value]="filter.value">
-          {{ filter.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+
     <mat-form-field appearance="outline">
       <mat-label>From</mat-label>
       <input matInput [matDatepicker]="pickerFrom" />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="pickerFrom"
-      ></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
       <mat-datepicker #pickerFrom></mat-datepicker>
     </mat-form-field>
     <mat-form-field appearance="outline">
@@ -43,13 +33,7 @@
       <mat-datepicker #pickerTo></mat-datepicker>
     </mat-form-field>
     <mat-form-field class="search-field" appearance="outline">
-      <input
-        (keyup)="applyFilter($event.target.value)"
-        matInput
-        placeholder="search"
-        name="search"
-        type="search"
-      />
+      <input (keyup)="applyFilter($event.target.value)" matInput placeholder="search" name="search" type="search" />
     </mat-form-field>
     <button mat-raised-button color="primary" class="filterBtn">
       <mat-icon>search</mat-icon>
@@ -110,11 +94,7 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr
-        mat-row
-        *matRowDef="let row; let even = even; columns: displayedColumns"
-        [ngClass]="{ gray: even }"
-      ></tr>
+      <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass]="{ gray: even }"></tr>
     </table>
   </div>
 </div>

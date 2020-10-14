@@ -34,11 +34,12 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this._rafikiBoraService
-      .getMyData()
+      .getUserData()
       .subscribe((data) => (this.dataSource = new MatTableDataSource(data)));
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
 }

@@ -1,102 +1,9 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
+import { RafikiBoraService } from '../rafiki-bora.service';
 
-export interface Merchant {
-  id: number;
-  name: string;
-  roleDescription: string;
-  createdBy: string;
-  approvedBy: string;
-  status: string;
-  dateCreated: string;
-}
-
-export interface Option {
-  value: string;
-  viewValue: string;
-}
-const merchants: Merchant[] = [
-  {
-    id: 1,
-    name: 'admins',
-    roleDescription: 'Administrators of stuff',
-    createdBy: 'John Doe',
-    approvedBy: 'John Doe',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 2,
-    name: 'admins',
-    roleDescription: 'Administrators of stuff',
-    createdBy: 'John Doe',
-    approvedBy: 'John Doe',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 3,
-    name: 'admins',
-    roleDescription: 'Administrators of stuff',
-    createdBy: 'John Doe',
-    approvedBy: 'John Doe',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 4,
-    name: 'admins',
-    roleDescription: 'Administrators of stuff',
-    createdBy: 'John Doe',
-    approvedBy: 'John Doe',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 5,
-    name: 'admins',
-    roleDescription: 'Administrators of stuff',
-    createdBy: 'John Doe',
-    approvedBy: 'John Doe',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 6,
-    name: 'admins',
-    roleDescription: 'Administrators of stuff',
-    createdBy: 'John Doe',
-    approvedBy: 'John Doe',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 7,
-    name: 'admins',
-    roleDescription: 'Administrators of stuff',
-    createdBy: 'John Doe',
-    approvedBy: 'John Doe',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 8,
-    name: 'admins',
-    roleDescription: 'Administrators of stuff',
-    createdBy: 'John Doe',
-    approvedBy: 'John Doe',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 9,
-    name: 'admins',
-    roleDescription: 'Administrators of stuff',
-    createdBy: 'John Doe',
-    approvedBy: 'John Doe',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-];
 @Component({
   selector: 'app-roles',
   templateUrl: './merchants.component.html',
@@ -112,14 +19,47 @@ export class MerchantsComponent implements OnInit {
     'status',
     'dateCreated',
   ];
-  filters: Option[] = [
+  filters = [
     { value: 'approved', viewValue: 'Approved' },
     { value: 'declined', viewValue: 'Declined' },
   ];
 
-  dataSource = merchants;
+  public dataSource: any = [];
+  pipe: DatePipe;
 
-  constructor() { }
+  filterForm = new FormGroup({
+    fromDate: new FormControl(),
+    toDate: new FormControl(),
+    status: new FormControl(),
+  });
 
-  ngOnInit(): void { }
+  get fromDate() {
+    return this.filterForm.get('fromDate').value;
+  }
+  get toDate() {
+    return this.filterForm.get('toDate').value;
+  }
+  get status() {
+    return this.filterForm.get('status').value;
+  }
+
+  constructor(private _rafikiBoraService: RafikiBoraService) {
+    this.pipe = new DatePipe('en');
+    this.dataSource.filterPredicate = (data,filter) => {
+      if (this.fromDate && this.toDate) {
+        return data.created >= this.fromDate && data.created <= this.toDate;
+      }
+      return true;
+    };
+  }
+
+  ngOnInit(): void {
+    this._rafikiBoraService
+      .getMerchantsData()
+      .subscribe((data) => (this.dataSource = new MatTableDataSource(data)));
+  }
+
+  applyFilter() {
+    this.dataSource.filter = `${Math.random()}`;
+  }
 }

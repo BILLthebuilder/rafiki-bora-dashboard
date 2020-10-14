@@ -1,9 +1,10 @@
 .page-title {
   margin-bottom: 20px;
   padding: 1%;
-  font-weight: 500;
+
   font-size: medium;
 }
+
 .container {
   height: 100vh;
   background-color: rgb(255, 255, 255);
@@ -15,10 +16,39 @@
   align-items: center;
 
   button {
-    width: 30%;
+    margin: 30px;
+    width: 40%;
+    margin-left: 120px;
+
+
   }
 
   mat-form-field {
-    width: 40%;
+    width: 100%;
   }
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  margin: 0px;
+  padding: 0px;
+  min-height: 100vh;
+  background: linear-gradient(to top, #2980b9, #2c3e50);
+}
+
+h4 {
+  color: #9c9a9a;
+}
+
+
+.custom-invalid-feedback {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #FC3939;
+  text-shadow: 0 0 black;
+}
+
+h1 {
+  font-weight: 500;
 }

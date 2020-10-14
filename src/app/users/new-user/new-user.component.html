@@ -1,1 +1,91 @@
+<div class="page-title">
+  <h1>Create a New User</h1>
+</div>
+<div class="container">
+  <h2>User details</h2>
 
+  <form #myForm="ngForm">
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input matInput required ngModel name="firstName" #firstName="ngModel" [ngClass]="{'form-control': true,
+    'is-invalid': !firstName?.valid && firstName?.touched,
+    'is-valid': firstName?.valid && firstName?.touched}" required minlength="2" id="fnText"
+        placeholder="Enter first name">
+      <small id="fnHelp" *ngIf="firstName?.errors?.required && firstName?.touched"
+        class="form-text custom-invalid-feedback">Field is required</small>
+      <small id="fnHelp" *ngIf="firstName?.errors?.minlength && firstName?.touched"
+        class="form-text custom-invalid-feedback">First Name requires atleast 2 characters.</small>
+
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput required ngModel name="lastName" required #lastName="ngModel" [ngClass]="{'form-control': true,
+              'is-invalid': !lastName?.valid && lastName?.touched,
+              'is-valid': lastName?.valid && lastName?.touched}" id="lnText" placeholder="Enter last name">
+      <small id="fnHelp" *ngIf="lastName?.errors?.required && lastName?.touched"
+        class="form-text custom-invalid-feedback">Field is required</small>
+    </mat-form-field>
+    <br />
+
+    <mat-form-field appearance="outline">
+      <mat-label>Business Name</mat-label>
+      <input matInput required ngModel name="businessName" required #businessName="ngModel" [ngClass]="{'form-control': true,
+              'is-invalid': !businessName?.valid && businessName?.touched,
+              'is-valid': businessName?.valid && businessName?.touched}" id="lnText" placeholder="Enter Business name">
+      <small id="fnHelp" *ngIf="businessName?.errors?.required && businessName?.touched"
+        class="form-text custom-invalid-feedback">Field is required</small>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Account Number</mat-label>
+      <input matInput required ngModel name="accountNumber" #accountNumber="ngModel" [ngClass]="{'form-control': true,
+    'is-invalid': !accountNumber?.valid && accountNumber?.touched,
+    'is-valid': accountNumber?.valid && accountNumber?.touched}" required id="fnText"
+        placeholder="Enter Account Number">
+      <small id="fnHelp" *ngIf="accountNumber?.errors?.required && accountNumber?.touched"
+        class="form-text custom-invalid-feedback">Field is required</small>
+
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput required ngModel name="Email" #Email="ngModel" [ngClass]="{'form-control': true,
+    'is-invalid': !Email?.valid && Email?.touched,
+    'is-valid': Email?.valid && Email?.touched}" required id="fnText" placeholder="Enter Email">
+      <small id="fnHelp" *ngIf="Email?.errors?.required && Email?.touched"
+        class="form-text custom-invalid-feedback">Email
+        Field is required</small>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput required ngModel name="Password" #Password="ngModel" [ngClass]="{'form-control': true,
+    'is-invalid': !Password?.valid && Password?.touched,
+    'is-valid': Password?.valid && Password?.touched}" required id="fnText" placeholder="Enter Password">
+      <small id="fnHelp" *ngIf="Password?.errors?.required && Password?.touched"
+        class="form-text custom-invalid-feedback">Password
+        Field is required</small>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Select Role</mat-label>
+      <mat-select required ngModel name="role" #role="ngModel" [ngClass]="{'form-control': true,
+      'is-invalid': !role?.valid && role?.touched,
+      'is-valid': role?.valid && role?.touched}" required id="fnText" placeholder="Enter Password">
+        <small id="fnHelp" *ngIf="role?.errors?.required && Password?.touched"
+          class="form-text custom-invalid-feedback">role
+          Field is required</small>
+        <mat-option *ngFor="let role of roles" [value]="role.roleId">
+          {{role.roleName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+
+    <button mat-raised-button color="warn" type="button" (click)="addUser(myForm)">
+      <mat-icon>save</mat-icon>
+      Save
+    </button>
+  </form>
+</div>

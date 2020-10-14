@@ -8,7 +8,16 @@ export interface User {
   dateCreated: string;
 }
 
-export interface Option {
-  value: string;
-  viewValue: string;
+export interface Role {
+  id: number;
+  roleName: string;
+}
+export interface Merchant {
+  id: number;
+  name: string;
+  merchantDescription: string;
+  createdBy: string;
+  approvedBy: string;
+  status: string;
+  dateCreated: string;
 }
