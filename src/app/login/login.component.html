@@ -15,8 +15,8 @@
             type="password" required />
         </mat-form-field>
 
-        <div *ngIf="loginError">
-          Login failed. Please try again.
+        <div *ngIf="loginError" class="loginError">
+          Login failed. Please try again
         </div>
         <mat-card-actions>
           <button mat-raised-button color="warn" class="login-field" type="submit">
