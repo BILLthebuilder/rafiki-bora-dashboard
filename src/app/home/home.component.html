@@ -1,25 +1,25 @@
 <div class="main-container">
     <h1>Welcome</h1>
     <div class="cards-info">
-        <mat-card routerLink='/dashboard/users'>
+        <mat-card routerLink='/dashboard/users' *ngIf="isAdmin()">
             <mat-card-title>
                 <mat-icon> people </mat-icon>
                 <span>Users</span>
             </mat-card-title>
         </mat-card>
-        <mat-card routerLink='/dashboard/roles'>
+        <mat-card routerLink='/dashboard/roles' *ngIf="isAdmin()">
             <mat-card-title>
                 <mat-icon>assignment_ind</mat-icon>
                 <span>Roles</span>
             </mat-card-title>
         </mat-card>
-        <mat-card routerLink='/dashboard/merchants'>
+        <mat-card routerLink='/dashboard/merchants-dash'>
             <mat-card-title>
                 <mat-icon>money</mat-icon>
                 <span>Merchants</span>
             </mat-card-title>
         </mat-card>
-        <mat-card routerLink='/dashboard/customers'>
+        <mat-card routerLink='/dashboard/customers' *ngIf="isAdmin()">
             <mat-card-title>
                 <mat-icon>person_pin</mat-icon>
                 <span>Customers</span>

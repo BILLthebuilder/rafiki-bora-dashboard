@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
+import { AuthService } from '../services/auth.service';
 
 export interface Option {
   value: string;
@@ -13,6 +14,7 @@ export interface Option {
   styleUrls: ['./merchants-dash.component.scss'],
 })
 export class MerchantsDashComponent implements OnInit {
+  constructor(private authService: AuthService) {}
   filters: Option[] = [
     { value: 'rafiki1', viewValue: 'Rafiki1' },
     { value: 'rafiki2', viewValue: 'Rafiki2' },
@@ -60,7 +62,9 @@ export class MerchantsDashComponent implements OnInit {
   lineChartLegend = true;
   lineChartPlugins = [];
   lineChartType = 'line';
-  constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
+  isAdmin() {
+    return this.authService.isAdmin();
+  }
 }

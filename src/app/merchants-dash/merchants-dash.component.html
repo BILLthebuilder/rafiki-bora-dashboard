@@ -1,7 +1,7 @@
 <div class="main-container">
     <div class="top-title">
         <h1>Overview</h1>
-        <mat-form-field appearance="outline" class="statusSelect">
+        <mat-form-field appearance="outline" class="statusSelect" *ngIf="isAdmin()">
             <mat-label>Select Merchant</mat-label>
             <mat-select>
                 <mat-option *ngFor="let filter of filters" [value]="filter.value">
