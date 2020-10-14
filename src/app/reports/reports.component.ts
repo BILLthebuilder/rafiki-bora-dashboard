@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 export interface Reports {
   id: number;
@@ -32,6 +33,7 @@ const reports: Reports[] = [
   styleUrls: ['./reports.component.scss', '../app.component.scss'],
 })
 export class ReportsComponent implements OnInit {
+  constructor(private authService: AuthService) { }
   displayedColumns: string[] = [
     'id',
     'phoneNo',
@@ -48,9 +50,9 @@ export class ReportsComponent implements OnInit {
     { value: 'tracom', viewValue: 'Tracom' },
     { value: 'pergamon', viewValue: 'Pergamon' },
   ];
-
   dataSource = reports;
-  constructor() {}
-
+  isAdmin() {
+    return this.authService.isAdmin();
+  }
   ngOnInit(): void {}
 }

@@ -27,7 +27,8 @@ import { NewAgentComponent } from './agents/new-agent/new-agent.component';
 import { ReportsComponent } from './reports/reports.component';
 import { HomeComponent } from './home/home.component';
 import { RafikiBoraService } from './rafiki-bora.service';
-import { LoginService } from './login/login.service';
+// import { LoginService } from './login/login.service';
+import { CoreModule } from './app-imports-module/core.module';
 
 @NgModule({
   declarations: [
@@ -60,9 +61,9 @@ import { LoginService } from './login/login.service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-
+    CoreModule,
   ],
-  providers: [RafikiBoraService, LoginService],
+  providers: [RafikiBoraService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

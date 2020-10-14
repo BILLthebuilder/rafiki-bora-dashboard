@@ -9,7 +9,7 @@
   <!----------------------------------------------------------------------------->
 
   <div class="item-filters">
-    <mat-form-field appearance="outline" class="statusSelect merchantSelect">
+    <mat-form-field appearance="outline" class="statusSelect merchantSelect" *ngIf="isAdmin()">
       <mat-label>Merchant</mat-label>
       <mat-select>
         <mat-option *ngFor="let filter of merchantFilters" [value]="filter.value">
