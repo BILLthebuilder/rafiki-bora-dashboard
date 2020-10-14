@@ -98,6 +98,13 @@ export class AuthService implements OnDestroy {
     }
     return false;
   }
+  isMerchant(): boolean {
+    const role = localStorage.getItem('roles');
+    if (role === 'MERCHANT') {
+      return true;
+    }
+    return false;
+  }
   getRole(): string {
     const role = localStorage.getItem('roles');
     return role;
