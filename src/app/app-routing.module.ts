@@ -5,6 +5,7 @@ import { NewAgentComponent } from './agents/new-agent/new-agent.component';
 import { CustomersComponent } from './customers/customers.component';
 import { NewCustomerComponent } from './customers/new-customer/new-customer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AdminGuard } from './guards/admin.guard';
 import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -23,7 +24,6 @@ const routes: Routes = [
   {
     path: '',
     component: LoginComponent,
-    // canActivate: [AuthGuard],
   },
   {
     path: 'dashboard',
@@ -36,6 +36,8 @@ const routes: Routes = [
       },
       {
         path: 'roles',
+        canActivate: [AdminGuard],
+        data: { role: 'ADMIN' },
         children: [
           {
             path: 'new-role',
@@ -47,12 +49,14 @@ const routes: Routes = [
           },
         ],
       },
+      // {
+      //   path: 'workgroups',
+      //   component: WorkgroupsComponent,
+      // },
       {
         path: 'workgroups',
-        component: WorkgroupsComponent,
-      },
-      {
-        path: 'workgroups',
+        canActivate: [AdminGuard],
+        data: { role: 'ADMIN' },
         children: [
           {
             path: 'new-wg',
@@ -66,6 +70,8 @@ const routes: Routes = [
       },
       {
         path: 'users',
+        canActivate: [AdminGuard],
+        data: { role: 'ADMIN' },
         children: [
           {
             path: 'new-user',
@@ -79,6 +85,8 @@ const routes: Routes = [
       },
       {
         path: 'merchants',
+        canActivate: [AdminGuard],
+        data: { role: 'ADMIN' },
         children: [
           {
             path: 'new-merchant',
@@ -93,6 +101,8 @@ const routes: Routes = [
 
       {
         path: 'customers',
+        canActivate: [AdminGuard],
+        data: { role: 'ADMIN' },
         children: [
           {
             path: 'new-customer',
@@ -111,6 +121,8 @@ const routes: Routes = [
 
       {
         path: 'agents',
+        canActivate: [AdminGuard],
+        data: { role: 'MERCHANT' },
         children: [
           {
             path: 'new-agent',
