@@ -15,12 +15,6 @@ interface LoginResult {
   roles: any;
 }
 
-export interface ProfileResult {
-  // userId: number;
-  email: string;
-  roles: any;
-}
-
 @Injectable({
   providedIn: 'root',
 })
@@ -35,10 +29,8 @@ export class AuthService implements OnDestroy {
   private storageEventListener(event: StorageEvent) {
     if (event.storageArea === localStorage) {
       if (event.key === 'logout-event') {
-        // this.clearLocalStorage();
         this.stopTokenTimer();
         this.logout();
-        // this._user.next(null);
       }
       if (event.key === 'login-event') {
         this.stopTokenTimer();
@@ -75,9 +67,10 @@ export class AuthService implements OnDestroy {
             roles: x.roles,
           });
           this.setTokenInStorage(x);
-          console.log(this._user.value);
+          // console.log(this._user.value.roles[0].authority);
           this.setUserInStorage(this._user.value);
           this.startTokenTimer();
+          // console.log(this.getRole());
           this.loggedIn.emit(true);
           this.email.emit(x.email);
           return x;
@@ -86,34 +79,32 @@ export class AuthService implements OnDestroy {
   }
   setTokenInStorage(x: LoginResult) {
     localStorage.setItem('access-token', x.authToken);
-    // localStorage.setItem('refresh_token', x.refreshToken);
   }
   setUserInStorage(x: any) {
     localStorage.setItem('user', x.email);
-    // localStorage.setItem(
-    //   'roles',
-    //   x.roles.array.forEach((e) => {
-    //     e.authority;
-    //   })
-    // );
+    localStorage.setItem('roles', x.roles[0].authority);
     localStorage.setItem('login-event', `login${Math.random()}`);
   }
   getUser() {
-    return localStorage.getItem('user');
+    return localStorage.getItem('user') && localStorage.getItem('access-token');
   }
   isLoggedIn(): boolean {
     return this.getUser() !== null;
   }
-  // loggedInEvent(): boolean {
-  //   return this.getLoggedInEvent !== null;
-  // }
-  // getLoggedInEvent() {
-  //   return localStorage.getItem('login-event');
-  // }
+  isAdmin(): boolean {
+    const role = localStorage.getItem('roles');
+    if (role === 'ADMIN') {
+      return true;
+    }
+    return false;
+  }
+  getRole(): string {
+    const role = localStorage.getItem('roles');
+    return role;
+  }
   clearLocalStorage() {
     localStorage.removeItem('access-token');
     localStorage.removeItem('user');
-    // localStorage.removeItem('login-event');
     localStorage.setItem('logout-event', `logout${Math.random()}`);
   }
 
@@ -124,7 +115,7 @@ export class AuthService implements OnDestroy {
     }
     const jwtToken = JSON.parse(atob(accessToken.split('.')[1]));
     const expires = new Date(jwtToken.exp * 1000);
-    console.log(expires);
+    // console.log(expires);
     return expires.getTime() - Date.now();
   }
 
@@ -148,7 +139,7 @@ export class AuthService implements OnDestroy {
     //     finalize(() => {
     this.clearLocalStorage();
     this._user.next(null);
-    // this.stopTokenTimer();
+    this.stopTokenTimer();
     this.router.navigate(['']);
     //   })
     // )
