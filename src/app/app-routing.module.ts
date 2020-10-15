@@ -15,6 +15,8 @@ import { NewMerchantComponent } from './merchants/new-merchant/new-merchant.comp
 import { ReportsComponent } from './reports/reports.component';
 import { NewRoleComponent } from './roles/new-role/new-role.component';
 import { RolesComponent } from './roles/roles.component';
+import { NewTerminalComponent } from './terminals/new-terminal/new-terminal.component';
+import { TerminalsComponent } from './terminals/terminals.component';
 import { NewUserComponent } from './users/new-user/new-user.component';
 import { UsersComponent } from './users/users.component';
 import { WgDetailsComponent } from './workgroups/new-wg/new-wg.component';
@@ -49,10 +51,21 @@ const routes: Routes = [
           },
         ],
       },
-      // {
-      //   path: 'workgroups',
-      //   component: WorkgroupsComponent,
-      // },
+      {
+        path: 'terminals',
+        canActivate: [AdminGuard],
+        data: { role: 'ROLE_ADMIN' },
+        children: [
+          {
+            path: 'new-terminal',
+            component: NewTerminalComponent,
+          },
+          {
+            path: '',
+            component: TerminalsComponent,
+          },
+        ],
+      },
       {
         path: 'workgroups',
         canActivate: [AdminGuard],
