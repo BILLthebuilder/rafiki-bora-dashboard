@@ -27,11 +27,11 @@ export class NewTerminalComponent implements OnInit {
   onSubmit() {
     this._rafikiBoraService.addTerminal(this.userSubmitForm.value).subscribe(
       (response) => {
-        console.log('Success', response);
-        this.router.navigateByUrl('dashboard/terminals');
-      } ,
-      (error) => console.log('There is an error', error)
+        this.router.navigateByUrl('/dashboard/terminals');
+      },
+      (error) => {
+        console.log('There is an error', error);
+      }
     );
-    console.log(this.userSubmitForm.value);
   }
 }

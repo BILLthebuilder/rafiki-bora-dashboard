@@ -27,3 +27,16 @@ export interface Merchant {
   status: string;
   dateCreated: string;
 }
+
+export interface Terminal {
+  id: number,
+  tid: string,
+  serialNo: string,
+  modelType: string,
+  status: boolean,
+  mid: string,
+  createdBy: any,
+  approvedBy: any,
+  isDeleted: any,
+  createdOn: any,
+}
