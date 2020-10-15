@@ -1,0 +1,27 @@
+<div class="page-title">
+    <h1>Create a New Terminal</h1>
+</div>
+<div class="container">
+    <h2>Terminal details</h2>
+
+    <form [formGroup]="userSubmitForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline">
+            <mat-label>Model Type</mat-label>
+
+            <input type="text" matInput required name="modelType" formControlName="modelType"
+                placeholder="Enter terminal Model Type">
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="outline">
+            <mat-label>Serial Number</mat-label>
+
+            <input matInput type="text" required name="serialNo" formControlName="serialNo"
+                placeholder="Enter terminal Serial Number">
+        </mat-form-field>
+        <br />
+        <button mat-raised-button color="warn" type="submit">
+            <mat-icon>save</mat-icon>
+            Save
+        </button>
+    </form>
+</div>
