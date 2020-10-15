@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RafikiBoraService } from 'src/app/rafiki-bora.service';
+import { RafikiBoraService } from 'src/app/services/rafiki-bora.service';
 
 @Component({
   selector: 'app-new-merchant',

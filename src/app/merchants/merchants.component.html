@@ -6,10 +6,7 @@
 
 <div class="container">
   <div class="top-buttons">
-    <button [routerLink]="['new-merchant']" mat-raised-button color="warn">
-      <mat-icon>add</mat-icon>
-      New
-    </button>
+
 
     <button mat-raised-button>
       <mat-icon>check</mat-icon>
@@ -46,28 +43,48 @@
   </div>
 
   <div class="item-table">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" *ngFor=" row of dataSource;let i=index" class="mat-elevation-z8">
 
       <!-- id Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>Id</th>
         <td mat-cell *matCellDef="let element">
-          {{ element.id }}
-          <mat-checkbox class="checkBtn"></mat-checkbox>
+          {{ element.userId }}
+          <mat-checkbox class="checkBtn" type="checkbox"></mat-checkbox>
         </td>
       </ng-container>
 
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      <!-- First Name Column -->
+      <ng-container matColumnDef="first_name">
+        <th mat-header-cell *matHeaderCellDef>FirstName</th>
+        <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="last_name">
+        <th mat-header-cell *matHeaderCellDef>LastName</th>
+        <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="mid">
+        <th mat-header-cell *matHeaderCellDef>Merchant Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.mid }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="business_name">
+        <th mat-header-cell *matHeaderCellDef>Business Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.businessName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone_no">
+        <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+        <td mat-cell *matCellDef="let element">{{ element.phoneNo }}</td>
       </ng-container>
 
       <!-- Merchant Description Column -->
-      <ng-container matColumnDef="merchantDescription">
-        <th mat-header-cell *matHeaderCellDef>Merchant Description</th>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
         <td mat-cell *matCellDef="let element">
-          {{ element.roleDescription }}
+          {{ element.email }}
         </td>
       </ng-container>
 
@@ -93,7 +110,8 @@
         <td mat-cell *matCellDef="let element">{{ element.status }}</td>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-header-row *matHeaderRowDef=" displayedColumns">
+      </tr>
       <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass]="{ gray: even }">
       </tr>
     </table>

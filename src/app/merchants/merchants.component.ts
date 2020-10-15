@@ -2,7 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
-import { RafikiBoraService } from '../rafiki-bora.service';
+import { RafikiBoraService } from '../services/rafiki-bora.service';
 
 @Component({
   selector: 'app-roles',
@@ -12,8 +12,12 @@ import { RafikiBoraService } from '../rafiki-bora.service';
 export class MerchantsComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
-    'name',
-    'merchantDescription',
+    'first_name',
+    'last_name',
+    'email',
+    'mid',
+    'business_name',
+    'phone_no',
     'createdBy',
     'approvedBy',
     'status',
@@ -45,7 +49,7 @@ export class MerchantsComponent implements OnInit {
 
   constructor(private _rafikiBoraService: RafikiBoraService) {
     this.pipe = new DatePipe('en');
-    this.dataSource.filterPredicate = (data,filter) => {
+    this.dataSource.filterPredicate = (data, filter) => {
       if (this.fromDate && this.toDate) {
         return data.created >= this.fromDate && data.created <= this.toDate;
       }
@@ -56,10 +60,12 @@ export class MerchantsComponent implements OnInit {
   ngOnInit(): void {
     this._rafikiBoraService
       .getMerchantsData()
-      .subscribe((data) => (this.dataSource = new MatTableDataSource(data)));
+      .subscribe((data) => (this.dataSource = new MatTableDataSource(data)
+      ));
   }
 
   applyFilter() {
     this.dataSource.filter = `${Math.random()}`;
   }
+
 }
