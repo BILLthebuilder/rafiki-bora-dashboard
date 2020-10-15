@@ -12,7 +12,7 @@ import { User, Role, Merchant } from '../rafikiboraInterface';
 export class RafikiBoraService implements OnInit {
   private addUsersUrl = 'http://localhost:2019/api/auth/signup';
   private getUsersUrl = 'http://localhost:2019';
-  private merchantsUrl = 'http://localhost:2019/api/auth/merchant';
+  private merchantsUrl = 'http://localhost:2019/api/users/merchant';
   private customersUrl = '';
   private rolesUrl = 'http://localhost:2019/api/roles';
   private UserByRoleUrl = '';
