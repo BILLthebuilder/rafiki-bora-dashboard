@@ -25,7 +25,7 @@ import { AgentsComponent } from './agents/agents.component';
 import { NewAgentComponent } from './agents/new-agent/new-agent.component';
 import { ReportsComponent } from './reports/reports.component';
 import { HomeComponent } from './home/home.component';
-import { RafikiBoraService } from './rafiki-bora.service';
+import { RafikiBoraService } from './services/rafiki-bora.service';
 // import { LoginService } from './login/login.service';
 import { CoreModule } from './app-imports-module/core.module';
 

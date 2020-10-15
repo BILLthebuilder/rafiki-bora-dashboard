@@ -37,7 +37,7 @@ const routes: Routes = [
       {
         path: 'roles',
         canActivate: [AdminGuard],
-        data: { role: 'ADMIN' },
+        data: { role: 'ROLE_ADMIN' },
         children: [
           {
             path: 'new-role',
@@ -56,7 +56,7 @@ const routes: Routes = [
       {
         path: 'workgroups',
         canActivate: [AdminGuard],
-        data: { role: 'ADMIN' },
+        data: { role: 'ROLE_ADMIN' },
         children: [
           {
             path: 'new-wg',
@@ -71,7 +71,7 @@ const routes: Routes = [
       {
         path: 'users',
         canActivate: [AdminGuard],
-        data: { role: 'ADMIN' },
+        data: { role: 'ROLE_ADMIN' },
         children: [
           {
             path: 'new-user',
@@ -86,7 +86,7 @@ const routes: Routes = [
       {
         path: 'merchants',
         canActivate: [AdminGuard],
-        data: { role: 'ADMIN' },
+        data: { role: 'ROLE_ADMIN' },
         children: [
           {
             path: 'new-merchant',
@@ -102,7 +102,7 @@ const routes: Routes = [
       {
         path: 'customers',
         canActivate: [AdminGuard],
-        data: { role: 'ADMIN' },
+        data: { role: 'ROLE_ADMIN' },
         children: [
           {
             path: 'new-customer',
@@ -122,7 +122,7 @@ const routes: Routes = [
       {
         path: 'agents',
         canActivate: [AdminGuard],
-        data: { role: 'MERCHANT' },
+        data: { role: 'ROLE_MERCHANT' },
         children: [
           {
             path: 'new-agent',
