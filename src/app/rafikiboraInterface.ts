@@ -1,7 +1,9 @@
 export interface User {
-  id: number;
-  name: string;
-  description: string;
+  userId: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNo: string;
   createdBy: string;
   approvedBy: string;
   status: string;
@@ -13,9 +15,13 @@ export interface Role {
   roleName: string;
 }
 export interface Merchant {
-  id: number;
-  name: string;
-  merchantDescription: string;
+  userId: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  mid: string;
+  businessName: string;
+  phoneNo: string;
   createdBy: string;
   approvedBy: string;
   status: string;

@@ -1,19 +1,21 @@
 /* eslint-disable @angular-eslint/contextual-lifecycle */
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 // eslint-disable-next-line import/no-cycle
 
-import { User, Role, Merchant } from './rafikiboraInterface';
+import { User, Role, Merchant } from '../rafikiboraInterface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RafikiBoraService implements OnInit {
-  private usersUrl = 'http://localhost:8080/api/auth/signup';
-  private merchantsUrl = '';
+  private addUsersUrl = 'http://localhost:2019/api/auth/signup';
+  private getUsersUrl = 'http://localhost:2019';
+  private merchantsUrl = 'http://localhost:2019/api/auth/merchant';
   private customersUrl = '';
-  private rolesUrl = 'http://localhost:8080/api/role';
+  private rolesUrl = 'http://localhost:2019/api/roles';
+  private UserByRoleUrl = '';
 
   displayedColumns: string[] = [
     'id',
@@ -29,11 +31,18 @@ export class RafikiBoraService implements OnInit {
 
   // Get Users
   getUserData(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl);
+    return this.http.get<User[]>(this.getUsersUrl);
   }
   // Add User
-  addUser(user: User): Observable<User> {
-    return this.http.post<User>(this.usersUrl, user);
+  addUser(userData){
+    const httpOptions = {
+      headers: new HttpHeaders(
+      {
+
+         'Content-Type': 'application/json'
+      })
+  }
+    return this.http.post<any>(this.addUsersUrl, userData,httpOptions);
   }
 
   // Get Roles

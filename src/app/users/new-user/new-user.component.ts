@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { RafikiBoraService } from 'src/app/rafiki-bora.service';
+
+import { RafikiBoraService } from 'src/app/services/rafiki-bora.service';
 
 @Component({
   selector: 'app-new-user',
@@ -12,6 +14,7 @@ export class NewUserComponent implements OnInit {
   userSubmitForm: any;
 
   constructor(
+    private http: HttpClient,
     private _rafikiBoraService: RafikiBoraService,
     private formBuilder: FormBuilder
   ) {
@@ -19,10 +22,10 @@ export class NewUserComponent implements OnInit {
       firstName: '',
       lastName: '',
       businessName: '',
-      accountNumber: '',
+      phoneNo: '',
       email: '',
       password: '',
-      // role: '',
+      //  role: '',
     });
   }
 
@@ -32,11 +35,12 @@ export class NewUserComponent implements OnInit {
       this.roles = data;
     });
   }
-  onSubmit(userData) {
-    // Process checkout data here
-    // this.items = this.cartService.clearCart();
-    this.userSubmitForm.reset();
+  onSubmit() {
 
-    console.log('The User Created is:', userData);
+this._rafikiBoraService.addUser(this.userSubmitForm.value).
+subscribe((response)=>console.log("Success",response),
+error=>console.log("There is an error",error))
+console.log(this.userSubmitForm.value)
   }
+
 }

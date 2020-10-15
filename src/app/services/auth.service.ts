@@ -21,7 +21,7 @@ interface LoginResult {
 export class AuthService implements OnDestroy {
   @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
   @Output() email: EventEmitter<string> = new EventEmitter();
-  private readonly apiUrl = `http://localhost:8080`;
+  private readonly apiUrl = `http://localhost:2019`;
   private timer: Subscription;
   private _user = new BehaviorSubject<ApplicationUser>(null);
   user$: Observable<ApplicationUser> = this._user.asObservable();
@@ -35,7 +35,7 @@ export class AuthService implements OnDestroy {
       if (event.key === 'login-event') {
         this.stopTokenTimer();
         this.http
-          .get<ApplicationUser>(`${this.apiUrl}/profile`)
+          .get<ApplicationUser>(`${this.apiUrl}api/users//user/profile`)
           .subscribe((x) => {
             this._user.next({
               email: x.email,
@@ -93,14 +93,14 @@ export class AuthService implements OnDestroy {
   }
   isAdmin(): boolean {
     const role = localStorage.getItem('roles');
-    if (role === 'ADMIN') {
+    if (role === 'ROLE_ADMIN') {
       return true;
     }
     return false;
   }
   isMerchant(): boolean {
     const role = localStorage.getItem('roles');
-    if (role === 'MERCHANT') {
+    if (role === 'ROLE_MERCHANT') {
       return true;
     }
     return false;
