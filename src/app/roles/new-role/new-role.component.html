@@ -1,26 +1,31 @@
 <!---------------------------PAGE TITLE---------------------------------------->
 <!----------------------------------------------------------------------------->
-<div class="page-title"><h1>Create a New Role</h1></div>
+<div class="page-title">
+  <h1>Create a New Role</h1>
+</div>
 
 <!---------------------------ROLES FORM---------------------------------------->
 <!----------------------------------------------------------------------------->
 
 <div class="container">
   <h2>Role details</h2>
-  <mat-form-field appearance="outline">
-    <mat-label>Role Name</mat-label>
-    <input matInput required />
-  </mat-form-field>
-  <br />
 
-  <mat-form-field appearance="outline">
+  <form [formGroup]="userSubmitForm" (ngSubmit)="saveRole(userSubmitForm.value)">
+    <mat-form-field appearance="outline">
+      <mat-label>Role Name</mat-label>
+      <input matInput required formControlName="roleName" />
+    </mat-form-field>
+    <br />
+
+    <!-- <mat-form-field appearance="outline">
     <mat-label>Role Description</mat-label>
     <input matInput required />
-  </mat-form-field>
-  <br />
+  </mat-form-field> -->
+    <br />
 
-  <button mat-raised-button routerLink="/dashboard/roles" color="warn">
-    <mat-icon>save</mat-icon>
-    Save
-  </button>
+    <button type="submit" mat-raised-button color="warn">
+      <mat-icon>save</mat-icon>
+      Save
+    </button>
+  </form>
 </div>
