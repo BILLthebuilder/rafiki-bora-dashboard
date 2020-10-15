@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { RafikiBoraService } from 'src/app/rafiki-bora.service';
 
 @Component({
@@ -8,8 +9,22 @@ import { RafikiBoraService } from 'src/app/rafiki-bora.service';
 })
 export class NewUserComponent implements OnInit {
   roles: any = [];
+  userSubmitForm: any;
 
-  constructor(private _rafikiBoraService: RafikiBoraService) {}
+  constructor(
+    private _rafikiBoraService: RafikiBoraService,
+    private formBuilder: FormBuilder
+  ) {
+    this.userSubmitForm = this.formBuilder.group({
+      firstName: '',
+      lastName: '',
+      businessName: '',
+      accountNumber: '',
+      email: '',
+      password: '',
+      // role: '',
+    });
+  }
 
   ngOnInit(): void {
     // Get the roles data from the Database
@@ -17,8 +32,11 @@ export class NewUserComponent implements OnInit {
       this.roles = data;
     });
   }
+  onSubmit(userData) {
+    // Process checkout data here
+    // this.items = this.cartService.clearCart();
+    this.userSubmitForm.reset();
 
-  addUser(myForm) {
-    this._rafikiBoraService.addUser(myForm).toPromise().catch((error)=>"Error while saving data");
+    console.log('The User Created is:', userData);
   }
 }
