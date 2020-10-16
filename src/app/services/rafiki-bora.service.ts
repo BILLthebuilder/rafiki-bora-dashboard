@@ -16,7 +16,7 @@ export class RafikiBoraService implements OnInit {
   private customersUrl = '';
   private rolesUrl = 'http://localhost:2019/api/roles';
   private UserByRoleUrl = '';
-  private terminalsUrl='http://localhost:2019/api/terminals';
+  private terminalsUrl = 'http://localhost:2019/api/terminals';
 
   constructor(private http: HttpClient) {}
   httpOptions = {
@@ -31,11 +31,7 @@ export class RafikiBoraService implements OnInit {
   }
   // Add Terminals
   addTerminal(terminalData) {
-    return this.http.post<any>(
-      this.terminalsUrl,
-      terminalData
-      // this.httpOptions
-    );
+    return this.http.post<any>(this.terminalsUrl, terminalData);
   }
   // Get terminals
   getTerminals(): Observable<Terminal[]> {
