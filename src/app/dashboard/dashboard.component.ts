@@ -7,6 +7,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  hidden = false;
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}

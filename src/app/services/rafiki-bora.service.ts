@@ -10,13 +10,14 @@ import { User, Role, Merchant, Terminal } from '../rafikiboraInterface';
   providedIn: 'root',
 })
 export class RafikiBoraService implements OnInit {
-  private addUsersUrl = 'http://localhost:2019/api/users/createuser';
-  private getUsersUrl = 'http://localhost:2019/api/users';
-  private merchantsUrl = 'http://localhost:2019/api/users/merchant';
+  private addUsersUrl = 'http://192.168.254.174:2019/api/auth/signup';
+  private getUsersUrl = 'http://192.168.254.174:2019/api/users';
+  private terminalsUrl = 'http://192.168.254.174:2019/api/terminals';
+  private merchantsUrl = 'http://192.168.254.174:2019/api/users/merchant';
   private customersUrl = '';
-  private rolesUrl = 'http://localhost:2019/api/roles';
+  private rolesUrl = 'http://192.168.254.174:2019/api/roles';
   private UserByRoleUrl = '';
-  private terminalsUrl='http://localhost:2019/api/terminals';
+  // private terminalsUrl='http://localhost:2019/api/terminals';
 
   constructor(private http: HttpClient) {}
   httpOptions = {
@@ -49,7 +50,6 @@ export class RafikiBoraService implements OnInit {
   addRole(roleData) {
     return this.http.post<any>(this.rolesUrl, roleData, this.httpOptions);
   }
-
   // Get Roles
   getRolesData(): Observable<Role[]> {
     return this.http.get<Role[]>(this.rolesUrl);
