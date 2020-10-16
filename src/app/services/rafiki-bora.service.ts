@@ -51,10 +51,9 @@ export class RafikiBoraService implements OnInit {
     return this.http.get<Terminal[]>(this.terminalsUrl);
   }
   // Add User
-  addUser(userData){
-    const httpOptions = {
-      headers: new HttpHeaders(
-      {
+  addUser(userData) {
+    return this.http.post<any>(this.addUsersUrl, userData, this.httpOptions);
+  }
 
   addRole(roleData) {
     return this.http.post<any>(this.rolesUrl, roleData, this.httpOptions);
