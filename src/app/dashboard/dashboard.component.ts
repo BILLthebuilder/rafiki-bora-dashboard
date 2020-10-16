@@ -18,4 +18,8 @@ export class DashboardComponent implements OnInit {
   isMerchant() {
     return this.authService.isMerchant();
   }
+
+  logout() {
+    return this.authService.logout();
+  }
 }

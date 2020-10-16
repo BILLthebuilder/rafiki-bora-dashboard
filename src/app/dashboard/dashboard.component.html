@@ -47,6 +47,11 @@
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
+    <div class="logout-button">
+      <a class="logout" mat-raised-button color="warn" (click)="logout()">
+        Logout
+      </a>
+    </div>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
