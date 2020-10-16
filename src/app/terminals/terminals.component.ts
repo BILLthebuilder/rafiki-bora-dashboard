@@ -17,9 +17,7 @@ export class TerminalsComponent implements OnInit {
     'modelType',
     'status',
     'mid',
-    'createdBy',
-    'approvedBy',
-    'isDeleted',
+    'deleted',
     'createdOn',
   ];
   filters = [

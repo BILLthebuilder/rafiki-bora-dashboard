@@ -28,10 +28,27 @@ export class RafikiBoraService implements OnInit {
     'dateCreated',
   ];
   constructor(private http: HttpClient) {}
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+  };
 
   // Get Users
   getUserData(): Observable<User[]> {
     return this.http.get<User[]>(this.getUsersUrl);
+  }
+  // Add Terminals
+  addTerminal(terminalData) {
+    return this.http.post<any>(
+      this.terminalsUrl,
+      terminalData
+      // this.httpOptions
+    );
+  }
+  // Get terminals
+  getTerminals(): Observable<Terminal[]> {
+    return this.http.get<Terminal[]>(this.terminalsUrl);
   }
   // Add User
   addUser(userData){
@@ -39,10 +56,8 @@ export class RafikiBoraService implements OnInit {
       headers: new HttpHeaders(
       {
 
-         'Content-Type': 'application/json'
-      })
-  }
-    return this.http.post<any>(this.addUsersUrl, userData,httpOptions);
+  addRole(roleData) {
+    return this.http.post<any>(this.rolesUrl, roleData, this.httpOptions);
   }
 
   // Get Roles
