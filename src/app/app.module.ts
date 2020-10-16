@@ -28,6 +28,8 @@ import { HomeComponent } from './home/home.component';
 import { RafikiBoraService } from './services/rafiki-bora.service';
 // import { LoginService } from './login/login.service';
 import { CoreModule } from './app-imports-module/core.module';
+import { TerminalsComponent } from './terminals/terminals.component';
+import { NewTerminalComponent } from './terminals/new-terminal/new-terminal.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { CoreModule } from './app-imports-module/core.module';
     NewAgentComponent,
     ReportsComponent,
     HomeComponent,
+    TerminalsComponent,
+    NewTerminalComponent,
   ],
   imports: [
     AppImportsModule,

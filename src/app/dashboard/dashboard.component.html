@@ -28,6 +28,11 @@
         <h3 class="heading-user-management">Customers</h3>
         <a mat-list-item [routerLink]="['customers']" [routerLinkActive]="['active']">Customers List</a>
       </mat-nav-list>
+      <hr class="heading-line-user" *ngIf="isAdmin()" />
+      <mat-nav-list *ngIf="isAdmin()">
+        <h3 class="heading-user-management">Terminals Management</h3>
+        <a mat-list-item [routerLink]="['terminals']" [routerLinkActive]="['active']">Manage Terminals</a>
+      </mat-nav-list>
       <hr class="heading-line-user" *ngIf="isMerchant()"/>
       <mat-nav-list *ngIf="isMerchant()">
         <h3 class="heading-user-management">AGENTS</h3>

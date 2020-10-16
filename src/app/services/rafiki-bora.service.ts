@@ -18,19 +18,36 @@ export class RafikiBoraService implements OnInit {
   private UserByRoleUrl = '';
 
   constructor(private http: HttpClient) {}
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+  };
 
   // Get Users
   getUserData(): Observable<User[]> {
     return this.http.get<User[]>(this.getUsersUrl);
   }
+  // Add Terminals
+  addTerminal(terminalData) {
+    return this.http.post<any>(
+      this.terminalsUrl,
+      terminalData
+      // this.httpOptions
+    );
+  }
+  // Get terminals
+  getTerminals(): Observable<Terminal[]> {
+    return this.http.get<Terminal[]>(this.terminalsUrl);
+  }
   // Add User
   addUser(userData) {
     const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      }),
-    };
-    return this.http.post<any>(this.addUsersUrl, userData, httpOptions);
+      headers: new HttpHeaders(
+      {
+
+  addRole(roleData) {
+    return this.http.post<any>(this.rolesUrl, roleData, this.httpOptions);
   }
 
   // Get Roles

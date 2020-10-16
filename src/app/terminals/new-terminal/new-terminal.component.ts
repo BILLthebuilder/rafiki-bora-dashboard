@@ -1,37 +1,33 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RafikiBoraService } from 'src/app/services/rafiki-bora.service';
 
 @Component({
-  selector: 'app-new-role',
-  templateUrl: './new-role.component.html',
-  styleUrls: ['./new-role.component.scss'],
+  selector: 'app-new-terminal',
+  templateUrl: './new-terminal.component.html',
+  styleUrls: ['./new-terminal.component.scss'],
 })
-export class NewRoleComponent implements OnInit {
+export class NewTerminalComponent implements OnInit {
   userSubmitForm: any;
   constructor(
+    private http: HttpClient,
     private _rafikiBoraService: RafikiBoraService,
     private formBuilder: FormBuilder,
     private router: Router
   ) {
     this.userSubmitForm = this.formBuilder.group({
-      roleName: '',
+      modelType: '',
+      serialNo: '',
     });
   }
-
   ngOnInit(): void {}
-  saveRole(userData) {
-    // fetch('http://192.168.254.174:2019/api/roles', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: userData,
-    // }).then((res) => res.json());
-    this._rafikiBoraService.addRole(userData).subscribe(
+
+  onSubmit() {
+    this._rafikiBoraService.addTerminal(this.userSubmitForm.value).subscribe(
       (response) => {
-        this.router.navigateByUrl('/dashboard/roles');
+        this.router.navigateByUrl('/dashboard/terminals');
       },
       (error) => {
         console.log('There is an error', error);
