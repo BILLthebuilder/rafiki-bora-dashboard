@@ -60,12 +60,13 @@ export class MerchantsComponent implements OnInit {
   ngOnInit(): void {
     this._rafikiBoraService
       .getMerchantsData()
-      .subscribe((data) => (this.dataSource = new MatTableDataSource(data)
-      ));
+      .subscribe((data) => (this.dataSource = new MatTableDataSource(data)));
   }
 
   applyFilter() {
     this.dataSource.filter = `${Math.random()}`;
   }
-
+  applySearchFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }
