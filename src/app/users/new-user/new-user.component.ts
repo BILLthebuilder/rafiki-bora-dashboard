@@ -21,11 +21,11 @@ export class NewUserComponent implements OnInit {
     this.userSubmitForm = this.formBuilder.group({
       firstName: '',
       lastName: '',
-      businessName: '',
+      username: '',
       phoneNo: '',
       email: '',
       password: '',
-      //  role: '',
+      role: '',
     });
   }
 
@@ -36,11 +36,10 @@ export class NewUserComponent implements OnInit {
     });
   }
   onSubmit() {
-
-this._rafikiBoraService.addUser(this.userSubmitForm.value).
-subscribe((response)=>console.log("Success",response),
-error=>console.log("There is an error",error))
-console.log(this.userSubmitForm.value)
+    this._rafikiBoraService.addUser(this.userSubmitForm.value).subscribe(
+      (response) => console.log('Success', response),
+      (error) => console.log('There is an error', error)
+    );
+    console.log(this.userSubmitForm.value);
   }
-
 }

@@ -1,5 +1,5 @@
 export interface User {
-  userId: number;
+  userid: number;
   firstName: string;
   lastName: string;
   email: string;
@@ -15,7 +15,7 @@ export interface Role {
   roleName: string;
 }
 export interface Merchant {
-  userId: number;
+  userid: number;
   firstName: string;
   lastName: string;
   email: string;

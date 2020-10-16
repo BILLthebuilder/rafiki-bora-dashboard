@@ -10,23 +10,13 @@ import { User, Role, Merchant } from '../rafikiboraInterface';
   providedIn: 'root',
 })
 export class RafikiBoraService implements OnInit {
-  private addUsersUrl = 'http://localhost:2019/api/auth/signup';
-  private getUsersUrl = 'http://localhost:2019';
+  private addUsersUrl = 'http://localhost:2019/api/users/createuser';
+  private getUsersUrl = 'http://localhost:2019/api/users';
   private merchantsUrl = 'http://localhost:2019/api/users/merchant';
   private customersUrl = '';
   private rolesUrl = 'http://localhost:2019/api/roles';
   private UserByRoleUrl = '';
 
-  displayedColumns: string[] = [
-    'id',
-    'name',
-    'accountNumber',
-    'pan',
-    'phoneNumber',
-    'status',
-    'balance',
-    'dateCreated',
-  ];
   constructor(private http: HttpClient) {}
 
   // Get Users
@@ -34,15 +24,13 @@ export class RafikiBoraService implements OnInit {
     return this.http.get<User[]>(this.getUsersUrl);
   }
   // Add User
-  addUser(userData){
+  addUser(userData) {
     const httpOptions = {
-      headers: new HttpHeaders(
-      {
-
-         'Content-Type': 'application/json'
-      })
-  }
-    return this.http.post<any>(this.addUsersUrl, userData,httpOptions);
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    return this.http.post<any>(this.addUsersUrl, userData, httpOptions);
   }
 
   // Get Roles

@@ -19,10 +19,9 @@
     <br />
 
     <mat-form-field appearance="outline">
-      <mat-label>Business Name</mat-label>
+      <mat-label>User Name</mat-label>
 
-      <input matInput type="text" required name="businessName" formControlName="businessName"
-        placeholder="Enter Business name">
+      <input matInput type="text" required name="username" formControlName="username" placeholder="Enter User Name">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -37,15 +36,15 @@
       <input matInput type="email" required name="email" formControlName="email" placeholder="Enter Account email">
     </mat-form-field>
     <br />
-    <!--
+
     <mat-form-field appearance="fill">
       <mat-label>Select Role</mat-label>
       <mat-select required ngModel name="role" formControlName="role">
-        <mat-option *ngFor="let role of roles" [value]="role.roleId">
+        <mat-option *ngFor="let role of roles" [value]="role.roleName">
           {{role.roleName}}
         </mat-option>
       </mat-select>
-    </mat-form-field> -->
+    </mat-form-field>
 
 
     <mat-form-field appearance="outline">
