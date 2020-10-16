@@ -4,7 +4,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 // eslint-disable-next-line import/no-cycle
 
-import { User, Role, Merchant } from '../rafikiboraInterface';
+import { User, Role, Merchant, Terminal } from '../rafikiboraInterface';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +16,7 @@ export class RafikiBoraService implements OnInit {
   private customersUrl = '';
   private rolesUrl = 'http://localhost:2019/api/roles';
   private UserByRoleUrl = '';
+  private terminalsUrl='http://localhost:2019/api/terminals';
 
   constructor(private http: HttpClient) {}
   httpOptions = {
@@ -42,9 +43,8 @@ export class RafikiBoraService implements OnInit {
   }
   // Add User
   addUser(userData) {
-    const httpOptions = {
-      headers: new HttpHeaders(
-      {
+    return this.http.post<any>(this.addUsersUrl, userData, this.httpOptions);
+  }
 
   addRole(roleData) {
     return this.http.post<any>(this.rolesUrl, roleData, this.httpOptions);
