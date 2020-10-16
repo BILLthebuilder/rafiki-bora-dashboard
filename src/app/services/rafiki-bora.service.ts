@@ -10,7 +10,7 @@ import { User, Role, Merchant, Terminal } from '../rafikiboraInterface';
   providedIn: 'root',
 })
 export class RafikiBoraService implements OnInit {
-  private addUsersUrl = 'http://192.168.254.174:2019/api/auth/signup';
+  private addUsersUrl = 'http://192.168.254.174:2019/api/users/createuser';
   private getUsersUrl = 'http://192.168.254.174:2019/api/users';
   private terminalsUrl = 'http://192.168.254.174:2019/api/terminals';
   private merchantsUrl = 'http://192.168.254.174:2019/api/users/merchant';
