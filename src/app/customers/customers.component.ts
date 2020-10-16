@@ -1,4 +1,8 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
+import { RafikiBoraService } from '../services/rafiki-bora.service';
 
 export interface Customer {
   id: number;
@@ -14,107 +18,6 @@ export interface Option {
   value: string;
   viewValue: string;
 }
-const customers: Customer[] = [
-  {
-    id: 1,
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Pending',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 2,
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 3,
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Pending',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 4,
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 5,
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 6,
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Pending',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 7,
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 8,
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Pending',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 9,
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 10,
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 11,
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Approved',
-    dateCreated: '26/09/2020',
-  }
-];
 
 @Component({
   selector: 'app-customers',
@@ -124,20 +27,61 @@ const customers: Customer[] = [
 export class CustomersComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
-    'phoneNo',
+    'first_name',
+    'last_name',
     'email',
-    'merchant',
+    'mid',
+    'business_name',
+    'phone_no',
+    'createdBy',
+    'approvedBy',
     'status',
     'dateCreated',
   ];
-  filters: Option[] = [
+  filters = [
     { value: 'approved', viewValue: 'Approved' },
     { value: 'declined', viewValue: 'Declined' },
   ];
 
-  dataSource = customers;
+  public dataSource: any = [];
+  pipe: DatePipe;
 
-  constructor() {}
+  filterForm = new FormGroup({
+    fromDate: new FormControl(),
+    toDate: new FormControl(),
+    status: new FormControl(),
+  });
 
-  ngOnInit(): void {}
+  get fromDate() {
+    return this.filterForm.get('fromDate').value;
+  }
+  get toDate() {
+    return this.filterForm.get('toDate').value;
+  }
+  get status() {
+    return this.filterForm.get('status').value;
+  }
+
+  constructor(private _rafikiBoraService: RafikiBoraService) {
+    this.pipe = new DatePipe('en');
+    this.dataSource.filterPredicate = (data, filter) => {
+      if (this.fromDate && this.toDate) {
+        return data.created >= this.fromDate && data.created <= this.toDate;
+      }
+      return true;
+    };
+  }
+
+  ngOnInit(): void {
+    this._rafikiBoraService
+      .getCustomersData()
+      .subscribe((data) => (this.dataSource = new MatTableDataSource(data)));
+  }
+
+  applyFilter() {
+    this.dataSource.filter = `${Math.random()}`;
+  }
+  applySearchFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }
