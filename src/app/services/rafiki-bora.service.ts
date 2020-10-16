@@ -10,13 +10,15 @@ import { User, Role, Merchant, Terminal } from '../rafikiboraInterface';
   providedIn: 'root',
 })
 export class RafikiBoraService implements OnInit {
-  private addUsersUrl = 'http://localhost:2019/api/users/createuser';
-  private getUsersUrl = 'http://localhost:2019/api/users';
-  private merchantsUrl = 'http://localhost:2019/api/users/merchant';
-  private customersUrl = '';
-  private rolesUrl = 'http://localhost:2019/api/roles';
+  private addUsersUrl = 'http://192.168.254.174:2019/api/users/createuser';
+  private getUsersUrl = 'http://192.168.254.174:2019/api/users';
+  private terminalsUrl = 'http://192.168.254.174:2019/api/terminals';
+  private merchantsUrl = 'http://192.168.254.174:2019/api/users/merchant';
+  private customersUrl = 'http://192.168.254.174:2019/api/users/customer';
+  private rolesUrl = 'http://192.168.254.174:2019/api/roles';
+  private supportUrl = 'http://192.168.254.174:2019/api/support'
   private UserByRoleUrl = '';
-  private terminalsUrl = 'http://localhost:2019/api/terminals';
+  // private terminalsUrl='http://localhost:2019/api/terminals';
 
   constructor(private http: HttpClient) {}
   httpOptions = {
@@ -45,7 +47,6 @@ export class RafikiBoraService implements OnInit {
   addRole(roleData) {
     return this.http.post<any>(this.rolesUrl, roleData, this.httpOptions);
   }
-
   // Get Roles
   getRolesData(): Observable<Role[]> {
     return this.http.get<Role[]>(this.rolesUrl);
@@ -55,5 +56,14 @@ export class RafikiBoraService implements OnInit {
     return this.http.get<Merchant[]>(this.merchantsUrl);
   }
 
+  // Get Customers
+  getCustomersData(): Observable<any> {
+    return this.http.get<any>(this.customersUrl);
+  }
+
+  // Fetch support tickets
+  getSupportData(): Observable<any> {
+    return this.http.get<any>(this.supportUrl);
+  }
   ngOnInit() {}
 }

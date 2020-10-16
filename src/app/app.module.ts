@@ -30,6 +30,7 @@ import { RafikiBoraService } from './services/rafiki-bora.service';
 import { CoreModule } from './app-imports-module/core.module';
 import { TerminalsComponent } from './terminals/terminals.component';
 import { NewTerminalComponent } from './terminals/new-terminal/new-terminal.component';
+import { SupportComponent } from './support/support.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { NewTerminalComponent } from './terminals/new-terminal/new-terminal.comp
     HomeComponent,
     TerminalsComponent,
     NewTerminalComponent,
+    SupportComponent,
   ],
   imports: [
     AppImportsModule,

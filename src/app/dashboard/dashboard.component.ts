@@ -7,6 +7,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  hidden = false;
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
@@ -16,5 +17,9 @@ export class DashboardComponent implements OnInit {
 
   isMerchant() {
     return this.authService.isMerchant();
+  }
+
+  logout() {
+    return this.authService.logout();
   }
 }

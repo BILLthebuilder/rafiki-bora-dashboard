@@ -4,40 +4,13 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { RafikiBoraService } from '../services/rafiki-bora.service';
 
-export interface Customer {
-  id: number;
-  name: string;
-  phoneNo: string;
-  email: string;
-  merchant: string;
-  status: string;
-  dateCreated: string;
-}
-
-export interface Option {
-  value: string;
-  viewValue: string;
-}
-
 @Component({
-  selector: 'app-customers',
-  templateUrl: './customers.component.html',
-  styleUrls: ['./customers.component.scss', '../app.component.scss'],
+  selector: 'app-support',
+  templateUrl: './support.component.html',
+  styleUrls: ['./support.component.scss', '../app.component.scss'],
 })
-export class CustomersComponent implements OnInit {
-  displayedColumns: string[] = [
-    'id',
-    'first_name',
-    'last_name',
-    'email',
-    'mid',
-    'business_name',
-    'phone_no',
-    'createdBy',
-    'approvedBy',
-    'status',
-    'dateCreated',
-  ];
+export class SupportComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'tid', 'name', 'date', 'reason'];
   filters = [
     { value: 'approved', viewValue: 'Approved' },
     { value: 'declined', viewValue: 'Declined' },
@@ -74,7 +47,7 @@ export class CustomersComponent implements OnInit {
 
   ngOnInit(): void {
     this._rafikiBoraService
-      .getCustomersData()
+      .getSupportData()
       .subscribe((data) => (this.dataSource = new MatTableDataSource(data)));
   }
 

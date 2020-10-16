@@ -14,7 +14,7 @@
         <h3 class="heading-user-management">User Management</h3>
 
         <a mat-list-item [routerLink]="['roles']" [routerLinkActive]="['active']">Roles</a>
-        <a mat-list-item [routerLink]="['workgroups']" [routerLinkActive]="['active']">Workgroups</a>
+        <a mat-list-item [routerLink]="['workgroups']" [routerLinkActive]="['active']" *ngIf="hidden">Workgroups</a>
         <a mat-list-item [routerLink]="['users']" [routerLinkActive]="['active']">Users</a>
       </mat-nav-list>
       <hr class="heading-line-merchant" />
@@ -44,9 +44,20 @@
         <h3 class="heading-user-management">Reports</h3>
         <a mat-list-item [routerLink]="['reports']" [routerLinkActive]="['active']">Show Reports</a>
       </mat-nav-list>
+      <hr class="heading-line-user" />
+      
+      <mat-nav-list>
+        <h3 class="heading-user-management">Support Module</h3>
+        <a mat-list-item [routerLink]="['support']" [routerLinkActive]="['active']">Support Requests</a>
+      </mat-nav-list>
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
+    <div class="logout-button">
+      <a class="logout" mat-raised-button color="warn" (click)="logout()">
+        Logout
+      </a>
+    </div>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
