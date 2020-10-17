@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { RafikiBoraService } from 'src/app/services/rafiki-bora.service';
 
@@ -15,7 +16,8 @@ export class NewTerminalComponent implements OnInit {
     private http: HttpClient,
     private _rafikiBoraService: RafikiBoraService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {
     this.userSubmitForm = this.formBuilder.group({
       modelType: '',
@@ -27,9 +29,19 @@ export class NewTerminalComponent implements OnInit {
   onSubmit() {
     this._rafikiBoraService.addTerminal(this.userSubmitForm.value).subscribe(
       (response) => {
+        this._snackBar.open('Terminal created Successfully', 'dismiss', {
+          duration: 3000,
+          verticalPosition: 'top',
+          panelClass: ['green-snackbar'],
+        });
         this.router.navigateByUrl('/dashboard/terminals');
       },
       (error) => {
+        this._snackBar.open('Error creating terminal', 'dismiss', {
+          duration: 2000,
+          verticalPosition: 'top',
+          panelClass: ['red-snackbar'],
+        });
         console.log('There is an error', error);
       }
     );

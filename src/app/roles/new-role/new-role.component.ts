@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { RafikiBoraService } from 'src/app/services/rafiki-bora.service';
 
@@ -13,7 +14,8 @@ export class NewRoleComponent implements OnInit {
   constructor(
     private _rafikiBoraService: RafikiBoraService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {
     this.userSubmitForm = this.formBuilder.group({
       roleName: '',
@@ -22,18 +24,21 @@ export class NewRoleComponent implements OnInit {
 
   ngOnInit(): void {}
   saveRole(userData) {
-    // fetch('http://192.168.254.174:2019/api/roles', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: userData,
-    // }).then((res) => res.json());
     this._rafikiBoraService.addRole(userData).subscribe(
       (response) => {
+        this._snackBar.open('Role created Successfully', 'dismiss', {
+          duration: 3000,
+          verticalPosition: 'top',
+          panelClass: ['green-snackbar'],
+        });
         this.router.navigateByUrl('/dashboard/roles');
       },
       (error) => {
+        this._snackBar.open('Error creating role', 'dismiss', {
+          duration: 2000,
+          verticalPosition: 'top',
+          panelClass: ['red-snackbar'],
+        });
         console.log('There is an error', error);
       }
     );
