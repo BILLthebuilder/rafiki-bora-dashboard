@@ -22,7 +22,7 @@ export class NewRoleComponent implements OnInit {
 
   ngOnInit(): void {}
   saveRole(userData) {
-    // fetch('http://192.168.254.174:2019/api/roles', {
+    // fetch('http://localhost:2019/api/roles', {
     //   method: 'POST',
     //   headers: {
     //     'Content-Type': 'application/json',
