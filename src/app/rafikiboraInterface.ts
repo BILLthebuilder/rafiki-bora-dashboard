@@ -4,6 +4,9 @@ export interface User {
   lastName: string;
   email: string;
   phoneNo: string;
+  username: string;
+  password: string;
+  role: string;
   createdBy: string;
   approvedBy: string;
   status: string;
@@ -29,14 +32,25 @@ export interface Merchant {
 }
 
 export interface Terminal {
-  id: number,
-  tid: string,
-  serialNo: string,
-  modelType: string,
-  status: boolean,
-  mid: string,
-  createdBy: any,
-  approvedBy: any,
-  isDeleted: any,
-  createdOn: any,
+  id: number;
+  tid: string;
+  serialNo: string;
+  modelType: string;
+  status: boolean;
+  mid: string;
+  createdBy: any;
+  approvedBy: any;
+  isDeleted: any;
+  createdOn: any;
+}
+export interface Report {
+  id: number;
+  MID: string;
+  TID: string;
+  AgentId: string;
+  DebitAct: string;
+  CreditAct: string;
+  Amount: string;
+  TransactionType: string;
+  dateCreated: string;
 }
