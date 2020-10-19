@@ -1,11 +1,13 @@
 <!---------------------------PAGE TITLE---------------------------------------->
 <!----------------------------------------------------------------------------->
-<div class="page-title"><h1>Reports</h1></div>
+<div class="page-title">
+  <h1>Reports</h1>
+</div>
 <!--------------------------------ROLE BUTTONS---------------------------------->
 <!----------------------------------------------------------------------------->
 <div class="container">
 
- <!--------------------------------ROLE FILTERS---------------------------------->
+  <!--------------------------------ROLE FILTERS---------------------------------->
   <!----------------------------------------------------------------------------->
 
   <div class="item-filters">
@@ -20,10 +22,7 @@
     <mat-form-field appearance="outline">
       <mat-label>From</mat-label>
       <input matInput [matDatepicker]="pickerFrom" />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="pickerFrom"
-      ></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
       <mat-datepicker #pickerFrom></mat-datepicker>
     </mat-form-field>
     <mat-form-field appearance="outline">
@@ -69,49 +68,57 @@
       </ng-container>
 
       <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      <ng-container matColumnDef="MID">
+        <th mat-header-cell *matHeaderCellDef>MID</th>
+        <td mat-cell *matCellDef="let element">{{ element.MID }}</td>
       </ng-container>
 
       <!-- Role Description Column -->
-      <ng-container matColumnDef="phoneNo">
-        <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+      <ng-container matColumnDef="TID">
+        <th mat-header-cell *matHeaderCellDef>TID</th>
         <td mat-cell *matCellDef="let element">
-          {{ element.phoneNo }}
+          {{ element.TID }}
         </td>
       </ng-container>
 
       <!-- Created By Column -->
-      <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef>Email</th>
-        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+      <ng-container matColumnDef="AgentId">
+        <th mat-header-cell *matHeaderCellDef>AgentId</th>
+        <td mat-cell *matCellDef="let element">{{ element.AgentId }}</td>
       </ng-container>
 
       <!-- Approved By Column -->
-      <ng-container matColumnDef="merchant">
-        <th mat-header-cell *matHeaderCellDef>Merchant</th>
-        <td mat-cell *matCellDef="let element">{{ element.merchant }}</td>
+      <ng-container matColumnDef="DebitAct">
+        <th mat-header-cell *matHeaderCellDef>DebitAct</th>
+        <td mat-cell *matCellDef="let element">{{ element.DebitAct }}</td>
       </ng-container>
+      <!-- Date Created By Column -->
+      <ng-container matColumnDef="CreditAct">
+        <th mat-header-cell *matHeaderCellDef>CreditAct</th>
+        <td mat-cell *matCellDef="let element">{{ element.CreditAct }}</td>
+      </ng-container>
+
+      <!-- Date Created By Column -->
+      <ng-container matColumnDef="Amount">
+        <th mat-header-cell *matHeaderCellDef>Amount</th>
+        <td mat-cell *matCellDef="let element">{{ element.Amount }}</td>
+      </ng-container>
+
+      <!-- Date Created By Column -->
+      <ng-container matColumnDef="TransactionType">
+        <th mat-header-cell *matHeaderCellDef>TransactionType</th>
+        <td mat-cell *matCellDef="let element">{{ element.TransactionType }}</td>
+      </ng-container>
+
+
       <!-- Date Created By Column -->
       <ng-container matColumnDef="dateCreated">
         <th mat-header-cell *matHeaderCellDef>Date Created</th>
         <td mat-cell *matCellDef="let element">{{ element.dateCreated }}</td>
       </ng-container>
-      <!-- Date Created By Column -->
-      <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef>Status</th>
-        <td mat-cell *matCellDef="let element">{{ element.status }}</td>
-      </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr
-        mat-row
-        *matRowDef="let row; let even = even; columns: displayedColumns"
-        [ngClass]="{ gray: even }"
-      ></tr>
+      <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass]="{ gray: even }"></tr>
     </table>
   </div>
 </div>
-
-

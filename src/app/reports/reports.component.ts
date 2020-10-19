@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 
-export interface Reports {
+export interface Report {
   id: number;
-  name: string;
-  phoneNo: string;
-  email: string;
-  merchant: string;
-  status: string;
+  MID: string;
+  TID: string;
+  AgentId: string;
+  DebitAct: string;
+  CreditAct: string;
+  Amount: string;
+  TransactionType: string;
   dateCreated: string;
 }
 
@@ -15,15 +17,17 @@ export interface Option {
   value: string;
   viewValue: string;
 }
-const reports: Reports[] = [
+const reports: Report[] = [
   {
     id: 1,
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Pending',
-    dateCreated: '26/09/2020',
+    MID: '3243423422323',
+    TID: '5463534234',
+    AgentId: '434232',
+    DebitAct: '4342121234',
+    CreditAct: 'null',
+    Amount: '3000000',
+    TransactionType: 'Deposit',
+    dateCreated: '2/5/2012',
   },
 ];
 
@@ -33,13 +37,15 @@ const reports: Reports[] = [
   styleUrls: ['./reports.component.scss', '../app.component.scss'],
 })
 export class ReportsComponent implements OnInit {
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
   displayedColumns: string[] = [
     'id',
-    'phoneNo',
-    'email',
-    'merchant',
-    'status',
+    'MID',
+    'TID',
+    'AgentId',
+    'CreditAct',
+    'TransactionType',
+    'Amount',
     'dateCreated',
   ];
   filters: Option[] = [
