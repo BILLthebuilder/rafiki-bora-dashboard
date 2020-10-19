@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { RafikiBoraService } from '../services/rafiki-bora.service';
@@ -18,10 +19,12 @@ export class UsersComponent implements OnInit {
     'id',
     'firstName',
     'lastName',
+    'email',
     'accountNumber',
     'phoneNo',
     'status',
     'dateCreated',
+    'action',
   ];
 
   filters: Option[] = [
@@ -32,7 +35,8 @@ export class UsersComponent implements OnInit {
 
   constructor(
     private _rafikiBoraService: RafikiBoraService,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -49,6 +53,29 @@ export class UsersComponent implements OnInit {
 
   editButtonUser(id: number) {
     this.router.navigate(['/dashboard/users/edit', id]);
+  }
+  // Delete User
+  approveUser(email: string) {
+    this._rafikiBoraService.approveUser(email).subscribe(
+      (response) => {
+        this._snackBar.open('User approved Successfully', 'dismiss', {
+          duration: 3000,
+          verticalPosition: 'top',
+          panelClass: ['green-snackbar'],
+        });
+        this.ngOnInit();
+        console.log(response);
+      },
+      (error) => {
+        this._snackBar.open('You cannot approve this user', 'dismiss', {
+          duration: 3000,
+          verticalPosition: 'top',
+          panelClass: ['red-snackbar'],
+        });
+        this.ngOnInit();
+        console.log(error);
+      }
+    );
   }
 
   // Delete User
