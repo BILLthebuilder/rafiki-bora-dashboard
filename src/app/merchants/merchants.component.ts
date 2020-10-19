@@ -1,7 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { MatCheckboxChange } from '@angular/material/checkbox';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { RafikiBoraService } from '../services/rafiki-bora.service';
 
@@ -32,10 +31,6 @@ export class MerchantsComponent implements OnInit {
   public dataSource: any = [];
 
   pipe: DatePipe;
-  // CheckBtn form group
-  nestedForm: FormGroup;
-
-  selectedRowsValue = [];
 
   filterForm = new FormGroup({
     fromDate: new FormControl(),
@@ -67,30 +62,10 @@ export class MerchantsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Return selected ids
-    this.nestedForm = this._fb.group({
-      selectedId: this.addRowsControls(),
-    });
     // Get table data
     this._rafikiBoraService
       .getMerchantsData()
       .subscribe((data) => (this.dataSource = new MatTableDataSource(data)));
-  }
-
-  // Rows Getter
-  get rowArray() {
-    return <FormArray>this.nestedForm.get('selectedId');
-  }
-
-  // Get selected rows value
-  getSelectedRowsValue() {
-    this.selectedRowsValue = [];
-    this.rowArray.controls.forEach((control, i) => {
-      if (control.value) {
-        this.selectedRowsValue.push(this.dataSource[i]);
-      }
-    });
-    console.log(this.selectedRowsValue);
   }
 
   applyFilter() {
@@ -98,18 +73,5 @@ export class MerchantsComponent implements OnInit {
   }
   applySearchFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
-  addRowsControls() {
-    const arr = this.dataSource.map((item) => {
-      return this._fb.control(false);
-    });
-    return this._fb.array(arr);
-  }
-
-  showOptions(event) {
-    if (event.checked) {
-      console.log('I am checked yooh');
-    }
   }
 }
