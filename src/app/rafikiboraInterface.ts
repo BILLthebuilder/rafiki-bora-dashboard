@@ -31,6 +31,19 @@ export interface Merchant {
   dateCreated: string;
 }
 
+export interface Agent {
+  userid: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  mid: string;
+  businessName: string;
+  phoneNo: string;
+  createdBy: string;
+  approvedBy: string;
+  status: string;
+  dateCreated: string;
+}
 export interface Terminal {
   id: number;
   tid: string;
