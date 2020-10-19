@@ -4,7 +4,14 @@ import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 // eslint-disable-next-line import/no-cycle
 
-import { User, Role, Merchant, Terminal, Report } from '../rafikiboraInterface';
+import {
+  User,
+  Role,
+  Merchant,
+  Terminal,
+  Report,
+  Agent,
+} from '../rafikiboraInterface';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +21,8 @@ export class RafikiBoraService implements OnInit {
   private getUsersUrl = 'http://localhost:2019/api/users';
   private terminalsUrl = 'http://localhost:2019/api/terminals';
   private merchantsUrl = 'http://localhost:2019/api/users/merchant';
+  private getAgentsUrl = 'http://localhost:2019/api/users/agent';
+  private createAgentUrl = 'http://localhost:2019/api/users/addagent';
   private customersUrl = 'http://localhost:2019/api/users/customer';
   private rolesUrl = 'http://localhost:2019/api/roles';
   private supportUrl = 'http://localhost:2019/api/support';
@@ -81,6 +90,20 @@ export class RafikiBoraService implements OnInit {
     return this.http.get<Merchant[]>(this.merchantsUrl);
   }
 
+  // Get Agents
+  getAgents(): Observable<Agent[]> {
+    return this.http.get<Agent[]>(this.getAgentsUrl);
+  }
+
+  // Create Agents
+  addAgent(agentsData) {
+    return this.http.post<any>(
+      this.createAgentUrl,
+      agentsData,
+      this.httpOptions
+    );
+  }
+
   // Get Customers
   getCustomersData(): Observable<any> {
     return this.http.get<any>(this.customersUrl);
@@ -95,5 +118,5 @@ export class RafikiBoraService implements OnInit {
   getReportsData(): Observable<Report[]> {
     return this.http.get<any>(this.ReportsUrl);
   }
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 }
