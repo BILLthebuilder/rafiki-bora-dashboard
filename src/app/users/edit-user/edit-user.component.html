@@ -5,11 +5,9 @@
   <h2>User details</h2>
 
   <form [formGroup]="userSubmitForm" (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="outline">
-      <mat-label>ID</mat-label>
-
-      <input type="text" matInput required name="userid" formControlName="userid">
-    </mat-form-field>
+  
+    <input type="hidden" name="userid" formControlName="userid">
+   
     <mat-form-field appearance="outline">
       <mat-label>First Name</mat-label>
 
