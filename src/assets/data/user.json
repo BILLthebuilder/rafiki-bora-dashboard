@@ -1,62 +1,27 @@
-[{
-    "id": 1,
-    "name": "admins",
-    "description": "Administrators of stuff",
-    "createdBy": "John Doe Ngechu",
-    "approvedBy": "John Doe",
-    "status": "Approved",
-    "dateCreated": "26/09/2020"
-  },
-  {
-    "id": 2,
-    "name": "user",
-    "description": "Administrators of stuff",
-    "createdBy": "John Doe",
-    "approvedBy": "John Doe",
-    "status": "Approved",
-    "dateCreated": "26/09/2020"
-  },
-  {
-    "id": 3,
-    "name": "holder",
-    "description": "Administrators of stuff",
-    "createdBy": "John Doe",
-    "approvedBy": "John Doe",
-    "status": "Approved",
-    "dateCreated": "26/09/2020"
-  }, {
-    "id": 4,
-    "name": "builder",
-    "description": "Administrators of stuff",
-    "createdBy": "John Doe",
-    "approvedBy": "John Doe",
-    "status": "Approved",
-    "dateCreated": "26/09/2020"
-  }, {
-    "id": 5,
-    "name": "admins",
-    "description": "Administrators of stuff",
-    "createdBy": "John Doe",
-    "approvedBy": "John Doe",
-    "status": "Approved",
-    "dateCreated": "26/09/2020"
-  }, {
-    "id": 6,
-    "name": "Maker",
-    "description": "Administrators of stuff",
-    "createdBy": "John Doe",
-    "approvedBy": "John Doe",
-    "status": "Approved",
-    "dateCreated": "26/09/2020"
-  }, {
-    "id": 7,
-    "name": "admins",
-    "description": "Administrators of stuff",
-    "createdBy": "John Doe",
-    "approvedBy": "John Doe",
-    "status": "Approved",
-    "dateCreated": "26/09/2020"
-  }
+{
+  "users": [{
+      "userid": 1,
+      "firstName": "admins",
+      "lastName": "Administrator",
+      "username": "John Doe Ngechu",
+      "phoneNo": "212123312",
+      "email": "Approved@gmail.com",
+      "password": "dfdsdfs",
+      "role": "ADMIN"
+    },
+
+    {
+      "userid": 12,
+      "firstName": "fadmins",
+      "lastName": "fAdministrator",
+      "username": "John Doef Ngechu",
+      "phoneNo": "2121233123",
+      "email": "Approveewd@gmail.com",
+      "password": "dfdsdfsefew",
+      "role": "ADMIN"
+    }
 
 
-]
+
+  ]
+}

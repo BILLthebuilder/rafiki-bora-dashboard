@@ -88,8 +88,14 @@
         <th mat-header-cell *matHeaderCellDef>Date Created</th>
         <td mat-cell *matCellDef="let element">{{ element.dateCreated }}
 
-
+          <button mat-raised-button color="primary" (click)="editButtonUser(element.userid)">
+            Edit
+          </button>
+          <button mat-raised-button color="warn" (click)="deleteUser(element.userid)">
+            Delete
+          </button>
         </td>
+
       </ng-container>
 
 
