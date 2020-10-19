@@ -54,8 +54,14 @@ export class UsersComponent implements OnInit {
   // Delete User
   deleteUser(userId) {
     this._rafikiBoraService.deleteUser(userId).subscribe(
-      (response) => console.log('User successfully deleted', response),
-      (error) => console.log(error)
+      (response) => {
+        this.ngOnInit();
+        console.log('User successfully deleted', response);
+      },
+      (error) => {
+        this.ngOnInit();
+        console.log(error);
+      }
     );
   }
 
