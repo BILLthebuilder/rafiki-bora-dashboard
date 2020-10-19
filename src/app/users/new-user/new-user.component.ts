@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/rafikiboraInterface';
+
 import { RafikiBoraService } from 'src/app/services/rafiki-bora.service';
 
 @Component({
@@ -18,7 +20,9 @@ export class NewUserComponent implements OnInit {
     private http: HttpClient,
     private _rafikiBoraService: RafikiBoraService,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private router: Router,
+    private route: ActivatedRoute,
+    private _snackBar: MatSnackBar
   ) {
     this.userSubmitForm = this.formBuilder.group({
       firstName: '',
@@ -64,8 +68,22 @@ export class NewUserComponent implements OnInit {
   }
   onSubmit() {
     this._rafikiBoraService.addUser(this.userSubmitForm.value).subscribe(
-      (response) => console.log('Success', response),
-      (error) => console.log('There is an error', error)
+      (response) => {
+        this._snackBar.open('User created Successfully', 'dismiss', {
+          duration: 3000,
+          verticalPosition: 'top',
+          panelClass: ['green-snackbar'],
+        });
+        this.router.navigateByUrl('/dashboard/users');
+      },
+      (error) => {
+        this._snackBar.open('Error creating user', 'dismiss', {
+          duration: 2000,
+          verticalPosition: 'top',
+          panelClass: ['red-snackbar'],
+        });
+        console.log('There is an error', error);
+      }
     );
     console.log(this.userSubmitForm.value);
   }
