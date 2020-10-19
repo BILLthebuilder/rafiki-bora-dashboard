@@ -1,5 +1,5 @@
 /* eslint-disable @angular-eslint/contextual-lifecycle */
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 // eslint-disable-next-line import/no-cycle
@@ -19,7 +19,7 @@ export class RafikiBoraService implements OnInit {
   private supportUrl = 'http://localhost:2019/api/support';
   private ReportsUrl = 'http://localhost:2019/api/report';
   private editUsersUrl = 'http://localhost:2019/api/users/ser';
-  // private terminalsUrl='http://localhost:2019/api/terminals';
+  private approveUrl = 'http://localhost:2019/api/users/user/approve';
 
   constructor(private http: HttpClient) {}
   httpOptions = {
@@ -48,6 +48,11 @@ export class RafikiBoraService implements OnInit {
   // Add User
   addUser(userData) {
     return this.http.post<any>(this.addUsersUrl, userData, this.httpOptions);
+  }
+
+  // Approve User
+  approveUser(email: string) {
+    return this.http.post<any>(`${this.approveUrl}/${email}`, null);
   }
 
   // Delete User
@@ -90,5 +95,5 @@ export class RafikiBoraService implements OnInit {
   getReportsData(): Observable<Report[]> {
     return this.http.get<any>(this.ReportsUrl);
   }
-  ngOnInit() {}
+  ngOnInit(): void { }
 }
