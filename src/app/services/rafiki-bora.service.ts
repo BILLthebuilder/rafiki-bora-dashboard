@@ -18,7 +18,7 @@ export class RafikiBoraService implements OnInit {
   private rolesUrl = 'http://localhost:2019/api/roles';
   private supportUrl = 'http://localhost:2019/api/support';
   private ReportsUrl = 'http://localhost:2019/api/report';
-  private editUsersUrl = '  http://localhost:3000/users';
+  private editUsersUrl = 'http://localhost:2019/api/users/ser';
   // private terminalsUrl='http://localhost:2019/api/terminals';
 
   constructor(private http: HttpClient) {}
@@ -34,7 +34,15 @@ export class RafikiBoraService implements OnInit {
   }
   // Get User By Id
   getUserById(userId): Observable<User> {
-    return this.http.get<any>(`${this.editUsersUrl}/${userId}`);
+    return this.http.get<User>(`${this.editUsersUrl}/${userId}`);
+  }
+
+  editUser(userId, userData) {
+    return this.http.patch<any>(
+      `${this.getUsersUrl}/${userId}`,
+      userData,
+      this.httpOptions
+    );
   }
 
   // Add User
