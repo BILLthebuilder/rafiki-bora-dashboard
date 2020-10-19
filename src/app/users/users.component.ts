@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { RafikiBoraService } from '../services/rafiki-bora.service';
 
 export interface Option {
@@ -29,7 +30,10 @@ export class UsersComponent implements OnInit {
   ];
   public dataSource: any = [];
 
-  constructor(private _rafikiBoraService: RafikiBoraService) {}
+  constructor(
+    private _rafikiBoraService: RafikiBoraService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this._rafikiBoraService
@@ -39,5 +43,19 @@ export class UsersComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  // Edit User
+
+  editButtonUser(id: number) {
+    this.router.navigate(['/edit', id]);
+  }
+
+  // Delete User
+  deleteUser(userId) {
+    this._rafikiBoraService.deleteUser(userId).subscribe(
+      (response) => console.log('User successfully deleted', response),
+      (error) => console.log(error)
+    );
   }
 }

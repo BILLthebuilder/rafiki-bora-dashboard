@@ -92,8 +92,18 @@
       <!-- User Date Created Column -->
       <ng-container matColumnDef="dateCreated">
         <th mat-header-cell *matHeaderCellDef>Date Created</th>
-        <td mat-cell *matCellDef="let element">{{ element.dateCreated }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.dateCreated }}
+
+          <button mat-raised-button color="primary" (click)="editButtonUser(element.userid)">
+            Edit
+          </button>
+          <button mat-raised-button color="warn" (click)="deleteUser(element.userid)">
+            Delete
+          </button>
+        </td>
+
       </ng-container>
+
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass]="{ gray: even }"></tr>
