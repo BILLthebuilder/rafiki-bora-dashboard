@@ -18,6 +18,7 @@ import { RolesComponent } from './roles/roles.component';
 import { SupportComponent } from './support/support.component';
 import { NewTerminalComponent } from './terminals/new-terminal/new-terminal.component';
 import { TerminalsComponent } from './terminals/terminals.component';
+import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { NewUserComponent } from './users/new-user/new-user.component';
 import { UsersComponent } from './users/users.component';
 import { WgDetailsComponent } from './workgroups/new-wg/new-wg.component';
@@ -99,7 +100,7 @@ const routes: Routes = [
           },
           {
             path: 'edit/:id',
-            component: NewUserComponent,
+            component: EditUserComponent,
           },
           {
             path: '',
