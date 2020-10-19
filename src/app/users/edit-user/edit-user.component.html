@@ -1,0 +1,50 @@
+<div class="page-title">
+  <h1>Edit User</h1>
+</div>
+<div class="container">
+  <h2>User details</h2>
+
+  <form [formGroup]="userSubmitForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>ID</mat-label>
+
+      <input type="text" matInput required name="userid" formControlName="userid">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+
+      <input type="text" matInput required name="firstName" formControlName="firstName" placeholder="Enter first name">
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+
+      <input matInput type="text" required name="lastName" formControlName="lastName" placeholder="Enter Last name">
+    </mat-form-field>
+    <br />
+
+    <mat-form-field appearance="outline">
+
+      <input matInput type="text" required name="phoneNo" formControlName="phoneNo" placeholder="Enter Phone Number">
+
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+
+      <input matInput type="email" required name="email" formControlName="email" placeholder="Enter Account email">
+    </mat-form-field>
+    <br />
+
+    <mat-form-field appearance="outline">
+
+      <input matInput type="password" required name="password" formControlName="password" placeholder="Enter password">
+    </mat-form-field>
+
+
+    <button mat-raised-button color="warn" type="submit">
+      <mat-icon>save</mat-icon>
+      Save
+    </button>
+  </form>
+</div>
