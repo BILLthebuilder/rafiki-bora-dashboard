@@ -1,108 +1,106 @@
-
 <!---------------------------PAGE TITLE---------------------------------------->
 <!----------------------------------------------------------------------------->
-<div class="page-title"><h1>Agents List</h1></div>
-<!--------------------------------AGENTS BUTTONS---------------------------------->
-<!----------------------------------------------------------------------------->
+<div class="page-title">
+  <h1>Agents</h1>
+</div>
+
 <div class="container">
-  <div class="top-buttons">
-    <button [routerLink]="['new-agent']" mat-raised-button color="warn">
-      <mat-icon>add</mat-icon>
-      New
-    </button>
-
-  </div>
-  <router-outlet></router-outlet>
-
-  <!--------------------------------AGENTS FILTERS---------------------------------->
-  <!----------------------------------------------------------------------------->
-
+    <div class="top-buttons">
+      <button mat-raised-button color="warn" [routerLink]="['new-agent']">
+        <mat-icon>add</mat-icon>
+        New
+      </button>
+    </div>
   <div class="item-filters">
-    <mat-form-field appearance="outline" class="statusSelect">
-      <mat-label>Status</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let filter of filters" [value]="filter.value">
-          {{ filter.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+
     <mat-form-field appearance="outline">
       <mat-label>From</mat-label>
-      <input matInput [matDatepicker]="pickerFrom" />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="pickerFrom"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #pickerFrom></mat-datepicker>
+      <input matInput [matDatepicker]="fromDate" />
+      <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+      <mat-datepicker #fromDate></mat-datepicker>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>To</mat-label>
-      <input matInput [matDatepicker]="pickerTo" />
-      <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
-      <mat-datepicker #pickerTo></mat-datepicker>
+      <input matInput [matDatepicker]="toDate" />
+      <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+      <mat-datepicker #toDate></mat-datepicker>
     </mat-form-field>
     <mat-form-field class="search-field" appearance="outline">
-      <input matInput placeholder="search" name="search" type="search" />
+      <input (keyup)="applySearchFilter($event.target.value)" matInput placeholder="search" name="search"
+        type="search" />
     </mat-form-field>
-    <button mat-raised-button color="primary" class="filterBtn">
+
+    <button mat-raised-button color="primary" class="filterBtn" (click)="applyFilter()">
       <mat-icon>search</mat-icon>
       Filter
     </button>
-  </div>
 
-  <!--------------------------------AGENTS TABLE---------------------------------->
-  <!----------------------------------------------------------------------------->
+  </div>
 
   <div class="item-table">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
 
       <!-- id Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>Id</th>
-        <td mat-cell *matCellDef="let element">
-          {{ element.id }}
-        
-        </td>
-      </ng-container>
-       <!-- tid Column -->
-       <ng-container matColumnDef="tid">
-        <th mat-header-cell *matHeaderCellDef>Tid</th>
-        <td mat-cell *matCellDef="let element">
-          {{ element.tid }}
-        </td>
+      <div class="myCheckbox">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.userid }}
+
+          </td>
+        </ng-container>
+      </div>
+
+
+      <!-- First Name Column -->
+      <ng-container matColumnDef="first_name">
+        <th mat-header-cell *matHeaderCellDef>FirstName</th>
+        <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
       </ng-container>
 
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      <ng-container matColumnDef="last_name">
+        <th mat-header-cell *matHeaderCellDef>LastName</th>
+        <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
       </ng-container>
 
-      <!-- Role Description Column -->
-      <ng-container matColumnDef="phoneNo">
+      <ng-container matColumnDef="mid">
+        <th mat-header-cell *matHeaderCellDef>Merchant Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.mid }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="business_name">
+        <th mat-header-cell *matHeaderCellDef>Business Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.businessName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone_no">
         <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+        <td mat-cell *matCellDef="let element">{{ element.phoneNo }}</td>
+      </ng-container>
+
+      <!-- Merchant Description Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
         <td mat-cell *matCellDef="let element">
-          {{ element.phoneNo }}
+          {{ element.email }}
         </td>
       </ng-container>
 
       <!-- Created By Column -->
-      <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef>Email</th>
-        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+      <ng-container matColumnDef="createdBy">
+        <th mat-header-cell *matHeaderCellDef>Created By</th>
+        <td mat-cell *matCellDef="let element">{{ element.createdBy }}</td>
       </ng-container>
 
       <!-- Approved By Column -->
-      <ng-container matColumnDef="merchant">
-        <th mat-header-cell *matHeaderCellDef>Merchant</th>
-        <td mat-cell *matCellDef="let element">{{ element.merchant }}</td>
+      <ng-container matColumnDef="approvedBy">
+        <th mat-header-cell *matHeaderCellDef>Approved By</th>
+        <td mat-cell *matCellDef="let element">{{ element.approvedBy }}</td>
       </ng-container>
       <!-- Date Created By Column -->
       <ng-container matColumnDef="dateCreated">
         <th mat-header-cell *matHeaderCellDef>Date Created</th>
-        <td mat-cell *matCellDef="let element">{{ element.dateCreated }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.dateCreated | date:'medium' }}</td>
       </ng-container>
       <!-- Date Created By Column -->
       <ng-container matColumnDef="status">
@@ -110,13 +108,10 @@
         <td mat-cell *matCellDef="let element">{{ element.status }}</td>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr
-        mat-row
-        *matRowDef="let row; let even = even; columns: displayedColumns"
-        [ngClass]="{ gray: even }"
-      ></tr>
+      <tr mat-header-row *matHeaderRowDef=" displayedColumns">
+      </tr>
+      <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass]="{ gray: even }">
+      </tr>
     </table>
   </div>
 </div>
-

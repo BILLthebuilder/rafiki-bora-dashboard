@@ -1,132 +1,13 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-
-export interface Agent {
-  id: number;
-  tid: string;
-  name: string;
-  phoneNo: string;
-  email: string;
-  merchant: string;
-  status: string;
-  dateCreated: string;
-}
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
+import { RafikiBoraService } from '../services/rafiki-bora.service';
 
 export interface Option {
   value: string;
   viewValue: string;
 }
-const agents: Agent[] = [
-  {
-    id: 1,
-    tid: 'IWL5003820180',
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Pending',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 2,
-    tid: 'IWL5003820180',
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Pending',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 3,
-    tid: 'IWL5003820180',
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Pending',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 4,
-    tid: 'IWL5003820180',
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Pending',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 5,
-    tid: 'IWL5003820180',
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Pending',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 5,
-    tid: 'IWL5003820180',
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Pending',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 6,
-    tid: 'IWL5003820180',
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Pending',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 7,
-    tid: 'IWL5003820180',
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Pending',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 8,
-    tid: 'IWL5003820180',
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Pending',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 9,
-    tid: 'IWL5003820180',
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Pending',
-    dateCreated: '26/09/2020',
-  },
-  {
-    id: 10,
-    tid: 'IWL5003820180',
-    name: 'Brian Ngechu',
-    phoneNo: '0711706503',
-    email: 'ngechu@gmail.com',
-    merchant: 'Tracom',
-    status: 'Pending',
-    dateCreated: '26/09/2020',
-  },
-];
 
 @Component({
   selector: 'app-agents',
@@ -136,20 +17,66 @@ const agents: Agent[] = [
 export class AgentsComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
-    'tid',
-    'phoneNo',
+    'first_name',
+    'last_name',
     'email',
-    'merchant',
+    'mid',
+    'business_name',
+    'phone_no',
+    'createdBy',
+    'approvedBy',
     'status',
     'dateCreated',
   ];
-  filters: Option[] = [
+  filters = [
     { value: 'approved', viewValue: 'Approved' },
     { value: 'declined', viewValue: 'Declined' },
   ];
 
-  dataSource = agents;
-  constructor() {}
+  public dataSource: any = [];
 
-  ngOnInit(): void {}
+  pipe: DatePipe;
+
+  filterForm = new FormGroup({
+    fromDate: new FormControl(),
+    toDate: new FormControl(),
+    status: new FormControl(),
+  });
+
+  get fromDate() {
+    return this.filterForm.get('fromDate').value;
+  }
+  get toDate() {
+    return this.filterForm.get('toDate').value;
+  }
+  get status() {
+    return this.filterForm.get('status').value;
+  }
+
+  constructor(
+    private _rafikiBoraService: RafikiBoraService,
+    private _fb: FormBuilder
+  ) {
+    this.pipe = new DatePipe('en');
+    this.dataSource.filterPredicate = (data, filter) => {
+      if (this.fromDate && this.toDate) {
+        return data.created >= this.fromDate && data.created <= this.toDate;
+      }
+      return true;
+    };
+  }
+
+  ngOnInit(): void {
+    // Get table data
+    this._rafikiBoraService
+      .getAgents()
+      .subscribe((data) => (this.dataSource = new MatTableDataSource(data)));
+  }
+
+  applyFilter() {
+    this.dataSource.filter = `${Math.random()}`;
+  }
+  applySearchFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }

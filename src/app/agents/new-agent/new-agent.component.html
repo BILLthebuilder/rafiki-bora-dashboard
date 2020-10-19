@@ -1,49 +1,58 @@
-<!---------------------------PAGE TITLE---------------------------------------->
-<!----------------------------------------------------------------------------->
-<div class="page-title"><h1>Create a New Agent</h1></div>
-
-<!---------------------------New AGENT FORM---------------------------------------->
-<!----------------------------------------------------------------------------->
-
+<div class="page-title">
+  <h1>Create a Agent</h1>
+</div>
 <div class="container">
-  <h2>Agent Details</h2>
-  <div class="forms">
+  <h2>Agent details</h2>
+  <form [formGroup]="userSubmitForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="outline">
-      <mat-label>Agent Name</mat-label>
-      <input matInput required />
+      <mat-label>First Name</mat-label>
+
+      <input type="text" matInput required name="firstName" formControlName="firstName" placeholder="Enter first name">
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+
+      <input matInput type="text" required name="lastName" formControlName="lastName" placeholder="Enter Last name">
     </mat-form-field>
     <br />
 
     <mat-form-field appearance="outline">
-      <mat-label>Phone Number</mat-label>
-      <input matInput required />
+      <mat-label>User Name</mat-label>
+
+      <input matInput type="text" required name="username" formControlName="username" placeholder="Enter User Name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+
+      <input matInput type="text" required name="phoneNo" formControlName="phoneNo" placeholder="Enter Phone Number">
+
     </mat-form-field>
     <br />
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
-      <input type="email" matInput required />
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Terminal Id</mat-label>
-      <input type="text" matInput required />
-    </mat-form-field>
-    <mat-form-field appearance="outline">
 
-      <mat-label>Select Merchant</mat-label>
-      <mat-select>
-        <mat-option value="option">Tracom</mat-option>
-      </mat-select>
+      <input matInput type="email" required name="email" formControlName="email" placeholder="Enter Account email">
     </mat-form-field>
     <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Select Role</mat-label>
+      <mat-select required ngModel name="role" formControlName="role">
+        <mat-option *ngFor="let role of roles" [value]="role.roleName">
+          {{role.roleName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-    <button mat-raised-button routerLink="/dashboard/agents" color="warn">
+    <mat-form-field appearance="outline">
+
+      <input matInput type="password" required name="password" formControlName="password" placeholder="Enter password">
+    </mat-form-field>
+
+
+    <button mat-raised-button color="warn" type="submit">
       <mat-icon>save</mat-icon>
       Save
     </button>
-
-  </div>
-
-
-
+  </form>
 </div>
-
