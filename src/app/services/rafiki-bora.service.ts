@@ -4,8 +4,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 // eslint-disable-next-line import/no-cycle
 
-import { User, Role, Merchant, Terminal } from '../rafikiboraInterface';
-import { Report } from '../reports/reports.component';
+import { User, Role, Merchant, Terminal, Report } from '../rafikiboraInterface';
 
 @Injectable({
   providedIn: 'root',
