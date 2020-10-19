@@ -80,8 +80,14 @@
       <!-- User Status Column -->
       <ng-container matColumnDef="status">
         <th mat-header-cell *matHeaderCellDef>Status</th>
-        <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+        <td mat-cell *matCellDef="let element;">
+          <span [ngClass] = "{'hidden': element.status === false}">{{element.status}}</span> 
+        </td>
       </ng-container>
+      <!-- <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+      </ng-container> -->
 
       <!-- User Date Created Column -->
       <ng-container matColumnDef="dateCreated">
