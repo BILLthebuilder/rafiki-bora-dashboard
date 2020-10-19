@@ -3,13 +3,7 @@
 <div class="page-title">
   <h1>Reports</h1>
 </div>
-<!--------------------------------ROLE BUTTONS---------------------------------->
-<!----------------------------------------------------------------------------->
 <div class="container">
-
-  <!--------------------------------ROLE FILTERS---------------------------------->
-  <!----------------------------------------------------------------------------->
-
   <div class="item-filters">
     <mat-form-field appearance="outline" class="statusSelect merchantSelect" *ngIf="isAdmin()">
       <mat-label>Merchant</mat-label>
@@ -31,15 +25,6 @@
       <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
       <mat-datepicker #pickerTo></mat-datepicker>
     </mat-form-field>
-
-    <!-- <mat-form-field appearance="outline" >
-      <mat-label>Status</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let filter of filters" [value]="filter.value">
-          {{ filter.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field> -->
 
     <mat-form-field class="search-field" appearance="outline">
       <input matInput placeholder="search" name="search" type="search" />
@@ -63,7 +48,7 @@
         <th mat-header-cell *matHeaderCellDef>Id</th>
         <td mat-cell *matCellDef="let element">
           {{ element.id }}
-          <mat-checkbox class="checkBtn"></mat-checkbox>
+        
         </td>
       </ng-container>
 

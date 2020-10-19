@@ -9,15 +9,6 @@
       <mat-icon>add</mat-icon>
       New
     </button>
-
-    <button mat-raised-button>
-      <mat-icon>check</mat-icon>
-      Approve
-    </button>
-    <button mat-raised-button>
-      <mat-icon>clear</mat-icon>
-      Decline
-    </button>
   </div>
   <router-outlet></router-outlet>
 
@@ -64,7 +55,7 @@
         <th mat-header-cell *matHeaderCellDef>Role Id</th>
         <td mat-cell *matCellDef="let element">
           {{ element.roleid }}
-          <mat-checkbox class="checkBtn"></mat-checkbox>
+        
         </td>
       </ng-container>
 

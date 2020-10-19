@@ -11,14 +11,6 @@
       New
     </button>
 
-    <button mat-raised-button>
-      <mat-icon>check</mat-icon>
-      Approve
-    </button>
-    <button mat-raised-button>
-      <mat-icon>clear</mat-icon>
-      Decline
-    </button>
   </div>
   <router-outlet></router-outlet>
 
@@ -71,7 +63,7 @@
         <th mat-header-cell *matHeaderCellDef>Id</th>
         <td mat-cell *matCellDef="let element">
           {{ element.id }}
-          <mat-checkbox class="checkBtn"></mat-checkbox>
+        
         </td>
       </ng-container>
        <!-- tid Column -->
