@@ -14,6 +14,7 @@ table {
 .mat-table {
   border-radius: 5px;
   overflow: hidden !important;
+  width: 100%;
 }
 
 th {
@@ -81,3 +82,12 @@ th {
 //   text-align: center;
 //   border-right: 0.1px solid gray;
 // }
+button {
+  margin: 5px;
+}
+
+th.mat-header-cell:last-of-type,
+td.mat-cell:last-of-type,
+td.mat-footer-cell:last-of-type {
+  padding: 0;
+}
