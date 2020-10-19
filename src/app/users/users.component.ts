@@ -48,7 +48,7 @@ export class UsersComponent implements OnInit {
   // Edit User
 
   editButtonUser(id: number) {
-    this.router.navigate(['/edit', id]);
+    this.router.navigate(['/dashboard/users/edit', id]);
   }
 
   // Delete User
@@ -58,6 +58,4 @@ export class UsersComponent implements OnInit {
       (error) => console.log(error)
     );
   }
-
-  // hide row
 }
