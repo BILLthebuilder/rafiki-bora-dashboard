@@ -26,12 +26,12 @@ import { NewAgentComponent } from './agents/new-agent/new-agent.component';
 import { ReportsComponent } from './reports/reports.component';
 import { HomeComponent } from './home/home.component';
 import { RafikiBoraService } from './services/rafiki-bora.service';
-// import { LoginService } from './login/login.service';
 import { CoreModule } from './app-imports-module/core.module';
 import { TerminalsComponent } from './terminals/terminals.component';
 import { NewTerminalComponent } from './terminals/new-terminal/new-terminal.component';
 import { SupportComponent } from './support/support.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
+import { AssignComponent } from './terminals/assign/assign.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +57,7 @@ import { EditUserComponent } from './users/edit-user/edit-user.component';
     NewTerminalComponent,
     SupportComponent,
     EditUserComponent,
+    AssignComponent,
   ],
   imports: [
     AppImportsModule,

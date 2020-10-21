@@ -16,6 +16,7 @@ import { ReportsComponent } from './reports/reports.component';
 import { NewRoleComponent } from './roles/new-role/new-role.component';
 import { RolesComponent } from './roles/roles.component';
 import { SupportComponent } from './support/support.component';
+import { AssignComponent } from './terminals/assign/assign.component';
 import { NewTerminalComponent } from './terminals/new-terminal/new-terminal.component';
 import { TerminalsComponent } from './terminals/terminals.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
@@ -61,6 +62,10 @@ const routes: Routes = [
           {
             path: 'new-terminal',
             component: NewTerminalComponent,
+          },
+          {
+            path: 'assign',
+            component: AssignComponent,
           },
           {
             path: '',

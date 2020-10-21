@@ -1,0 +1,42 @@
+<div class="page-title">
+    <h1>Assign Terminals to Merchant</h1>
+</div>
+<div class="container">
+    <div class="assignees-list">
+        <table>
+                <tr>
+                    <th>Unassigned Terminals</th>
+                </tr>
+              <tr *ngFor="let tid of unassignedTerminals">
+                <td (click)=selectedTerminal($event.target.innerText) [ngClass]="selectedTerminal ? 'clicked' :'' ">{{tid}}</td>
+              </tr>  
+        </table>
+        <table>
+            <tr>
+                <th>List of Merchants</th>
+            </tr>
+            <tr *ngFor="let email of merchantEmails">
+                <td (click)=selectedMerchant($event.target.innerText)>{{email}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="submit-form">
+        <form [formGroup]="userSubmitForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="outline">
+                <mat-label>Terminal Id</mat-label>
+                <input type="text" matInput required name="tid" formControlName="tid" placeholder="Terminal Id">
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="outline">
+                <mat-label>Merchant Email</mat-label>
+                <input matInput type="email" required name="email" formControlName="email" placeholder="Merchant Email">
+            </mat-form-field>
+            <br />
+            <button mat-raised-button color="warn" type="submit">
+                <mat-icon>save</mat-icon>
+                Assign
+            </button>
+        </form>
+    </div>
+</div>
+
