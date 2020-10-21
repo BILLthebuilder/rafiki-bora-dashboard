@@ -35,7 +35,7 @@ export class AuthService implements OnDestroy {
       if (event.key === 'login-event') {
         this.stopTokenTimer();
         this.http
-          .get<ApplicationUser>(`${this.apiUrl}api/users//user/profile`)
+          .get<ApplicationUser>(`${this.apiUrl}api/users/user/profile`)
           .subscribe((x) => {
             this._user.next({
               email: x.email,

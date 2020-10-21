@@ -29,6 +29,8 @@ export class RafikiBoraService implements OnInit {
   private ReportsUrl = 'http://localhost:2019/api/report';
   private editUsersUrl = 'http://localhost:2019/api/users/ser';
   private approveUrl = 'http://localhost:2019/api/users/user/approve';
+  private assignUrl = 'http://localhost:2019/api/users/assignmerchantterminal';
+  private getUnassignedTerminals = 'http://localhost:2019/api/terminals/fetch';
 
   constructor(private http: HttpClient) {}
   httpOptions = {
@@ -78,6 +80,15 @@ export class RafikiBoraService implements OnInit {
     return this.http.get<Terminal[]>(this.terminalsUrl);
   }
 
+  // Fetch all unassigned terminals
+  getUnAssignedTerminals(): Observable<Terminal[]> {
+    return this.http.get<Terminal[]>(this.getUnassignedTerminals);
+  }
+
+  // Assign terminals
+  assignTerminal(terminalData) {
+    return this.http.post<any>(this.assignUrl, terminalData);
+  }
   addRole(roleData) {
     return this.http.post<any>(this.rolesUrl, roleData, this.httpOptions);
   }
