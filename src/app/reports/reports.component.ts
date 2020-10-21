@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../services/auth.service';
+import { RafikiBoraService } from '../services/rafiki-bora.service';
 
 export interface Report {
   id: number;
@@ -37,7 +40,8 @@ const reports: Report[] = [
   styleUrls: ['./reports.component.scss', '../app.component.scss'],
 })
 export class ReportsComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+  dataSource: any;
+
   displayedColumns: string[] = [
     'id',
     'MID',
@@ -47,18 +51,27 @@ export class ReportsComponent implements OnInit {
     'TransactionType',
     'Amount',
     'dateCreated',
+    'action',
   ];
-  filters: Option[] = [
-    { value: 'approved', viewValue: 'Approved' },
-    { value: 'declined', viewValue: 'Declined' },
-  ];
-  merchantFilters: Option[] = [
-    { value: 'tracom', viewValue: 'Tracom' },
-    { value: 'pergamon', viewValue: 'Pergamon' },
-  ];
-  dataSource = reports;
+
+  constructor(
+    private authService: AuthService,
+    private _rafikiBoraService: RafikiBoraService
+  ) {}
+
+  merchantFilters: any;
+
   isAdmin() {
     return this.authService.isAdmin();
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Get table data
+    this._rafikiBoraService
+      .getMerchantsData()
+      .subscribe((data) => (this.merchantFilters = data));
+  }
+
+  getMerchantTransaction(mid) {
+    this._rafikiBoraService.getMerchantsTransaction(mid).subscribe();
+  }
 }

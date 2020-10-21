@@ -26,7 +26,8 @@ export class RafikiBoraService implements OnInit {
   private customersUrl = 'http://localhost:2019/api/users/customer';
   private rolesUrl = 'http://localhost:2019/api/roles';
   private supportUrl = 'http://localhost:2019/api/support';
-  private ReportsUrl = 'http://localhost:2019/api/report';
+  private TransactionUrl =
+    'http://localhost:2019/api/transactions/merchant/{mid}';
   private editUsersUrl = 'http://localhost:2019/api/users/ser';
   private approveUrl = 'http://localhost:2019/api/users/user/approve';
   private assignUrl = 'http://localhost:2019/api/users/assignmerchantterminal';
@@ -79,6 +80,14 @@ export class RafikiBoraService implements OnInit {
   getTerminals(): Observable<Terminal[]> {
     return this.http.get<Terminal[]>(this.terminalsUrl);
   }
+  // Approve Terminal
+  approveTerminal(tid: string) {
+    return this.http.post<any>(`${this.terminalsUrl}/approve{id}/${tid}`, null);
+  }
+  // Delete User
+  deleteTerminal(tid) {
+    return this.http.delete<any>(`${this.terminalsUrl}/${tid}`);
+  }
 
   // Fetch all unassigned terminals
   getUnAssignedTerminals(): Observable<Terminal[]> {
@@ -126,8 +135,8 @@ export class RafikiBoraService implements OnInit {
   }
 
   // Get Reports
-  getReportsData(): Observable<Report[]> {
-    return this.http.get<any>(this.ReportsUrl);
+  getMerchantsTransaction(mid): Observable<Report[]> {
+    return this.http.get<any>(`${this.TransactionUrl}/${mid}`);
   }
   ngOnInit(): void {}
 }

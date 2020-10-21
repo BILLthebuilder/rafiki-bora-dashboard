@@ -1,5 +1,5 @@
 <div class="page-title">
-    <h1>Terminals</h1>
+  <h1>Terminals</h1>
 </div>
 
 <div class="container">
@@ -34,60 +34,69 @@
             Filter
         </button>
 
-    </div>
+  </div>
 
-    <div class="item-table">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <div class="item-table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-            <!-- id Column -->
-            <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef>Id</th>
-                <td mat-cell *matCellDef="let element">
-                    {{ element.id }}
-                    <mat-checkbox class="checkBtn" type="checkbox"></mat-checkbox>
-                </td>
-            </ng-container>
+      <!-- id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.id }}
 
-            <ng-container matColumnDef="tid">
-                <th mat-header-cell *matHeaderCellDef>Terminal ID</th>
-                <td mat-cell *matCellDef="let element">{{ element.tid }}</td>
-            </ng-container>
+        </td>
+      </ng-container>
 
-            <ng-container matColumnDef="serialNo">
-                <th mat-header-cell *matHeaderCellDef>Serial No</th>
-                <td mat-cell *matCellDef="let element">{{ element.serialNo }}</td>
-            </ng-container>
+      <ng-container matColumnDef="tid">
+        <th mat-header-cell *matHeaderCellDef>Terminal ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.tid }}</td>
+      </ng-container>
 
-            <ng-container matColumnDef="modelType">
-                <th mat-header-cell *matHeaderCellDef>Model Type</th>
-                <td mat-cell *matCellDef="let element">{{ element.modelType }}</td>
-            </ng-container>
+      <ng-container matColumnDef="serialNo">
+        <th mat-header-cell *matHeaderCellDef>Serial No</th>
+        <td mat-cell *matCellDef="let element">{{ element.serialNo }}</td>
+      </ng-container>
 
-            <ng-container matColumnDef="status">
-                <th mat-header-cell *matHeaderCellDef>Status</th>
-                <td mat-cell *matCellDef="let element">{{ element.status }}</td>
-            </ng-container>
+      <ng-container matColumnDef="modelType">
+        <th mat-header-cell *matHeaderCellDef>Model Type</th>
+        <td mat-cell *matCellDef="let element">{{ element.modelType }}</td>
+      </ng-container>
 
-            <ng-container matColumnDef="mid">
-                <th mat-header-cell *matHeaderCellDef>Merchant ID</th>
-                <td mat-cell *matCellDef="let element">{{ element.mid }}</td>
-            </ng-container>         
-                <ng-container matColumnDef="deleted">
-                    <th mat-header-cell *matHeaderCellDef>Deleted</th>
-                    <td mat-cell *matCellDef="let element">
-                        {{ element.deleted }}
-                    </td>
-                </ng-container>
-          
-            <ng-container matColumnDef="createdOn">
-                <th mat-header-cell *matHeaderCellDef>Date Created</th>
-                <td mat-cell *matCellDef="let element">{{ element.createdOn | date:'medium' }}</td>
-            </ng-container>
-      
-            <tr mat-header-row *matHeaderRowDef=" displayedColumns">
-            </tr>
-            <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns" [ngClass]="{ gray: even }">
-            </tr>
-        </table>
-    </div>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="mid">
+        <th mat-header-cell *matHeaderCellDef>Merchant ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.mid }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="createdOn">
+        <th mat-header-cell *matHeaderCellDef>Date Created</th>
+        <td mat-cell *matCellDef="let element">{{ element.createdOn | date:'medium' }}</td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element;">
+          <button matTooltip="Approve Terminal" mat-raised-button class="approve"
+            (click)="approveTerminal(element.tid)">
+            <mat-icon>check</mat-icon>
+          </button>
+          <button matTooltip="Delete Terminal" mat-raised-button color="warn" (click)="deleteTerminal(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef=" displayedColumns">
+      </tr>
+      <tr mat-row *matRowDef="let row;let even=even; columns:
+        displayedColumns" [ngClass]="{'hidden':row.deleted === true}">
+      </tr>
+    </table>
+  </div>
 </div>
