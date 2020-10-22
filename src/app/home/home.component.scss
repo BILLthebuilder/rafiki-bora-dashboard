@@ -5,12 +5,14 @@
 }
 
 .main-container {
-  height: 100vh;
+  height: auto;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   padding: 1%;
   margin-right: 6%;
-  margin-bottom: 150px;
+  padding-bottom: 150px;
+  border-radius: 10px;
+
 }
 
 .cardContainer {
@@ -20,13 +22,14 @@
   flex-wrap: wrap;
   border-radius: 5px;
   cursor: pointer;
+  border-radius: 10px;
 
 
 
   .card {
     background: #f7fbfc;
     height: 300px;
-    width: 300px;
+    width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,7 +45,7 @@
 
   .icon {
     text-align: center;
-    padding-right: 40%;
+    padding-right: 25%;
   }
 
 
