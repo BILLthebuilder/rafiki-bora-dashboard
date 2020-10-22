@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatTableDataSource } from '@angular/material/table';
 import { AuthService } from '../services/auth.service';
 import { RafikiBoraService } from '../services/rafiki-bora.service';
 
@@ -44,14 +45,11 @@ export class ReportsComponent implements OnInit {
 
   displayedColumns: string[] = [
     'id',
-    'MID',
-    'TID',
-    'AgentId',
-    'CreditAct',
-    'TransactionType',
-    'Amount',
-    'dateCreated',
-    'action',
+    'pan',
+    'currencyCode',
+    'amount',
+    'type',
+    'date',
   ];
 
   constructor(
@@ -72,6 +70,11 @@ export class ReportsComponent implements OnInit {
   }
 
   getMerchantTransaction(mid) {
-    this._rafikiBoraService.getMerchantsTransaction(mid).subscribe();
+    this._rafikiBoraService.getMerchantsTransaction(mid).subscribe((data) => {
+      this.dataSource = new MatTableDataSource(data.transactions);
+      console.log(data.transactions);
+    });
+
+    console.log(mid);
   }
 }

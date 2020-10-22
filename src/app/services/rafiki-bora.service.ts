@@ -27,7 +27,7 @@ export class RafikiBoraService implements OnInit {
   private rolesUrl = 'http://localhost:2019/api/roles';
   private supportUrl = 'http://localhost:2019/api/support';
   private TransactionUrl =
-    'http://localhost:2019/api/transactions/merchant/{mid}';
+    'http://localhost:2019/api/transactions/merchant';
   private editUsersUrl = 'http://localhost:2019/api/users/ser';
   private approveUrl = 'http://localhost:2019/api/users/user/approve';
   private assignUrl = 'http://localhost:2019/api/users/assignmerchantterminal';
@@ -135,7 +135,7 @@ export class RafikiBoraService implements OnInit {
   }
 
   // Get Reports
-  getMerchantsTransaction(mid): Observable<Report[]> {
+  getMerchantsTransaction(mid): Observable<any> {
     return this.http.get<any>(`${this.TransactionUrl}/${mid}`);
   }
   ngOnInit(): void {}

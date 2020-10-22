@@ -55,54 +55,33 @@
         </td>
       </ng-container>
 
-      <!-- Name Column -->
-      <ng-container matColumnDef="MID">
-        <th mat-header-cell *matHeaderCellDef>MID</th>
-        <td mat-cell *matCellDef="let element">{{ element.MID }}</td>
+
+      <ng-container matColumnDef="pan">
+        <th mat-header-cell *matHeaderCellDef>Card Number</th>
+        <td mat-cell *matCellDef="let element">{{ element.pan | creditCardMask:4 }}</td>
       </ng-container>
 
-      <!-- Role Description Column -->
-      <ng-container matColumnDef="TID">
-        <th mat-header-cell *matHeaderCellDef>TID</th>
+
+      <ng-container matColumnDef="currencyCode">
+        <th mat-header-cell *matHeaderCellDef>Currency Code</th>
         <td mat-cell *matCellDef="let element">
-          {{ element.TID }}
+          {{ element.currencyCode  }}
         </td>
       </ng-container>
 
-      <!-- Created By Column -->
-      <ng-container matColumnDef="AgentId">
-        <th mat-header-cell *matHeaderCellDef>AgentId</th>
-        <td mat-cell *matCellDef="let element">{{ element.AgentId }}</td>
-      </ng-container>
-
-      <!-- Approved By Column -->
-      <ng-container matColumnDef="DebitAct">
-        <th mat-header-cell *matHeaderCellDef>DebitAct</th>
-        <td mat-cell *matCellDef="let element">{{ element.DebitAct }}</td>
-      </ng-container>
-      <!-- Date Created By Column -->
-      <ng-container matColumnDef="CreditAct">
-        <th mat-header-cell *matHeaderCellDef>CreditAct</th>
-        <td mat-cell *matCellDef="let element">{{ element.CreditAct }}</td>
-      </ng-container>
-
-      <!-- Date Created By Column -->
-      <ng-container matColumnDef="Amount">
+      <ng-container matColumnDef="amount">
         <th mat-header-cell *matHeaderCellDef>Amount</th>
-        <td mat-cell *matCellDef="let element">{{ element.Amount }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
       </ng-container>
 
-      <!-- Date Created By Column -->
-      <ng-container matColumnDef="TransactionType">
-        <th mat-header-cell *matHeaderCellDef>TransactionType</th>
-        <td mat-cell *matCellDef="let element">{{ element.TransactionType }}</td>
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef>Transaction Type</th>
+        <td mat-cell *matCellDef="let element">{{ element.type }}</td>
       </ng-container>
 
-
-      <!-- Date Created By Column -->
-      <ng-container matColumnDef="dateCreated">
-        <th mat-header-cell *matHeaderCellDef>Date Created</th>
-        <td mat-cell *matCellDef="let element">{{ element.dateCreated | date:'medium' }}</td>
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let element">{{ element.date }}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
