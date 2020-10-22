@@ -32,6 +32,7 @@ import { NewTerminalComponent } from './terminals/new-terminal/new-terminal.comp
 import { SupportComponent } from './support/support.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { AssignComponent } from './terminals/assign/assign.component';
+import { CreditCardMaskPipe } from './services/credit-card-mask.pipe';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { AssignComponent } from './terminals/assign/assign.component';
     SupportComponent,
     EditUserComponent,
     AssignComponent,
+    CreditCardMaskPipe,
   ],
   imports: [
     AppImportsModule,
