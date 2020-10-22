@@ -17,20 +17,20 @@ import {
   providedIn: 'root',
 })
 export class RafikiBoraService implements OnInit {
-  private addUsersUrl = 'http://localhost:2019/api/users/createuser';
-  private getUsersUrl = 'http://localhost:2019/api/users';
+  private usersUrl = 'http://localhost:2019/api/users';
+  private addUsersUrl = `${this.usersUrl}/createuser`;
+  private getUsersUrl = `${this.usersUrl}`;
+  private createAgentUrl = `${this.usersUrl}/addagent`;
+  private customersUrl = `${this.usersUrl}/customer`;
+  private merchantsUrl = `${this.usersUrl}/merchant`;
+  private getAgentsUrl = `${this.usersUrl}/agent`;
+  private editUsersUrl = `${this.usersUrl}/ser`;
+  private approveUrl = `${this.usersUrl}/user/approve`;
+  private assignUrl = `${this.usersUrl}/assignmerchantterminal`;
   private terminalsUrl = 'http://localhost:2019/api/terminals';
-  private merchantsUrl = 'http://localhost:2019/api/users/merchant';
-  private getAgentsUrl = 'http://localhost:2019/api/users/agent';
-  private createAgentUrl = 'http://localhost:2019/api/users/addagent';
-  private customersUrl = 'http://localhost:2019/api/users/customer';
   private rolesUrl = 'http://localhost:2019/api/roles';
   private supportUrl = 'http://localhost:2019/api/support';
-  private TransactionUrl =
-    'http://localhost:2019/api/transactions/merchant';
-  private editUsersUrl = 'http://localhost:2019/api/users/ser';
-  private approveUrl = 'http://localhost:2019/api/users/user/approve';
-  private assignUrl = 'http://localhost:2019/api/users/assignmerchantterminal';
+  private TransactionUrl = 'http://localhost:2019/api/transactions/merchant';
   private getUnassignedTerminals = 'http://localhost:2019/api/terminals/fetch';
 
   constructor(private http: HttpClient) {}
