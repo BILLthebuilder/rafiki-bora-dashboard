@@ -87,7 +87,7 @@
           <span>{{element.deleted}}</span>
         </td>
       </ng-container>
-    
+
       <!-- User Date Created Column -->
       <ng-container matColumnDef="dateCreated">
         <th mat-header-cell *matHeaderCellDef>Date Created</th>
@@ -95,20 +95,20 @@
         </td>
         <!-- Action Column -->
       </ng-container>
-        <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef>Actions</th>
-          <td mat-cell *matCellDef="let element;">
-            <button mat-raised-button class="approve" (click)="approveUser(element.email)">
-              <mat-icon>check</mat-icon>
-            </button>
-            <button mat-raised-button color="primary" (click)="editButtonUser(element.userid)">
-              <mat-icon>create</mat-icon>
-            </button>
-            <button mat-raised-button color="warn" (click)="deleteUser(element.userid)">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </td>
-        </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element;">
+          <button matTooltip="Approve User" mat-raised-button class="approve" (click)="approveUser(element.email)">
+            <mat-icon>check</mat-icon>
+          </button>
+          <button matTooltip="Edit User" mat-raised-button color="primary" (click)="editButtonUser(element.userid)">
+            <mat-icon>create</mat-icon>
+          </button>
+          <button matTooltip="Delete User" mat-raised-button color="warn" (click)="deleteUser(element.userid)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
 
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
