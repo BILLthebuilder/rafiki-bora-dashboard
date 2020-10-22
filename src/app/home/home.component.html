@@ -1,41 +1,44 @@
 <div class="main-container">
-    <h1>Welcome</h1>
-    <div class="cards-info">
-        <mat-card routerLink='/dashboard/users' *ngIf="isAdmin()">
-            <mat-card-title>
-                <mat-icon> people </mat-icon>
-                <span>Users</span>
-            </mat-card-title>
-        </mat-card>
-        <mat-card routerLink='/dashboard/roles' *ngIf="isAdmin()">
-            <mat-card-title>
-                <mat-icon>assignment_ind</mat-icon>
-                <span>Roles</span>
-            </mat-card-title>
-        </mat-card>
-        <mat-card routerLink='/dashboard/merchants-dash'>
-            <mat-card-title>
-                <mat-icon>money</mat-icon>
-                <span>Merchants</span>
-            </mat-card-title>
-        </mat-card>
-        <mat-card routerLink='/dashboard/customers' *ngIf="isAdmin()">
-            <mat-card-title>
-                <mat-icon>person_pin</mat-icon>
-                <span>Customers</span>
-            </mat-card-title>
-        </mat-card>
-        <mat-card routerLink='/dashboard/agents'>
-            <mat-card-title>
-                <mat-icon>support_agent</mat-icon>
-                <span>Agents</span>
-            </mat-card-title>
-        </mat-card>
-        <mat-card routerLink='/dashboard/reports'>
-            <mat-card-title>
-                <mat-icon>library_books</mat-icon>
-                <span>Reports</span>
-            </mat-card-title>
-        </mat-card>
+  <h1>Welcome</h1>
+
+  <div class="cardContainer">
+    <div class="card" routerLink='/dashboard/users' *ngIf="isAdmin()">
+      <div class="icon">
+        <mat-icon> people </mat-icon>
+      </div>
+
+      <h2>Users</h2>
     </div>
+    <div class="card" routerLink='/dashboard/roles' *ngIf="isAdmin()">
+      <div class="icon">
+        <mat-icon>assignment_ind</mat-icon>
+      </div>
+      <h2>Roles</h2>
+    </div>
+    <div class="card" routerLink='/dashboard/merchants-dash'>
+      <div class="icon">
+        <mat-icon>money</mat-icon>
+      </div>
+      <h2>Merchants</h2>
+    </div>
+    <div class="card" routerLink='/dashboard/customers' *ngIf="isAdmin()">
+      <div class="icon">
+        <mat-icon>person_pin</mat-icon>
+      </div>
+      <h2>Customers</h2>
+    </div>
+    <div class="card" routerLink='/dashboard/agents'>
+      <div class="icon">
+        <mat-icon>support_agent</mat-icon>
+      </div>
+      <h2>Agents</h2>
+    </div>
+    <div class="card" routerLink='/dashboard/reports'>
+      <div class="icon">
+        <mat-icon>library_books</mat-icon>
+      </div>
+      <h2>Reports</h2>
+    </div>
+
+  </div>
 </div>
