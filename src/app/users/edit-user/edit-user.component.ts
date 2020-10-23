@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/rafikiboraInterface';
 import { RafikiBoraService } from 'src/app/services/rafiki-bora.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-edit-user',
@@ -21,7 +22,8 @@ export class EditUserComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private location: Location
   ) {
     this.userSubmitForm = this.formBuilder.group({
       userid: '',
@@ -76,7 +78,7 @@ export class EditUserComponent implements OnInit {
             verticalPosition: 'top',
             panelClass: ['green-snackbar'],
           });
-          this.router.navigateByUrl('/dashboard/users');
+          this.location.back();
         },
         (error) => {
           this._snackBar.open('Error creating user', 'dismiss', {
