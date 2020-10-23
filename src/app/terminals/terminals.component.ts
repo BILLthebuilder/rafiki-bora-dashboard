@@ -66,7 +66,6 @@ export class TerminalsComponent implements OnInit {
       .subscribe((data) => (this.dataSource = new MatTableDataSource(data)));
   }
 
-
   applyFilter() {
     this.dataSource.filter = `${Math.random()}`;
   }
@@ -81,7 +80,6 @@ export class TerminalsComponent implements OnInit {
           panelClass: ['green-snackbar'],
         });
         this.ngOnInit();
-        console.log(response);
       },
       (error) => {
         this._snackBar.open('You cannot approve this Terminal', 'dismiss', {
@@ -90,7 +88,6 @@ export class TerminalsComponent implements OnInit {
           panelClass: ['red-snackbar'],
         });
         this.ngOnInit();
-        console.log(error);
       }
     );
   }
@@ -99,12 +96,20 @@ export class TerminalsComponent implements OnInit {
   deleteTerminal(tid) {
     this._rafikiBoraService.deleteTerminal(tid).subscribe(
       (response) => {
+        this._snackBar.open('Terminal deleted Successfully', 'dismiss', {
+          duration: 3000,
+          verticalPosition: 'top',
+          panelClass: ['green-snackbar'],
+        });
         this.ngOnInit();
-        console.log('Terminal successfully deleted', response);
       },
       (error) => {
+        this._snackBar.open('Unable to delete Terminal', 'dismiss', {
+          duration: 3000,
+          verticalPosition: 'top',
+          panelClass: ['red-snackbar'],
+        });
         this.ngOnInit();
-        console.log(error);
       }
     );
   }

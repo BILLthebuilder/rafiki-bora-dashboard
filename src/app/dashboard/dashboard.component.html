@@ -17,8 +17,8 @@
         <a mat-list-item [routerLink]="['workgroups']" [routerLinkActive]="['active']" *ngIf="hidden">Workgroups</a>
         <a mat-list-item [routerLink]="['users']" [routerLinkActive]="['active']">Users</a>
       </mat-nav-list>
-      <hr class="heading-line-merchant" />
-      <mat-nav-list>
+      <hr *ngIf="isMerchantAndIsAdmin()" class="heading-line-merchant" />
+      <mat-nav-list *ngIf="isMerchantAndIsAdmin()">
         <h3 class="heading-user-management">Merchants Management</h3>
         <a mat-list-item [routerLink]="['merchants']" [routerLinkActive]="['active']" *ngIf="isAdmin()">Merchants</a>
         <a mat-list-item [routerLink]="['merchants-dash']" [routerLinkActive]="['active']">Merchants Dashboard</a>
@@ -33,20 +33,20 @@
         <h3 class="heading-user-management">Terminals Management</h3>
         <a mat-list-item [routerLink]="['terminals']" [routerLinkActive]="['active']">Manage Terminals</a>
       </mat-nav-list>
-      <hr class="heading-line-user" *ngIf="isMerchant()"/>
-      <mat-nav-list *ngIf="isMerchant()">
-        <h3 class="heading-user-management">AGENTS</h3>
-        <a mat-list-item [routerLink]="['agents']" [routerLinkActive]="['active']">Agents List</a>
+      <hr class="heading-line-user" *ngIf="isMerchantAndIsAdmin()"/>
+      <mat-nav-list *ngIf="isMerchantAndIsAdmin()">
+        <h3 class="heading-user-management" *ngIf="isMerchantAndIsAdmin()">AGENTS</h3>
+        <a mat-list-item [routerLink]="['agents']" [routerLinkActive]="['active']" *ngIf="isMerchantAndIsAdmin()">Agents List</a>
       </mat-nav-list>
       <hr class="heading-line-user" />
 
-      <mat-nav-list>
+      <mat-nav-list >
         <h3 class="heading-user-management">Reports</h3>
         <a mat-list-item [routerLink]="['reports']" [routerLinkActive]="['active']">Show Reports</a>
       </mat-nav-list>
       <hr class="heading-line-user" />
       
-      <mat-nav-list>
+      <mat-nav-list *ngIf="isAdmin()">
         <h3 class="heading-user-management">Support Module</h3>
         <a mat-list-item [routerLink]="['support']" [routerLinkActive]="['active']">Support Requests</a>
       </mat-nav-list>

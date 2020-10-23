@@ -50,7 +50,6 @@ export class UsersComponent implements OnInit {
   }
 
   // Edit User
-
   editButtonUser(id: number) {
     this.router.navigate(['/dashboard/users/edit', id]);
   }
@@ -64,7 +63,6 @@ export class UsersComponent implements OnInit {
           panelClass: ['green-snackbar'],
         });
         this.ngOnInit();
-        console.log(response);
       },
       (error) => {
         this._snackBar.open('You cannot approve this user', 'dismiss', {
@@ -73,7 +71,6 @@ export class UsersComponent implements OnInit {
           panelClass: ['red-snackbar'],
         });
         this.ngOnInit();
-        console.log(error);
       }
     );
   }
@@ -82,12 +79,20 @@ export class UsersComponent implements OnInit {
   deleteUser(userId) {
     this._rafikiBoraService.deleteUser(userId).subscribe(
       (response) => {
+        this._snackBar.open('User deleted Successfully', 'dismiss', {
+          duration: 3000,
+          verticalPosition: 'top',
+          panelClass: ['green-snackbar'],
+        });
         this.ngOnInit();
-        console.log('User successfully deleted', response);
       },
       (error) => {
+        this._snackBar.open('Unable to delete this user', 'dismiss', {
+          duration: 3000,
+          verticalPosition: 'top',
+          panelClass: ['red-snackbar'],
+        });
         this.ngOnInit();
-        console.log(error);
       }
     );
   }

@@ -55,7 +55,6 @@ export class AssignComponent implements OnInit {
           verticalPosition: 'top',
           panelClass: ['red-snackbar'],
         });
-        console.log('There is an error', error);
       }
     );
   }
@@ -65,7 +64,6 @@ export class AssignComponent implements OnInit {
     });
   }
   selectedTerminal(event) {
-    console.log(event);
     this.userSubmitForm.patchValue({
       tid: event,
     });

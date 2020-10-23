@@ -54,9 +54,7 @@ export class NewAgentComponent implements OnInit {
           verticalPosition: 'top',
           panelClass: ['red-snackbar'],
         });
-        console.log('There is an error', error);
       }
     );
-    console.log(this.userSubmitForm.value);
   }
 }

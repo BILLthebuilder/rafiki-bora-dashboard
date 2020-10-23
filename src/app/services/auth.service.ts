@@ -67,10 +67,8 @@ export class AuthService implements OnDestroy {
             roles: x.roles,
           });
           this.setTokenInStorage(x);
-          // console.log(this._user.value.roles[0].authority);
           this.setUserInStorage(this._user.value);
           this.startTokenTimer();
-          // console.log(this.getRole());
           this.loggedIn.emit(true);
           this.email.emit(x.email);
           return x;
@@ -112,6 +110,7 @@ export class AuthService implements OnDestroy {
   clearLocalStorage() {
     localStorage.removeItem('access-token');
     localStorage.removeItem('user');
+    localStorage.removeItem('roles');
     localStorage.setItem('logout-event', `logout${Math.random()}`);
   }
 
@@ -122,7 +121,6 @@ export class AuthService implements OnDestroy {
     }
     const jwtToken = JSON.parse(atob(accessToken.split('.')[1]));
     const expires = new Date(jwtToken.exp * 1000);
-    // console.log(expires);
     return expires.getTime() - Date.now();
   }
 
@@ -140,37 +138,9 @@ export class AuthService implements OnDestroy {
     this.timer?.unsubscribe();
   }
   logout() {
-    // this.http
-    //   .post<unknown>(`${this.apiUrl}/logout`, {})
-    //   .pipe(
-    //     finalize(() => {
     this.clearLocalStorage();
     this._user.next(null);
     this.stopTokenTimer();
     this.router.navigate(['']);
-    //   })
-    // )
-    // .subscribe();
   }
-  //   refreshToken() {
-  //     const refreshToken = localStorage.getItem('refresh_token');
-  //     if (!refreshToken) {
-  //       this.clearLocalStorage();
-  //       return of(null);
-  //     }
-
-  //     return this.http
-  //       .post<LoginResult>(`${this.apiUrl}/refresh-token`, { refreshToken })
-  //       .pipe(
-  //         map((x) => {
-  //           this._user.next({
-  //             email: x.email,
-  //             role: x.role,
-  //           });
-  //           this.setTokenInStorage(x);
-  //           this.startTokenTimer();
-  //           return x;
-  //         })
-  //       );
-  //   }
 }

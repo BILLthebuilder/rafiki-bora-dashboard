@@ -42,7 +42,6 @@ export class NewTerminalComponent implements OnInit {
           verticalPosition: 'top',
           panelClass: ['red-snackbar'],
         });
-        console.log('There is an error', error);
       }
     );
   }

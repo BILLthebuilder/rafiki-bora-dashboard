@@ -46,9 +46,14 @@ export class EditUserComponent implements OnInit {
     this._rafikiBoraService.getUserById(id).subscribe(
       (user: User) => {
         this.editUser(user);
-        
       },
-      (error) => console.log(error)
+      (error) => {
+        this._snackBar.open('An Error has occured', 'dismiss', {
+          duration: 2000,
+          verticalPosition: 'top',
+          panelClass: ['red-snackbar'],
+        });
+      }
     );
   }
   editUser(user: User) {
@@ -79,7 +84,6 @@ export class EditUserComponent implements OnInit {
             verticalPosition: 'top',
             panelClass: ['red-snackbar'],
           });
-          console.log('There is an error', error);
         }
       );
   }

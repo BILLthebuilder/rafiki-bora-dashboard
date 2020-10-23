@@ -151,11 +151,11 @@ const routes: Routes = [
 
       {
         path: 'agents',
-        canActivate: [AdminGuard],
-        data: { role: 'ROLE_MERCHANT' },
         children: [
           {
             path: 'new-agent',
+            canActivate: [AdminGuard],
+            data: { role: 'ROLE_MERCHANT' },
             component: NewAgentComponent,
           },
           {
