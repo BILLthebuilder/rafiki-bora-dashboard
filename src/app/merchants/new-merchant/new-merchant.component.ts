@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { User } from 'src/app/rafikiboraInterface';
 import { RafikiBoraService } from 'src/app/services/rafiki-bora.service';
 
 @Component({
@@ -7,18 +12,76 @@ import { RafikiBoraService } from 'src/app/services/rafiki-bora.service';
   styleUrls: ['./new-merchant.component.scss'],
 })
 export class NewMerchantComponent implements OnInit {
-
-  roles: any = [];
-  constructor(private _rafikiBoraService: RafikiBoraService) {}
-
+  userSubmitForm: any;
+  constructor(
+    private _rafikiBoraService: RafikiBoraService,
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private _snackBar: MatSnackBar,
+    private location: Location
+  ) {
+    this.userSubmitForm = this.formBuilder.group({
+      firstName: '',
+      lastName: '',
+      username: '',
+      phoneNo: '',
+      email: '',
+      password: '',
+      role: '',
+    });
+    this.userSubmitForm.patchValue({
+      role: 'MERCHANT',
+    })
+  }
   ngOnInit(): void {
-    // Get the roles data from the Database
-    this._rafikiBoraService.getRolesData().subscribe((data) => {
-      this.roles = data;
+    this.route.paramMap.subscribe((params) => {
+      const userId = +params.get('id');
+      if (userId) {
+        this.getUser(userId);
+      }
     });
   }
+  getUser(id: number) {
+    this._rafikiBoraService.getUserById(id).subscribe(
+      (user: User) => this.editUser(user),
+      (error) => {
+        this._snackBar.open('An Error has occurred', 'dismiss', {
+          duration: 2000,
+          verticalPosition: 'top',
+          panelClass: ['red-snackbar'],
+        });
+      }
+    );
+  }
 
-  submitHandler(myForm){
-    console.log(myForm.value);
+  editUser(user: User) {
+    this.userSubmitForm.patchValue({
+      firstName: user.firstName,
+      lastName: user.lastName,
+      username: user.username,
+      phoneNo: user.phoneNo,
+      email: user.email,
+      password: user.password,
+      role: user.role,
+    });
+  }
+  onSubmit() {
+    this._rafikiBoraService.addUser(this.userSubmitForm.value).subscribe(
+      (response) => {
+        this._snackBar.open('Merchant created Successfully', 'dismiss', {
+          duration: 3000,
+          verticalPosition: 'top',
+          panelClass: ['green-snackbar'],
+        });
+        this.location.back();
+      },
+      (error) => {
+        this._snackBar.open('Merchant creating user', 'dismiss', {
+          duration: 2000,
+          verticalPosition: 'top',
+          panelClass: ['red-snackbar'],
+        });
+      }
+    );
   }
 }

@@ -4,45 +4,49 @@
 <div class="container">
   <h2>Merchant details</h2>
 
-  <form #myForm="ngForm">
+  <form [formGroup]="userSubmitForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="outline">
       <mat-label>First Name</mat-label>
-      <input matInput required ngModel name="firstName" #firstName="ngModel">
 
+      <input type="text" matInput required name="firstName" formControlName="firstName" placeholder="Enter first name">
     </mat-form-field>
     <br />
     <mat-form-field appearance="outline">
       <mat-label>Last Name</mat-label>
-      <input matInput required ngModel name="lastName" required #lastName="ngModel">
+
+      <input matInput type="text" required name="lastName" formControlName="lastName" placeholder="Enter Last name">
     </mat-form-field>
     <br />
+
     <mat-form-field appearance="outline">
-      <mat-label>Account Number</mat-label>
-      <input matInput required ngModel name="accountNumber" #accountNumber="ngModel">
+      <mat-label>User Name</mat-label>
+
+      <input matInput type="text" required name="username" formControlName="username" placeholder="Enter User Name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+
+      <input matInput type="text" required name="phoneNo" formControlName="phoneNo" placeholder="Enter Phone Number">
 
     </mat-form-field>
     <br />
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
-      <input matInput required ngModel name="Email" #Email="ngModel">
+
+      <input matInput type="email" required name="email" formControlName="email" placeholder="Enter Account email">
     </mat-form-field>
     <br />
+
+    <input type="hidden" required name="role" formControlName="role">
+
+
     <mat-form-field appearance="outline">
-      <mat-label>Password</mat-label>
-      <input type="password" matInput required ngModel name="Password" #Password="ngModel">
+
+      <input matInput type="password" required name="password" formControlName="password" placeholder="Enter password">
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Select Role</mat-label>
-      <mat-select required ngModel name="role" #role="ngModel">
-        <mat-option *ngFor="let role of roles" [value]="role.roleId">
-          {{role.roleName}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <br />
 
-    <button mat-raised-button color="warn" type="button" (click)="submitHandler(myForm)">
+    <button mat-raised-button color="warn" type="submit">
       <mat-icon>save</mat-icon>
       Save
     </button>
