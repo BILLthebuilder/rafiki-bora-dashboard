@@ -46,7 +46,7 @@ export class EditUserComponent implements OnInit {
     this._rafikiBoraService.getUserById(id).subscribe(
       (user: User) => {
         this.editUser(user);
-        console.log(user);
+        
       },
       (error) => console.log(error)
     );
