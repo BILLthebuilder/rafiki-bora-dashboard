@@ -17,7 +17,7 @@ import {
   providedIn: 'root',
 })
 export class RafikiBoraService implements OnInit {
-  private usersUrl = 'http://localhost:2019/api/users';
+  private usersUrl = 'http://41.215.130.247:10203/api/users';
   private addUsersUrl = `${this.usersUrl}/createuser`;
   private getUsersUrl = `${this.usersUrl}`;
   private createAgentUrl = `${this.usersUrl}/addagent`;
@@ -27,11 +27,11 @@ export class RafikiBoraService implements OnInit {
   private editUsersUrl = `${this.usersUrl}/ser`;
   private approveUrl = `${this.usersUrl}/user/approve`;
   private assignUrl = `${this.usersUrl}/assignmerchantterminal`;
-  private terminalsUrl = 'http://localhost:2019/api/terminals';
-  private rolesUrl = 'http://localhost:2019/api/roles';
-  private supportUrl = 'http://localhost:2019/api/support';
-  private TransactionUrl = 'http://localhost:2019/api/transactions/merchant';
-  private getUnassignedTerminals = 'http://localhost:2019/api/terminals/fetch';
+  private terminalsUrl = 'http://41.215.130.247:10203/api/terminals';
+  private rolesUrl = 'http://41.215.130.247:10203/api/roles';
+  private supportUrl = 'http://41.215.130.247:10203/api/support';
+  private TransactionUrl = 'http://41.215.130.247:10203/api/transactions/merchant';
+  private getUnassignedTerminals = 'http://41.215.130.247:10203/api/terminals/fetch';
 
   constructor(private http: HttpClient) {}
   httpOptions = {
