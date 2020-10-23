@@ -17,6 +17,8 @@ table {
   border-radius: 5px;
   overflow: hidden !important;
   width: 100%;
+  display: table;
+  border-collapse: collapse;
 }
 
 th {
@@ -78,12 +80,6 @@ th {
   }
 }
 
-// .mat-header-cell , .mat-cell{
-//   font-size: 14px;
-//   min-height: 48px;
-//   text-align: center;
-//   border-right: 0.1px solid gray;
-// }
 button {
   margin: 5px;
 }
@@ -101,14 +97,6 @@ td.mat-footer-cell:last-of-type {
   width: 100%;
   overflow-x: auto;
 
-  .mat-table {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 1rem;
-    display: table;
-    border-collapse: collapse;
-    margin: 0px;
-  }
 
   .mat-row,
   .mat-header-row {
