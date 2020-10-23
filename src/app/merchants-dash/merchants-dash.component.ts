@@ -20,9 +20,9 @@ export class MerchantsDashComponent implements OnInit {
     { value: 'rafiki2', viewValue: 'Rafiki2' },
   ];
   lineChartData: ChartDataSets[] = [
-    { data: [1, 5, 4, 6, 4, 5, 3, 2, 1, 4, 2, 3], label: 'Sales' },
-    { data: [2, 4, 3, 5, 3, 6, 4, 3, 2, 3, 4, 5], label: 'Deposits' },
-    { data: [3, 4, 6, 4, 2, 4, 6, 3, 5, 4, 5, 6], label: 'Withdrawals' },
+    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0], label: 'Sales' },
+    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0], label: 'Deposits' },
+    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0], label: 'Withdrawals' },
   ];
 
   lineChartLabels: Label[] = [
