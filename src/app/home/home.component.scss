@@ -10,7 +10,7 @@
   border-radius: 10px;
   padding: 1%;
   margin-right: 6%;
-  padding-bottom: 150px;
+  padding-bottom: 100px;
   border-radius: 10px;
 
 }
@@ -22,7 +22,7 @@
   flex-wrap: wrap;
   border-radius: 5px;
   cursor: pointer;
-  border-radius: 10px;
+
 
 
 
@@ -35,6 +35,9 @@
     align-items: center;
     flex-direction: column;
     margin-top: 4%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(83, 83, 83, 0.2), 0 6px 20px 0 rgba(87, 86, 86, 0.19);
+
 
     .mat-icon {
       font-size: 150px;

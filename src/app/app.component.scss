@@ -7,8 +7,10 @@ $gray: #f5f5f5;
 $spacing: 2%;
 
 table {
-  width: 99%;
+  width: 100%;
   margin-bottom: 100px;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 .mat-table {
@@ -90,4 +92,38 @@ th.mat-header-cell:last-of-type,
 td.mat-cell:last-of-type,
 td.mat-footer-cell:last-of-type {
   padding: 0;
+}
+
+//Responsive Table
+
+.item-table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+
+  .mat-table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    display: table;
+    border-collapse: collapse;
+    margin: 0px;
+  }
+
+  .mat-row,
+  .mat-header-row {
+    display: table-row;
+  }
+
+  .mat-cell,
+  .mat-header-cell {
+    word-wrap: initial;
+    display: table-cell;
+    padding: 0px 5px;
+    line-break: unset;
+    width: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+  }
 }
