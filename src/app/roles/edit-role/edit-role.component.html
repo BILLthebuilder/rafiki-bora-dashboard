@@ -1,0 +1,25 @@
+<!---------------------------PAGE TITLE---------------------------------------->
+<!----------------------------------------------------------------------------->
+<div class="page-title">
+  <h1>Edit Role</h1>
+</div>
+
+<!---------------------------ROLES FORM---------------------------------------->
+<!----------------------------------------------------------------------------->
+
+<div class="container">
+  <h2>Role details</h2>
+  <form [formGroup]="userSubmitForm" (ngSubmit)="saveRole(userSubmitForm.value)">
+    <mat-form-field appearance="outline">
+      <mat-label>Role Name</mat-label>
+      <input matInput required formControlName="roleName" />
+    </mat-form-field>
+    <br />
+    <br />
+
+    <button type="submit" mat-raised-button color="warn">
+      <mat-icon>save</mat-icon>
+      Save
+    </button>
+  </form>
+</div>

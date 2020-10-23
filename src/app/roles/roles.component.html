@@ -16,14 +16,7 @@
   <!----------------------------------------------------------------------------->
 
   <div class="item-filters">
-    <mat-form-field appearance="outline" class="statusSelect">
-      <mat-label>Status</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let filter of filters" [value]="filter.value">
-          {{ filter.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    
     <mat-form-field appearance="outline">
       <mat-label>From</mat-label>
       <input matInput [matDatepicker]="pickerFrom" />
@@ -49,13 +42,13 @@
   </div>
   <div class="item-table">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      
+
       <!-- id Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>Role Id</th>
         <td mat-cell *matCellDef="let element">
           {{ element.roleid }}
-        
+
         </td>
       </ng-container>
 
