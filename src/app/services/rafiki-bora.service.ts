@@ -30,6 +30,7 @@ export class RafikiBoraService implements OnInit {
   private terminalsUrl = 'http://41.215.130.247:10203/api/terminals';
   private rolesUrl = 'http://41.215.130.247:10203/api/roles';
   private supportUrl = 'http://41.215.130.247:10203/api/support';
+  private allTransactionsUrl = 'http://41.215.130.247:10203/api/transactions/all';
   private TransactionUrl = 'http://41.215.130.247:10203/api/transactions/merchant';
   private getUnassignedTerminals = 'http://41.215.130.247:10203/api/terminals/fetch';
 
@@ -137,6 +138,10 @@ export class RafikiBoraService implements OnInit {
   // Get Reports
   getMerchantsTransaction(mid): Observable<any> {
     return this.http.get<any>(`${this.TransactionUrl}/${mid}`);
+  }
+
+  getAllTransactions(): Observable<any>{
+    return this.http.get<any>(this.allTransactionsUrl);
   }
   ngOnInit(): void {}
 }

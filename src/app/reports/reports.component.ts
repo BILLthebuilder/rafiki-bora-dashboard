@@ -38,6 +38,9 @@ export class ReportsComponent implements OnInit {
     this._rafikiBoraService
       .getMerchantsData()
       .subscribe((data) => (this.merchantFilters = data));
+    this._rafikiBoraService.getAllTransactions().subscribe((data) => { 
+      this.dataSource = new MatTableDataSource(data);
+    });
   }
 
   getMerchantTransaction(mid) {
