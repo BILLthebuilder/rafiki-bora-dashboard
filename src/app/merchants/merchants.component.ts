@@ -11,7 +11,6 @@ import { RafikiBoraService } from '../services/rafiki-bora.service';
 })
 export class MerchantsComponent implements OnInit {
   displayedColumns: string[] = [
-    'id',
     'first_name',
     'last_name',
     'email',

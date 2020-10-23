@@ -16,7 +16,6 @@ export interface Option {
 })
 export class UsersComponent implements OnInit {
   displayedColumns: string[] = [
-    'id',
     'firstName',
     'lastName',
     'email',

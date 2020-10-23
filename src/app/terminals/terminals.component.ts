@@ -13,7 +13,6 @@ import { RafikiBoraService } from '../services/rafiki-bora.service';
 })
 export class TerminalsComponent implements OnInit {
   displayedColumns: string[] = [
-    'id',
     'tid',
     'serialNo',
     'modelType',

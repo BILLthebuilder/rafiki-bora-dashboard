@@ -16,7 +16,6 @@ export class ReportsComponent implements OnInit {
   dataSource: any;
 
   displayedColumns: string[] = [
-    'id',
     'pan',
     'currencyCode',
     'amount',
