@@ -1,5 +1,5 @@
 <div class="page-title">
-  <h1>Create a Agent</h1>
+  <h1>Create an Agent</h1>
 </div>
 <div class="container">
   <h2>Agent details</h2>
@@ -35,14 +35,8 @@
       <input matInput type="email" required name="email" formControlName="email" placeholder="Enter Account email">
     </mat-form-field>
     <br />
-    <mat-form-field appearance="fill">
-      <mat-label>Select Role</mat-label>
-      <mat-select required ngModel name="role" formControlName="role">
-        <mat-option *ngFor="let role of roles" [value]="role.roleName">
-          {{role.roleName}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+
+    <input type="hidden" required name="role" formControlName="role">
 
     <mat-form-field appearance="outline">
 

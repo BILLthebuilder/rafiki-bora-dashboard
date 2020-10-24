@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -19,7 +20,8 @@ export class NewAgentComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private location: Location
   ) {
     this.userSubmitForm = this.formBuilder.group({
       firstName: '',
@@ -29,6 +31,9 @@ export class NewAgentComponent implements OnInit {
       email: '',
       password: '',
       role: '',
+    });
+    this.userSubmitForm.patchValue({
+      role: 'AGENT',
     });
   }
 
@@ -46,10 +51,10 @@ export class NewAgentComponent implements OnInit {
           verticalPosition: 'top',
           panelClass: ['green-snackbar'],
         });
-        this.router.navigateByUrl('/dashboard/agents');
+        this.location.back();
       },
       (error) => {
-        this._snackBar.open('Error creating agents', 'dismiss', {
+        this._snackBar.open('Error creating agent', 'dismiss', {
           duration: 2000,
           verticalPosition: 'top',
           panelClass: ['red-snackbar'],

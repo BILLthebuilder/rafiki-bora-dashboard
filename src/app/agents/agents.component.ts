@@ -1,7 +1,9 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { RafikiBoraService } from '../services/rafiki-bora.service';
 
 export interface Option {
@@ -16,16 +18,14 @@ export interface Option {
 })
 export class AgentsComponent implements OnInit {
   displayedColumns: string[] = [
-    'first_name',
-    'last_name',
+    'firstName',
+    'lastName',
     'email',
-    'mid',
-    'business_name',
-    'phone_no',
-    'createdBy',
-    'approvedBy',
+    'accountNumber',
+    'phoneNo',
     'status',
     'dateCreated',
+    'action',
   ];
   filters = [
     { value: 'approved', viewValue: 'Approved' },
@@ -33,7 +33,6 @@ export class AgentsComponent implements OnInit {
   ];
 
   public dataSource: any = [];
-
   pipe: DatePipe;
 
   filterForm = new FormGroup({
@@ -54,7 +53,8 @@ export class AgentsComponent implements OnInit {
 
   constructor(
     private _rafikiBoraService: RafikiBoraService,
-    private _fb: FormBuilder
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {
     this.pipe = new DatePipe('en');
     this.dataSource.filterPredicate = (data, filter) => {
@@ -66,12 +66,57 @@ export class AgentsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Get table data
     this._rafikiBoraService
-      .getAgents()
+      .getCustomersData()
       .subscribe((data) => (this.dataSource = new MatTableDataSource(data)));
   }
+  // Edit User
+  editButtonUser(id: number) {
+    this.router.navigate(['/dashboard/users/edit', id]);
+  }
+  // Approve User
+  // approveUser(email: string) {
+  //   this._rafikiBoraService.approveUser(email).subscribe(
+  //     (response) => {
+  //       this._snackBar.open('User approved Successfully', 'dismiss', {
+  //         duration: 3000,
+  //         verticalPosition: 'top',
+  //         panelClass: ['green-snackbar'],
+  //       });
+  //       this.ngOnInit();
+  //     },
+  //     (error) => {
+  //       this._snackBar.open('You cannot approve this user', 'dismiss', {
+  //         duration: 3000,
+  //         verticalPosition: 'top',
+  //         panelClass: ['red-snackbar'],
+  //       });
+  //       this.ngOnInit();
+  //     }
+  //   );
+  // }
 
+  // Delete User
+  deleteUser(userId) {
+    this._rafikiBoraService.deleteUser(userId).subscribe(
+      (response) => {
+        this._snackBar.open('Agent deleted Successfully', 'dismiss', {
+          duration: 3000,
+          verticalPosition: 'top',
+          panelClass: ['green-snackbar'],
+        });
+        this.ngOnInit();
+      },
+      (error) => {
+        this._snackBar.open('Unable to delete this Agent', 'dismiss', {
+          duration: 3000,
+          verticalPosition: 'top',
+          panelClass: ['red-snackbar'],
+        });
+        this.ngOnInit();
+      }
+    );
+  }
   applyFilter() {
     this.dataSource.filter = `${Math.random()}`;
   }
