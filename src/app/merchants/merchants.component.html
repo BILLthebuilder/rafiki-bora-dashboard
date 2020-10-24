@@ -25,7 +25,7 @@
       <mat-datepicker #pickerTo></mat-datepicker>
     </mat-form-field>
     <mat-form-field class="search-field" appearance="outline">
-      <input (keyup)="applyFilter($event.target.value)" matInput placeholder="search" name="search" type="search" />
+      <input (keyup)="applySearchFilter($event.target.value)" matInput placeholder="search" name="search" type="search" />
     </mat-form-field>
     <button mat-raised-button color="primary" class="filterBtn">
       <mat-icon>search</mat-icon>
