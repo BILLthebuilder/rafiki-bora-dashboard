@@ -73,7 +73,7 @@ export class EditUserComponent implements OnInit {
       .editUser(this.userSubmitForm.value.userid, this.userSubmitForm.value)
       .subscribe(
         (response) => {
-          this._snackBar.open('User edited Successfully', 'dismiss', {
+          this._snackBar.open('Edited Successfully', 'dismiss', {
             duration: 3000,
             verticalPosition: 'top',
             panelClass: ['green-snackbar'],
@@ -81,7 +81,7 @@ export class EditUserComponent implements OnInit {
           this.location.back();
         },
         (error) => {
-          this._snackBar.open('Error creating user', 'dismiss', {
+          this._snackBar.open('Error editing', 'dismiss', {
             duration: 2000,
             verticalPosition: 'top',
             panelClass: ['red-snackbar'],
