@@ -26,7 +26,7 @@
       <hr class="heading-line-user" *ngIf="isAdmin()"/>
       <mat-nav-list *ngIf="isAdmin()">
         <h3 class="heading-user-management">Customers</h3>
-        <a mat-list-item [routerLink]="['customers']" [routerLinkActive]="['active']">Customers List</a>
+        <a mat-list-item [routerLink]="['customers']" [routerLinkActive]="['active']">Customers</a>
       </mat-nav-list>
       <hr class="heading-line-user" *ngIf="isAdmin()" />
       <mat-nav-list *ngIf="isAdmin()">
@@ -36,7 +36,7 @@
       <hr class="heading-line-user" *ngIf="isMerchantAndIsAdmin()"/>
       <mat-nav-list *ngIf="isMerchantAndIsAdmin()">
         <h3 class="heading-user-management" *ngIf="isMerchantAndIsAdmin()">AGENTS</h3>
-        <a mat-list-item [routerLink]="['agents']" [routerLinkActive]="['active']" *ngIf="isMerchantAndIsAdmin()">Agents List</a>
+        <a mat-list-item [routerLink]="['agents']" [routerLinkActive]="['active']" *ngIf="isMerchantAndIsAdmin()">Agents</a>
       </mat-nav-list>
       <hr class="heading-line-user" />
 
