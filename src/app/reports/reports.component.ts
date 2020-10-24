@@ -17,7 +17,7 @@ export class ReportsComponent implements OnInit {
 
   displayedColumns: string[] = [
     'pan',
-    'currencyCode',
+    // 'currencyCode',
     'amount',
     'type',
     'date',
@@ -39,7 +39,7 @@ export class ReportsComponent implements OnInit {
       .getMerchantsData()
       .subscribe((data) => (this.merchantFilters = data));
     this._rafikiBoraService.getAllTransactions().subscribe((data) => { 
-      this.dataSource = new MatTableDataSource(data);
+      this.dataSource = new MatTableDataSource(data.transactions);
     });
   }
 
