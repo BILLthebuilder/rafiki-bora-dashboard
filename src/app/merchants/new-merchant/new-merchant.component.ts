@@ -76,7 +76,7 @@ export class NewMerchantComponent implements OnInit {
         this.location.back();
       },
       (error) => {
-        this._snackBar.open('Merchant creating user', 'dismiss', {
+        this._snackBar.open('Error creating merchant', 'dismiss', {
           duration: 2000,
           verticalPosition: 'top',
           panelClass: ['red-snackbar'],
