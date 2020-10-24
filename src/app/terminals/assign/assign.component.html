@@ -24,12 +24,12 @@
         <form [formGroup]="userSubmitForm" (ngSubmit)="onSubmit()">
             <mat-form-field appearance="outline">
                 <mat-label>Terminal Id</mat-label>
-                <input type="text" matInput required name="tid" formControlName="tid" placeholder="Terminal Id">
+                <input type="text" matInput required name="tid" formControlName="tid" placeholder="Terminal Id" readonly>
             </mat-form-field>
             <br />
             <mat-form-field appearance="outline">
                 <mat-label>Merchant Email</mat-label>
-                <input matInput type="email" required name="email" formControlName="email" placeholder="Merchant Email">
+                <input matInput type="email" required name="email" formControlName="email" placeholder="Merchant Email" readonly>
             </mat-form-field>
             <br />
             <button mat-raised-button color="warn" type="submit">
