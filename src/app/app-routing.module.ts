@@ -96,11 +96,11 @@ const routes: Routes = [
       },
       {
         path: 'users',
-        canActivate: [AdminGuard],
-        data: { role: 'ROLE_ADMIN' },
         children: [
           {
             path: 'new-user',
+            canActivate: [AdminGuard],
+            data: { role: 'ROLE_ADMIN' },
             component: NewUserComponent,
           },
           {
@@ -109,6 +109,8 @@ const routes: Routes = [
           },
           {
             path: '',
+            canActivate: [AdminGuard],
+            data: { role: 'ROLE_ADMIN' },
             component: UsersComponent,
           },
         ],
