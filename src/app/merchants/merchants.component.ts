@@ -16,7 +16,6 @@ export class MerchantsComponent implements OnInit {
     'firstName',
     'lastName',
     'email',
-    'accountNumber',
     'phoneNo',
     'status',
     'dateCreated',
@@ -65,6 +64,7 @@ export class MerchantsComponent implements OnInit {
       .getMerchantsData()
       .subscribe((data) => (this.dataSource = new MatTableDataSource(data)));
   }
+
   // Edit User
   editButtonUser(id: number) {
     this.router.navigate(['/dashboard/users/edit', id]);

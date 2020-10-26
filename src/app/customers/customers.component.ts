@@ -31,7 +31,6 @@ export class CustomersComponent implements OnInit {
     'firstName',
     'lastName',
     'email',
-    'accountNumber',
     'phoneNo',
     'status',
     'dateCreated',
