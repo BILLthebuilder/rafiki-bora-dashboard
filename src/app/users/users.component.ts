@@ -19,7 +19,6 @@ export class UsersComponent implements OnInit {
     'firstName',
     'lastName',
     'email',
-    'accountNumber',
     'phoneNo',
     'status',
     'dateCreated',
