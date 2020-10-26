@@ -5,7 +5,7 @@
     <div class="assignees-list">
         <table>
                 <tr>
-                    <th>Unassigned Terminals</th>
+                    <th>Choose a terminal to assign to Merchant</th>
                 </tr>
               <tr *ngFor="let tid of unassignedTerminals">
                 <td (click)=selectedTerminal($event.target.innerText) [ngClass]="selectedTerminal ? 'clicked' :'' ">{{tid}}</td>
@@ -13,10 +13,10 @@
         </table>
         <table>
             <tr>
-                <th>List of Merchants</th>
+                <th>Merchant to be assigned</th>
             </tr>
-            <tr *ngFor="let email of merchantEmails">
-                <td (click)=selectedMerchant($event.target.innerText)>{{email}}</td>
+            <tr>
+                <td (click)=selectedMerchant($event.target.innerText)>{{merchantEmail}}</td>
             </tr>
         </table>
     </div>

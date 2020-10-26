@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "rafiki-bora": {
+      "hosting": {
+        "rafiki-bora-dashboard": [
+          "rafiki-bora"
+        ]
+      }
+    }
+  }
+}

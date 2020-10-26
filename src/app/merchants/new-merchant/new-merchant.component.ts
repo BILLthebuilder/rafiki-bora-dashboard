@@ -1,7 +1,8 @@
+/* eslint-disable no-undef */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { User } from 'src/app/rafikiboraInterface';
 import { RafikiBoraService } from 'src/app/services/rafiki-bora.service';
@@ -17,6 +18,7 @@ export class NewMerchantComponent implements OnInit {
     private _rafikiBoraService: RafikiBoraService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
+    private router: Router,
     private _snackBar: MatSnackBar,
     private location: Location
   ) {
@@ -31,7 +33,7 @@ export class NewMerchantComponent implements OnInit {
     });
     this.userSubmitForm.patchValue({
       role: 'MERCHANT',
-    })
+    });
   }
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -73,7 +75,11 @@ export class NewMerchantComponent implements OnInit {
           verticalPosition: 'top',
           panelClass: ['green-snackbar'],
         });
-        this.location.back();
+        // Store the merchant Email to be reused later to assign a terminal
+        const merchantEmail = this.userSubmitForm.value.email;
+        localStorage.removeItem('merchEmail');
+        localStorage.setItem('merchEmail', merchantEmail);
+        this.router.navigateByUrl('/dashboard/terminals/assign');
       },
       (error) => {
         this._snackBar.open('Error creating merchant', 'dismiss', {
