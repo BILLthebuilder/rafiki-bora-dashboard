@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -11,7 +12,8 @@ import { RafikiBoraService } from 'src/app/services/rafiki-bora.service';
 })
 export class AssignComponent implements OnInit {
   userSubmitForm: any;
-  merchantEmails: any = [];
+  // merchantEmails: any = [];
+  merchantEmail: string;
   unassignedTerminals: any = [];
   status = false;
 
@@ -28,16 +30,18 @@ export class AssignComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._rafikiBoraService.getMerchantsData().subscribe((data) => {
-      data.forEach((item) => {
-        this.merchantEmails.push(item.email);
-      });
-    });
+    // this._rafikiBoraService.getMerchantsData().subscribe((data) => {
+    //   data.forEach((item) => {
+    //     this.merchantEmails.push(item.email);
+    //   });
+    // });
     this._rafikiBoraService.getUnAssignedTerminals().subscribe((data) => {
       data.forEach((item) => {
         this.unassignedTerminals.push(item.tid);
       });
     });
+    this.merchantEmail = localStorage.getItem('merchEmail');
+    localStorage.removeItem('merchEmail');
   }
   onSubmit() {
     this._rafikiBoraService.assignTerminal(this.userSubmitForm.value).subscribe(
