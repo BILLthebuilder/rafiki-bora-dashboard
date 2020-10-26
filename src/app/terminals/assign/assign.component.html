@@ -8,7 +8,7 @@
                     <th>Choose a terminal to assign to Merchant</th>
                 </tr>
               <tr *ngFor="let tid of unassignedTerminals">
-                <td (click)=selectedTerminal($event.target.innerText) [ngClass]="selectedTerminal ? 'clicked' :'' ">{{tid}}</td>
+                <td (click)=selectedTerminal($event.target.innerText) >{{tid}}</td>
               </tr>  
         </table>
         <table>
