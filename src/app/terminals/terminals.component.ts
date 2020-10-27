@@ -21,10 +21,6 @@ export class TerminalsComponent implements OnInit {
     'createdOn',
     'action',
   ];
-  filters = [
-    { value: 'approved', viewValue: 'Approved' },
-    { value: 'declined', viewValue: 'Declined' },
-  ];
 
   public dataSource: any = [];
   pipe: DatePipe;
@@ -53,7 +49,9 @@ export class TerminalsComponent implements OnInit {
     this.pipe = new DatePipe('en');
     this.dataSource.filterPredicate = (data, filter) => {
       if (this.fromDate && this.toDate) {
-        return data.created >= this.fromDate && data.created <= this.toDate;
+        return (
+          data.dateCreated >= this.fromDate && data.dateCreated <= this.toDate
+        );
       }
       return true;
     };
@@ -111,5 +109,8 @@ export class TerminalsComponent implements OnInit {
         this.ngOnInit();
       }
     );
+  }
+  applySearchFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
