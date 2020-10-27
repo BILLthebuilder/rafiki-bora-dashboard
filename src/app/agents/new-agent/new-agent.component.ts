@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
@@ -52,7 +53,12 @@ export class NewAgentComponent implements OnInit {
           verticalPosition: 'top',
           panelClass: ['green-snackbar'],
         });
-        this.location.back();
+        // this.location.back();
+        // Store the Agent Email to be reused later to assign a terminal
+        const agentEmail = this.userSubmitForm.value.email;
+        localStorage.removeItem('agentEmail');
+        localStorage.setItem('agentEmail', agentEmail);
+        this.router.navigateByUrl('/dashboard/terminals/assign-agent');
       },
       (error) => {
         this._snackBar.open('Error creating agent', 'dismiss', {
