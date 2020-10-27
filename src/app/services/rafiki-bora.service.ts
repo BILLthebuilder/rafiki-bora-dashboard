@@ -18,6 +18,14 @@ import {
 })
 export class RafikiBoraService implements OnInit {
   private usersUrl = 'http://41.215.130.247:10203/api/users';
+  private baseUrlTransactions = 'http://41.215.130.247:10203/api/transactions';
+  private allTransactionsUrl = `${this.baseUrlTransactions}/all`;
+  private merchantTransactions = `${this.baseUrlTransactions}/merchant`;
+  private totalTransactions = `${this.baseUrlTransactions}/sum`;
+  private sendMoneyTotals = `${this.totalTransactions}/send_money`;
+  private saleTotals = `${this.totalTransactions}/sale`;
+  private depositTotals = `${this.totalTransactions}/deposit`;
+  private recieveMoneyTotals = `${this.totalTransactions}/recieve_money`;
   private addUsersUrl = `${this.usersUrl}/createuser`;
   private getUsersUrl = `${this.usersUrl}`;
   private createAgentUrl = `${this.usersUrl}/addagent`;
@@ -30,8 +38,6 @@ export class RafikiBoraService implements OnInit {
   private terminalsUrl = 'http://41.215.130.247:10203/api/terminals';
   private rolesUrl = 'http://41.215.130.247:10203/api/roles';
   private supportUrl = 'http://41.215.130.247:10203/api/support';
-  private allTransactionsUrl = 'http://41.215.130.247:10203/api/transactions/all';
-  private TransactionUrl = 'http://41.215.130.247:10203/api/transactions/merchant';
   private getUnassignedTerminals = 'http://41.215.130.247:10203/api/terminals/fetch';
 
   constructor(private http: HttpClient) {}
@@ -135,13 +141,26 @@ export class RafikiBoraService implements OnInit {
     return this.http.get<any>(this.supportUrl);
   }
 
-  // Get Reports
+  // Get transactions by merchant
   getMerchantsTransaction(mid): Observable<any> {
-    return this.http.get<any>(`${this.TransactionUrl}/${mid}`);
+    return this.http.get<any>(`${this.merchantTransactions}/${mid}`);
   }
 
   getAllTransactions(): Observable<any>{
     return this.http.get<any>(this.allTransactionsUrl);
+  }
+
+  getSendMoney(): Observable<any>{
+    return this.http.get<any>(this.sendMoneyTotals);
+  }
+  getSale(): Observable<any> {
+    return this.http.get<any>(this.saleTotals);
+  }
+  getReciveMoney(): Observable<any> {
+    return this.http.get<any>(this.recieveMoneyTotals);
+  }
+  getDeposits(): Observable<any> {
+    return this.http.get<any>(this.depositTotals);
   }
   ngOnInit(): void {}
 }

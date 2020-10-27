@@ -66,7 +66,7 @@ export class AgentsComponent implements OnInit {
 
   ngOnInit(): void {
     this._rafikiBoraService
-      .getCustomersData()
+      .getAgents()
       .subscribe((data) => (this.dataSource = new MatTableDataSource(data)));
   }
   // Edit User

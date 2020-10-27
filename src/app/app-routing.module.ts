@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { MerchantsDashComponent } from './merchants-dash/merchants-dash.component';
 import { MerchantsComponent } from './merchants/merchants.component';
 import { NewMerchantComponent } from './merchants/new-merchant/new-merchant.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 import { ReportsComponent } from './reports/reports.component';
 import { NewRoleComponent } from './roles/new-role/new-role.component';
 import { RolesComponent } from './roles/roles.component';
@@ -177,6 +178,10 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    path: '**',
+    component: NotfoundComponent,
+  }
 ];
 
 @NgModule({

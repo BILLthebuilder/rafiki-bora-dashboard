@@ -12,16 +12,20 @@
     </div>
     <div class="consumptions-container">
         <mat-card>
-            <mat-card-title>KES 3,500</mat-card-title>
+            <mat-card-title>{{sale  | currency:'KES '}}</mat-card-title>
             <mat-card-content>Total Sales</mat-card-content>
         </mat-card>
         <mat-card>
-            <mat-card-title>KES 3,500</mat-card-title>
+            <mat-card-title>{{deposit  | currency:'KES '}}</mat-card-title>
             <mat-card-content>Total Deposits</mat-card-content>
         </mat-card>
         <mat-card>
-            <mat-card-title>KES 3,500</mat-card-title>
-            <mat-card-content>Total Withdrawals</mat-card-content>
+            <mat-card-title>{{recieveMoney  | currency:'KES '}}</mat-card-title>
+            <mat-card-content>Total Recieve Money</mat-card-content>
+        </mat-card>
+        <mat-card>
+            <mat-card-title>{{sendMoney  | currency:'KES '}}</mat-card-title>
+            <mat-card-content>Total Send Money</mat-card-content>
         </mat-card>
     </div>
     <div class="reports-header">
@@ -44,22 +48,26 @@
     <div class="chart-items">
         <div class="chart-wrapper">
             <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
-                [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+                 [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
             </canvas>
         </div>
         <mat-card>
             <mat-card-title>Graph Content</mat-card-title>
             <mat-card-content>
                 <span class="indicator i-sale"></span>
-                Total Sales
+                Total Sales {{sale | currency:'KES '}}
             </mat-card-content>
             <mat-card-content>
                 <span class="indicator i-deposit"></span>
-                Total Deposits
+                Total Deposits {{deposit | currency:'KES '}}
             </mat-card-content>
             <mat-card-content>
                 <span class="indicator i-withdrawal"></span>
-                Total Withdrawals
+              Recieve Money {{recieveMoney | currency:'KES '}}
+            </mat-card-content>
+            <mat-card-content>
+                <span class="indicator i-withdrawal"></span>
+                Send Money {{sendMoney | currency:'KES '}}
             </mat-card-content>
         </mat-card>
         </div>
