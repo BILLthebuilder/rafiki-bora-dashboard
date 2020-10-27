@@ -19,6 +19,8 @@ export class MerchantsComponent implements OnInit {
     'phoneNo',
     'status',
     'dateCreated',
+    'createdBy',
+    'approvedBy',
     'action',
   ];
   filters = [
@@ -51,9 +53,11 @@ export class MerchantsComponent implements OnInit {
     private _snackBar: MatSnackBar
   ) {
     this.pipe = new DatePipe('en');
-    this.dataSource.filterPredicate = (data, filter) => {
+    this.dataSource.filterPredicate = (data) => {
       if (this.fromDate && this.toDate) {
-        return data.created >= this.fromDate && data.created <= this.toDate;
+        return (
+          data.dateCreated >= this.fromDate && data.dateCreated <= this.toDate
+        );
       }
       return true;
     };
