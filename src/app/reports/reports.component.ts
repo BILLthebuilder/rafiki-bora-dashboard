@@ -62,6 +62,9 @@ export class ReportsComponent implements OnInit {
   isAdmin() {
     return this.authService.isAdmin();
   }
+  isMerchant() {
+    return this.authService.isMerchant();
+  }
   ngOnInit(): void {
     // Get table data
     this._rafikiBoraService
@@ -70,12 +73,20 @@ export class ReportsComponent implements OnInit {
     this._rafikiBoraService.getAllTransactions().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data.transactions);
     });
+    if (this.isMerchant()) {
+      this.getTransactionsOfLoggedInMerchant();
+    }
   }
 
   getMerchantTransaction(mid) {
     this._rafikiBoraService.getMerchantsTransaction(mid).subscribe((data) => {
       this.dataSource = new MatTableDataSource(data.transactions);
     });
+  }
+  getTransactionsOfLoggedInMerchant() {
+    this._rafikiBoraService.getUserProfile().subscribe((data) => {
+      this.getMerchantTransaction(data.mid);
+    })
   }
   applyFilter() {
     this.dataSource.filter = `${Math.random()}`;
