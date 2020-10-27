@@ -14,6 +14,7 @@ import { RafikiBoraService } from 'src/app/services/rafiki-bora.service';
 })
 export class NewMerchantComponent implements OnInit {
   userSubmitForm: any;
+  email: string;
   constructor(
     private _rafikiBoraService: RafikiBoraService,
     private formBuilder: FormBuilder,
@@ -27,7 +28,7 @@ export class NewMerchantComponent implements OnInit {
       lastName: '',
       username: '',
       phoneNo: '',
-      email: '',
+      email: this.email,
       password: '',
       role: '',
     });

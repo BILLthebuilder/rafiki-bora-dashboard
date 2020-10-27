@@ -17,23 +17,25 @@
       <input matInput type="text" required name="lastName" formControlName="lastName" placeholder="Enter Last name">
     </mat-form-field>
     <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+
+      <input matInput type="email" required name="email" formControlName="email" placeholder="Enter Account email"
+        [(ngModel)]="email">
+    </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>User Name</mat-label>
 
-      <input matInput type="text" required name="username" formControlName="username" placeholder="Enter User Name">
+      <input matInput type="text" required name="username" formControlName="username" placeholder="Enter User Name"
+        value={{email}} readonly>
     </mat-form-field>
+    <br>
 
     <mat-form-field appearance="outline">
 
       <input matInput type="text" required name="phoneNo" formControlName="phoneNo" placeholder="Enter Phone Number">
 
-    </mat-form-field>
-    <br />
-    <mat-form-field appearance="outline">
-      <mat-label>Email</mat-label>
-
-      <input matInput type="email" required name="email" formControlName="email" placeholder="Enter Account email">
     </mat-form-field>
     <br />
 
