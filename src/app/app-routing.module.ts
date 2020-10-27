@@ -17,6 +17,7 @@ import { ReportsComponent } from './reports/reports.component';
 import { NewRoleComponent } from './roles/new-role/new-role.component';
 import { RolesComponent } from './roles/roles.component';
 import { SupportComponent } from './support/support.component';
+import { AssignAComponent } from './terminals/assign-a/assign-a.component';
 import { AssignComponent } from './terminals/assign/assign.component';
 import { NewTerminalComponent } from './terminals/new-terminal/new-terminal.component';
 import { TerminalsComponent } from './terminals/terminals.component';
@@ -57,19 +58,27 @@ const routes: Routes = [
       },
       {
         path: 'terminals',
-        canActivate: [AdminGuard],
-        data: { role: 'ROLE_ADMIN' },
         children: [
           {
             path: 'new-terminal',
+            canActivate: [AdminGuard],
+            data: { role: 'ROLE_ADMIN' },
             component: NewTerminalComponent,
           },
           {
             path: 'assign',
+            canActivate: [AdminGuard],
+            data: { role: 'ROLE_ADMIN' },
             component: AssignComponent,
           },
           {
+            path: 'assign-agent',
+            component: AssignAComponent,
+          },
+          {
             path: '',
+            canActivate: [AdminGuard],
+            data: { role: 'ROLE_ADMIN' },
             component: TerminalsComponent,
           },
         ],
