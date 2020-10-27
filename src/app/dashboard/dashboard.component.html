@@ -14,7 +14,7 @@
         <h3 class="heading-user-management">User Management</h3>
 
         <a mat-list-item [routerLink]="['roles']" [routerLinkActive]="['active']">Roles</a>
-        <a mat-list-item [routerLink]="['workgroups']" [routerLinkActive]="['active']" *ngIf="hidden">Workgroups</a>
+        <a mat-list-item [routerLink]="['workgroups']" [routerLinkActive]="['active']" *ngIf="show">Workgroups</a>
         <a mat-list-item [routerLink]="['users']" [routerLinkActive]="['active']">Users</a>
       </mat-nav-list>
       <hr *ngIf="isMerchantAndIsAdmin()" class="heading-line-merchant" />
@@ -46,9 +46,9 @@
       </mat-nav-list>
       <hr class="heading-line-user" />
       
-      <mat-nav-list *ngIf="isAdmin()">
-        <h3 class="heading-user-management">Support Module</h3>
-        <a mat-list-item [routerLink]="['support']" [routerLinkActive]="['active']">Support Requests</a>
+      <mat-nav-list >
+        <h3 class="heading-user-management" *ngIf="show">Support Module</h3>
+        <a mat-list-item [routerLink]="['support']" [routerLinkActive]="['active']" *ngIf="show">Support Requests</a>
       </mat-nav-list>
     </div>
   </mat-sidenav>
