@@ -29,6 +29,7 @@ export class RafikiBoraService implements OnInit {
   private addUsersUrl = `${this.usersUrl}/createuser`;
   private getUsersUrl = `${this.usersUrl}`;
   private getUserByIdUrl = `${this.usersUrl}/user`;
+  private deleteUserUrl = `${this.usersUrl}`;
   private editUsersUrl = `${this.usersUrl}`;
   private approveUrl = `${this.usersUrl}/user/approve`;
   private createAgentUrl = `${this.usersUrl}/addagent`;
@@ -77,7 +78,7 @@ export class RafikiBoraService implements OnInit {
 
   // Delete User
   deleteUser(userId) {
-    return this.http.delete<any>(`${this.getUserById}/${userId}`);
+    return this.http.delete<any>(`${this.deleteUserUrl}/${userId}`);
   }
 
   // Add Terminals
@@ -147,11 +148,11 @@ export class RafikiBoraService implements OnInit {
     return this.http.get<any>(`${this.merchantTransactions}/${mid}`);
   }
 
-  getAllTransactions(): Observable<any>{
+  getAllTransactions(): Observable<any> {
     return this.http.get<any>(this.allTransactionsUrl);
   }
 
-  getSendMoney(): Observable<any>{
+  getSendMoney(): Observable<any> {
     return this.http.get<any>(this.sendMoneyTotals);
   }
   getSale(): Observable<any> {

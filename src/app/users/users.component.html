@@ -121,7 +121,7 @@
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns"
-        [ngClass]="{'hidden':row.deleted === true}"></tr>
+        [ngClass]="{'hidden':row.deleted === 'true'}"></tr>
     </table>
   </div>
 </div>

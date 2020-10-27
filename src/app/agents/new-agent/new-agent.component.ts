@@ -14,6 +14,7 @@ import { RafikiBoraService } from 'src/app/services/rafiki-bora.service';
 export class NewAgentComponent implements OnInit {
   userSubmitForm: any;
   roles: any = [];
+  email: string;
   constructor(
     private http: HttpClient,
     private _rafikiBoraService: RafikiBoraService,
@@ -28,7 +29,7 @@ export class NewAgentComponent implements OnInit {
       lastName: '',
       username: '',
       phoneNo: '',
-      email: '',
+      email: this.email,
       password: '',
       role: '',
     });
