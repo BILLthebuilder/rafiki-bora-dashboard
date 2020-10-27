@@ -36,10 +36,6 @@ export class CustomersComponent implements OnInit {
     'dateCreated',
     'action',
   ];
-  filters = [
-    { value: 'approved', viewValue: 'Approved' },
-    { value: 'declined', viewValue: 'Declined' },
-  ];
 
   public dataSource: any = [];
   pipe: DatePipe;
@@ -68,7 +64,9 @@ export class CustomersComponent implements OnInit {
     this.pipe = new DatePipe('en');
     this.dataSource.filterPredicate = (data, filter) => {
       if (this.fromDate && this.toDate) {
-        return data.created >= this.fromDate && data.created <= this.toDate;
+        return (
+          data.dateCreated >= this.fromDate && data.dateCreated <= this.toDate
+        );
       }
       return true;
     };
