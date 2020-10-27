@@ -46,15 +46,15 @@ export class ReportsComponent implements OnInit {
     private authService: AuthService,
     private _rafikiBoraService: RafikiBoraService
   ) {
-    this.pipe = new DatePipe('en');
-    this.dataSource.filterPredicate = (data) => {
-      if (this.fromDate && this.toDate) {
-        return (
-          data.dateCreated >= this.fromDate && data.dateCreated <= this.toDate
-        );
-      }
-      return true;
-    };
+    // this.pipe = new DatePipe('en');
+    // this.dataSource.filterPredicate = (data) => {
+    //   if (this.fromDate && this.toDate) {
+    //     return (
+    //       data.dateCreated >= this.fromDate && data.dateCreated <= this.toDate
+    //     );
+    //   }
+    //   return true;
+    // };
   }
 
   merchantFilters: any;
