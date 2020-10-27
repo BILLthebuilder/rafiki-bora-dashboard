@@ -28,12 +28,13 @@ export class RafikiBoraService implements OnInit {
   private recieveMoneyTotals = `${this.totalTransactions}/recieve_money`;
   private addUsersUrl = `${this.usersUrl}/createuser`;
   private getUsersUrl = `${this.usersUrl}`;
+  private getUserByIdUrl = `${this.usersUrl}/user`;
+  private editUsersUrl = `${this.usersUrl}`;
+  private approveUrl = `${this.usersUrl}/user/approve`;
   private createAgentUrl = `${this.usersUrl}/addagent`;
   private customersUrl = `${this.usersUrl}/customer`;
   private merchantsUrl = `${this.usersUrl}/merchant`;
   private getAgentsUrl = `${this.usersUrl}/agent`;
-  private editUsersUrl = `${this.usersUrl}/ser`;
-  private approveUrl = `${this.usersUrl}/user/approve`;
   private assignUrl = `${this.usersUrl}/assignmerchantterminal`;
   private terminalsUrl = 'http://41.215.130.247:10203/api/terminals';
   private rolesUrl = 'http://41.215.130.247:10203/api/roles';
@@ -53,12 +54,12 @@ export class RafikiBoraService implements OnInit {
   }
   // Get User By Id
   getUserById(userId): Observable<User> {
-    return this.http.get<User>(`${this.editUsersUrl}/${userId}`);
+    return this.http.get<User>(`${this.getUserByIdUrl}/${userId}`);
   }
 
   editUser(userId, userData) {
     return this.http.patch<any>(
-      `${this.getUsersUrl}/${userId}`,
+      `${this.editUsersUrl}/${userId}`,
       userData,
       this.httpOptions
     );
@@ -76,7 +77,7 @@ export class RafikiBoraService implements OnInit {
 
   // Delete User
   deleteUser(userId) {
-    return this.http.delete<any>(`${this.getUsersUrl}/${userId}`);
+    return this.http.delete<any>(`${this.getUserById}/${userId}`);
   }
 
   // Add Terminals
