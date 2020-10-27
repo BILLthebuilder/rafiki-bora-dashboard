@@ -34,6 +34,7 @@ import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { AssignComponent } from './terminals/assign/assign.component';
 import { CreditCardMaskPipe } from './services/credit-card-mask.pipe';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { AssignAComponent } from './terminals/assign-a/assign-a.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     AssignComponent,
     CreditCardMaskPipe,
     NotfoundComponent,
+    AssignAComponent,
   ],
   imports: [
     AppImportsModule,
