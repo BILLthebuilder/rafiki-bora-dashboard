@@ -44,24 +44,26 @@ export class AssignAComponent implements OnInit {
     localStorage.removeItem('agentEmail');
   }
   onSubmit() {
-    this._rafikiBoraService.assignTerminal(this.userSubmitForm.value).subscribe(
-      (response) => {
-        this._snackBar.open('Terminal assigned Successfully', 'dismiss', {
-          duration: 3000,
-          verticalPosition: 'top',
-          panelClass: ['green-snackbar'],
-        });
-        // this.router.navigateByUrl('/dashboard/terminals');
-        this.ngOnInit();
-      },
-      (error) => {
-        this._snackBar.open('Error assigning terminal', 'dismiss', {
-          duration: 2000,
-          verticalPosition: 'top',
-          panelClass: ['red-snackbar'],
-        });
-      }
-    );
+    this._rafikiBoraService
+      .assignAgentTerminal(this.userSubmitForm.value)
+      .subscribe(
+        (response) => {
+          this._snackBar.open('Terminal assigned Successfully', 'dismiss', {
+            duration: 3000,
+            verticalPosition: 'top',
+            panelClass: ['green-snackbar'],
+          });
+          // this.router.navigateByUrl('/dashboard/terminals');
+          this.ngOnInit();
+        },
+        (error) => {
+          this._snackBar.open('Error assigning terminal', 'dismiss', {
+            duration: 2000,
+            verticalPosition: 'top',
+            panelClass: ['red-snackbar'],
+          });
+        }
+      );
   }
   selectedAgent(event) {
     this.userSubmitForm.patchValue({

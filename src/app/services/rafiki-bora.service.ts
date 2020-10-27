@@ -38,10 +38,13 @@ export class RafikiBoraService implements OnInit {
   private merchantsUrl = `${this.usersUrl}/merchant`;
   private getAgentsUrl = `${this.usersUrl}/agent`;
   private assignUrl = `${this.usersUrl}/assignmerchantterminal`;
+  private assignAgentUrl = `${this.usersUrl}/agenttoterminal`;
+  private getUnassignedAgent = `http://41.215.130.247:10203/api/terminals/merchant/${this.merchantID}/unassigned`;
   private terminalsUrl = 'http://41.215.130.247:10203/api/terminals';
   private rolesUrl = 'http://41.215.130.247:10203/api/roles';
   private supportUrl = 'http://41.215.130.247:10203/api/support';
-  private getUnassignedTerminals = 'http://41.215.130.247:10203/api/terminals/fetch';
+  private getUnassignedTerminals =
+    'http://41.215.130.247:10203/api/terminals/fetch';
 
   constructor(private http: HttpClient) {}
   httpOptions = {
@@ -109,10 +112,23 @@ export class RafikiBoraService implements OnInit {
     return this.http.get<Terminal[]>(this.getUnassignedTerminals);
   }
 
-  // Assign terminals
+  // Assign terminals to merchant
   assignTerminal(terminalData) {
     return this.http.post<any>(this.assignUrl, terminalData);
   }
+
+  // Assign terminals to Agent
+  assignAgentTerminal(terminalData) {
+    return this.http.post<any>(this.assignAgentUrl, terminalData);
+  }
+
+  // Fetch all unassigned terminals to Agent
+  getUnAssignedAgentTerminals(merchantID) {
+    return this.http.get<any>(
+      `http://41.215.130.247:10203/api/terminals/merchant/${merchantID}/unassigned`
+    );
+  }
+
   addRole(roleData) {
     return this.http.post<any>(this.rolesUrl, roleData, this.httpOptions);
   }
