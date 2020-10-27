@@ -28,6 +28,7 @@ export class RafikiBoraService implements OnInit {
   private recieveMoneyTotals = `${this.totalTransactions}/recieve_money`;
   private addUsersUrl = `${this.usersUrl}/createuser`;
   private getUsersUrl = `${this.usersUrl}`;
+  private getProfileUrl = `${this.usersUrl}/user/profile`;
   private getUserByIdUrl = `${this.usersUrl}/user`;
   private deleteUserUrl = `${this.usersUrl}`;
   private editUsersUrl = `${this.usersUrl}`;
@@ -74,6 +75,11 @@ export class RafikiBoraService implements OnInit {
   // Approve User
   approveUser(email: string) {
     return this.http.post<any>(`${this.approveUrl}/${email}`, null);
+  }
+
+  // get User Profile
+  getUserProfile() {
+    return this.http.get<any>(`${this.getProfileUrl}`);
   }
 
   // Delete User
