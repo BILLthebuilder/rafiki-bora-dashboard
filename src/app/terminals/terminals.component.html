@@ -13,28 +13,30 @@
       Assign Terminal
     </button>
   </div>
-  <div class="item-filters">
-    <mat-form-field appearance="outline">
-      <mat-label>From</mat-label>
-      <input matInput [matDatepicker]="fromDate" />
-      <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
-      <mat-datepicker #fromDate></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>To</mat-label>
-      <input matInput [matDatepicker]="toDate" />
-      <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
-      <mat-datepicker #toDate></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field class="search-field" appearance="outline">
-      <input matInput placeholder="search" name="search" type="search" />
-    </mat-form-field>
-    <button mat-raised-button color="primary" class="filterBtn" (click)="applyFilter()">
-      <mat-icon>search</mat-icon>
-      Filter
-    </button>
-
-  </div>
+  <form [formGroup]="filterForm">
+    <div class="item-filters">
+      <mat-form-field appearance="outline">
+        <mat-label>From</mat-label>
+        <input matInput [matDatepicker]="fromDate" />
+        <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+        <mat-datepicker #fromDate></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>To</mat-label>
+        <input matInput [matDatepicker]="toDate" />
+        <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+        <mat-datepicker #toDate></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="search-field" appearance="outline">
+        <input (keyup)="applySearchFilter($event.target.value)" matInput placeholder="search" name="search"
+          type="search" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" class="filterBtn" (click)="applyFilter()">
+        <mat-icon>search</mat-icon>
+        Filter
+      </button>
+    </div>
+  </form>
 
   <div class="item-table">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

@@ -23,6 +23,8 @@ export class UsersComponent implements OnInit {
     'email',
     'phoneNo',
     'status',
+    'createdBy',
+    'approvedBy',
     'dateCreated',
     'action',
   ];

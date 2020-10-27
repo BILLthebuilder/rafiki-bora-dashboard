@@ -10,29 +10,30 @@
       New Customer
     </button>
   </div>
-  <div class="item-filters">
-
-    <mat-form-field appearance="outline">
-      <mat-label>From</mat-label>
-      <input matInput [matDatepicker]="pickerFrom" />
-      <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
-      <mat-datepicker #pickerFrom></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>To</mat-label>
-      <input matInput [matDatepicker]="pickerTo" />
-      <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
-      <mat-datepicker #pickerTo></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field class="search-field" appearance="outline">
-      <input (keyup)="applySearchFilter($event.target.value)" matInput placeholder="search" name="search"
-        type="search" />
-    </mat-form-field>
-    <button mat-raised-button color="primary" class="filterBtn">
-      <mat-icon>search</mat-icon>
-      Filter
-    </button>
-  </div>
+  <form [formGroup]="filterForm">
+    <div class="item-filters">
+      <mat-form-field appearance="outline">
+        <mat-label>From</mat-label>
+        <input matInput [matDatepicker]="pickerFrom" />
+        <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+        <mat-datepicker #pickerFrom></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>To</mat-label>
+        <input matInput [matDatepicker]="pickerTo" />
+        <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+        <mat-datepicker #pickerTo></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="search-field" appearance="outline">
+        <input (keyup)="applySearchFilter($event.target.value)" matInput placeholder="search" name="search"
+          type="search" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" class="filterBtn" (click)="applyFilter()">
+        <mat-icon>search</mat-icon>
+        Filter
+      </button>
+    </div>
+  </form>
 
   <div class="item-table">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
