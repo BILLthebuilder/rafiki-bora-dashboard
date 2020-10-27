@@ -71,7 +71,7 @@ export class ReportsComponent implements OnInit {
       .getMerchantsData()
       .subscribe((data) => (this.merchantFilters = data));
     this._rafikiBoraService.getAllTransactions().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data.transactions);
+      this.dataSource = new MatTableDataSource(data);
     });
     if (this.isMerchant()) {
       this.getTransactionsOfLoggedInMerchant();
@@ -80,7 +80,7 @@ export class ReportsComponent implements OnInit {
 
   getMerchantTransaction(mid) {
     this._rafikiBoraService.getMerchantsTransaction(mid).subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data.transactions);
+      this.dataSource = new MatTableDataSource(data);
     });
   }
   getTransactionsOfLoggedInMerchant() {
