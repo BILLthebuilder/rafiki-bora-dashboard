@@ -34,6 +34,8 @@ export class CustomersComponent implements OnInit {
     'phoneNo',
     'status',
     'dateCreated',
+    'createdBy',
+    'approvedBy',
     'action',
   ];
 
