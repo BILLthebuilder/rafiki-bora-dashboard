@@ -39,7 +39,6 @@ export class RafikiBoraService implements OnInit {
   private getAgentsUrl = `${this.usersUrl}/agent`;
   private assignUrl = `${this.usersUrl}/assignmerchantterminal`;
   private assignAgentUrl = `${this.usersUrl}/agenttoterminal`;
-  private getUnassignedAgent = `http://41.215.130.247:10203/api/terminals/merchant/${this.merchantID}/unassigned`;
   private terminalsUrl = 'http://41.215.130.247:10203/api/terminals';
   private rolesUrl = 'http://41.215.130.247:10203/api/roles';
   private supportUrl = 'http://41.215.130.247:10203/api/support';
