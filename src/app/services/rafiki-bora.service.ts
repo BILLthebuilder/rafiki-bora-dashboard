@@ -25,7 +25,7 @@ export class RafikiBoraService implements OnInit {
   private sendMoneyTotals = `${this.totalTransactions}/send_money`;
   private saleTotals = `${this.totalTransactions}/sale`;
   private depositTotals = `${this.totalTransactions}/deposit`;
-  private recieveMoneyTotals = `${this.totalTransactions}/recieve_money`;
+  private recieveMoneyTotals = `${this.totalTransactions}/receive_money`;
   private addUsersUrl = `${this.usersUrl}/createuser`;
   private getUsersUrl = `${this.usersUrl}`;
   private getProfileUrl = `${this.usersUrl}/user/profile`;
@@ -98,8 +98,8 @@ export class RafikiBoraService implements OnInit {
     return this.http.get<Terminal[]>(this.terminalsUrl);
   }
   // Approve Terminal
-  approveTerminal(tid: string) {
-    return this.http.post<any>(`${this.terminalsUrl}/approve{id}/${tid}`, null);
+  approveTerminal(tid) {
+    return this.http.patch<any>(`${this.terminalsUrl}/approve/${tid}`, null);
   }
   // Delete User
   deleteTerminal(tid) {
