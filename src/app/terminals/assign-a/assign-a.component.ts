@@ -54,7 +54,7 @@ export class AssignAComponent implements OnInit {
             panelClass: ['green-snackbar'],
           });
           // this.router.navigateByUrl('/dashboard/terminals');
-          this.ngOnInit();
+          window.location.reload();
         },
         (error) => {
           this._snackBar.open('Error assigning terminal', 'dismiss', {
