@@ -86,7 +86,7 @@
         <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let element;">
           <button matTooltip="Approve Terminal" mat-raised-button class="approve"
-            (click)="approveTerminal(element.tid)">
+            (click)="approveTerminal(element.id)">
             <mat-icon>check</mat-icon>
           </button>
           <button matTooltip="Delete Terminal" mat-raised-button color="warn" (click)="deleteTerminal(element.id)">
