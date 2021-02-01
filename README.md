@@ -4,6 +4,9 @@ have different views when you log in as either.When you log in as admin you are 
 has CRUD functionalities where applicable.For the reports we integrated the system with a POS gateway which saved POS Terminal transactions
 to the database.You can use the log in credentials on the login page to log in as Admin and have a feel of the 
 system. <Link to website> https://rafiki-bora.web.app/
+ Technologies.FrontEnd =>Angular/Angular Material
+              BackEnd  =>Spring Boot
+  
 
 #Login Page
 ![](images/rafiki1)
