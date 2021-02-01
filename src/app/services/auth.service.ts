@@ -21,7 +21,7 @@ interface LoginResult {
 export class AuthService implements OnDestroy {
   @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
   @Output() email: EventEmitter<string> = new EventEmitter();
-  private readonly apiUrl = `http://localhost:2019`;
+  private readonly apiUrl = `https://rafiki-bora-api.herokuapp.com`;
   private timer: Subscription;
   private _user = new BehaviorSubject<ApplicationUser>(null);
   user$: Observable<ApplicationUser> = this._user.asObservable();

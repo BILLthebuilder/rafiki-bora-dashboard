@@ -21,6 +21,8 @@ export class CustomersComponent implements OnInit {
     'createdBy',
     'approvedBy',
     'dateCreated',
+    'createdBy',
+    'approvedBy',
     'action',
   ];
 

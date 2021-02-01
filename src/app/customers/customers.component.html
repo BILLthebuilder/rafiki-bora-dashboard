@@ -69,6 +69,19 @@
         <td mat-cell *matCellDef="let element">{{ element.phoneNo }}</td>
       </ng-container>
 
+      <!-- createdBy Name Column -->
+      <ng-container matColumnDef="createdBy">
+        <th mat-header-cell *matHeaderCellDef>createdBy</th>
+        <td mat-cell *matCellDef="let element">{{ element.createdBy }}</td>
+      </ng-container>
+      
+      
+      <!-- User Name Column -->
+      <ng-container matColumnDef="approvedBy">
+        <th mat-header-cell *matHeaderCellDef>approvedBy</th>
+        <td mat-cell *matCellDef="let element">{{ element.approvedBy }}</td>
+      </ng-container>
+      
       <!-- User Status Column -->
       <ng-container matColumnDef="status">
         <th mat-header-cell *matHeaderCellDef>Status</th>

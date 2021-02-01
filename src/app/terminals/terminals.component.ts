@@ -17,7 +17,7 @@ export class TerminalsComponent implements OnInit {
     'serialNo',
     'modelType',
     'status',
-    'mid',
+    // 'mid',
     'createdOn',
     'action',
   ];
@@ -68,8 +68,8 @@ export class TerminalsComponent implements OnInit {
   }
 
   // Delete Terminal
-  approveTerminal(tid: string) {
-    this._rafikiBoraService.approveTerminal(tid).subscribe(
+  approveTerminal(tid) {
+    this._rafikiBoraService.approveTerminal(parseInt(tid, 10)).subscribe(
       (response) => {
         this._snackBar.open('Terminal approved Successfully', 'dismiss', {
           duration: 3000,

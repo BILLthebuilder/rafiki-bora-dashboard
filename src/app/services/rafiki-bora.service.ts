@@ -17,15 +17,15 @@ import {
   providedIn: 'root',
 })
 export class RafikiBoraService implements OnInit {
-  private usersUrl = 'http://localhost:2019/api/users';
-  private baseUrlTransactions = 'http://localhost:2019/api/transactions';
+  private usersUrl = 'https://rafiki-bora-api.herokuapp.com/api/users';
+  private baseUrlTransactions = 'https://rafiki-bora-api.herokuapp.com/api/transactions';
   private allTransactionsUrl = `${this.baseUrlTransactions}/all`;
   private merchantTransactions = `${this.baseUrlTransactions}/merchant`;
   private totalTransactions = `${this.baseUrlTransactions}/sum`;
   private sendMoneyTotals = `${this.totalTransactions}/send_money`;
   private saleTotals = `${this.totalTransactions}/sale`;
   private depositTotals = `${this.totalTransactions}/deposit`;
-  private recieveMoneyTotals = `${this.totalTransactions}/recieve_money`;
+  private recieveMoneyTotals = `${this.totalTransactions}/receive_money`;
   private addUsersUrl = `${this.usersUrl}/createuser`;
   private getUsersUrl = `${this.usersUrl}`;
   private getProfileUrl = `${this.usersUrl}/user/profile`;
@@ -39,10 +39,11 @@ export class RafikiBoraService implements OnInit {
   private getAgentsUrl = `${this.usersUrl}/agent`;
   private assignUrl = `${this.usersUrl}/assignmerchantterminal`;
   private assignAgentUrl = `${this.usersUrl}/agenttoterminal`;
-  private terminalsUrl = 'http://localhost:2019/api/terminals';
-  private rolesUrl = 'http://localhost:2019/api/roles';
-  private supportUrl = 'http://localhost:2019/api/support';
-  private getUnassignedTerminals = 'http://localhost:2019/api/terminals/fetch';
+  private terminalsUrl = 'https://rafiki-bora-api.herokuapp.com/api/terminals';
+  private rolesUrl = 'https://rafiki-bora-api.herokuapp.com/api/roles';
+  private supportUrl = 'https://rafiki-bora-api.herokuapp.com/api/support';
+  private getUnassignedTerminals =
+    'https://rafiki-bora-api.herokuapp.com/api/terminals/fetch';
 
   constructor(private http: HttpClient) {}
   httpOptions = {
@@ -97,8 +98,8 @@ export class RafikiBoraService implements OnInit {
     return this.http.get<Terminal[]>(this.terminalsUrl);
   }
   // Approve Terminal
-  approveTerminal(tid: string) {
-    return this.http.post<any>(`${this.terminalsUrl}/approve{id}/${tid}`, null);
+  approveTerminal(tid) {
+    return this.http.patch<any>(`${this.terminalsUrl}/approve/${tid}`, null);
   }
   // Delete User
   deleteTerminal(tid) {
@@ -123,7 +124,7 @@ export class RafikiBoraService implements OnInit {
   // Fetch all unassigned terminals to Agent
   getUnAssignedAgentTerminals(merchantID) {
     return this.http.get<any>(
-      `http://localhost:2019/api/terminals/merchant/${merchantID}/unassigned`
+      `https://rafiki-bora-api.herokuapp.com/api/terminals/merchant/${merchantID}/unassigned`
     );
   }
 

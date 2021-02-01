@@ -1,14 +1,14 @@
 <div class="main-container">
     <div class="top-title">
         <h1>Overview</h1>
-        <mat-form-field appearance="outline" class="statusSelect" *ngIf="isAdmin()">
+        <!-- <mat-form-field appearance="outline" class="statusSelect" *ngIf="isAdmin()">
             <mat-label>Select Merchant</mat-label>
             <mat-select>
                 <mat-option *ngFor="let filter of filters" [value]="filter.value">
                     {{filter.viewValue}}
                 </mat-option>
             </mat-select>
-        </mat-form-field>
+        </mat-form-field> -->
     </div>
     <div class="consumptions-container">
         <mat-card>
@@ -31,7 +31,7 @@
     <div class="reports-header">
         <h2>Performance Reports</h2>
     </div>
-    <div class="form-fields">
+    <!-- <div class="form-fields">
         <mat-form-field appearance="outline">
             <mat-label>From</mat-label>
             <input matInput [matDatepicker]="pickerFrom">
@@ -44,7 +44,7 @@
             <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
             <mat-datepicker #pickerTo></mat-datepicker>
         </mat-form-field>
-    </div>
+    </div> -->
     <div class="chart-items">
         <div class="chart-wrapper">
             <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"

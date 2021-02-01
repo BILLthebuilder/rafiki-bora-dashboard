@@ -24,6 +24,8 @@ export class AgentsComponent implements OnInit {
     'phoneNo',
     'status',
     'dateCreated',
+    'createdBy',
+    'approvedBy',
     'action',
   ];
   filters = [
