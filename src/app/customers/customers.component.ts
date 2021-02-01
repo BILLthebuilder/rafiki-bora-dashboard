@@ -6,21 +6,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { RafikiBoraService } from '../services/rafiki-bora.service';
 
-export interface Customer {
-  id: number;
-  name: string;
-  phoneNo: string;
-  email: string;
-  merchant: string;
-  status: string;
-  dateCreated: string;
-}
-
-export interface Option {
-  value: string;
-  viewValue: string;
-}
-
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
@@ -33,6 +18,8 @@ export class CustomersComponent implements OnInit {
     'email',
     'phoneNo',
     'status',
+    'createdBy',
+    'approvedBy',
     'dateCreated',
     'action',
   ];

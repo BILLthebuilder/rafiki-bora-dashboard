@@ -17,8 +17,8 @@ import {
   providedIn: 'root',
 })
 export class RafikiBoraService implements OnInit {
-  private usersUrl = 'http://41.215.130.247:10203/api/users';
-  private baseUrlTransactions = 'http://41.215.130.247:10203/api/transactions';
+  private usersUrl = 'http://localhost:2019/api/users';
+  private baseUrlTransactions = 'http://localhost:2019/api/transactions';
   private allTransactionsUrl = `${this.baseUrlTransactions}/all`;
   private merchantTransactions = `${this.baseUrlTransactions}/merchant`;
   private totalTransactions = `${this.baseUrlTransactions}/sum`;
@@ -39,11 +39,10 @@ export class RafikiBoraService implements OnInit {
   private getAgentsUrl = `${this.usersUrl}/agent`;
   private assignUrl = `${this.usersUrl}/assignmerchantterminal`;
   private assignAgentUrl = `${this.usersUrl}/agenttoterminal`;
-  private terminalsUrl = 'http://41.215.130.247:10203/api/terminals';
-  private rolesUrl = 'http://41.215.130.247:10203/api/roles';
-  private supportUrl = 'http://41.215.130.247:10203/api/support';
-  private getUnassignedTerminals =
-    'http://41.215.130.247:10203/api/terminals/fetch';
+  private terminalsUrl = 'http://localhost:2019/api/terminals';
+  private rolesUrl = 'http://localhost:2019/api/roles';
+  private supportUrl = 'http://localhost:2019/api/support';
+  private getUnassignedTerminals = 'http://localhost:2019/api/terminals/fetch';
 
   constructor(private http: HttpClient) {}
   httpOptions = {
@@ -124,7 +123,7 @@ export class RafikiBoraService implements OnInit {
   // Fetch all unassigned terminals to Agent
   getUnAssignedAgentTerminals(merchantID) {
     return this.http.get<any>(
-      `http://41.215.130.247:10203/api/terminals/merchant/${merchantID}/unassigned`
+      `http://localhost:2019/api/terminals/merchant/${merchantID}/unassigned`
     );
   }
 
