@@ -1,4 +1,7 @@
 {
+  "projects": {
+    "rafiki-bora": "rafiki-bora"
+  },
   "targets": {
     "rafiki-bora": {
       "hosting": {
@@ -7,5 +10,6 @@
         ]
       }
     }
-  }
+  },
+  "etags": {}
 }
