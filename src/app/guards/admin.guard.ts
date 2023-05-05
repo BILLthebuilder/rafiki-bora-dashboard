@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-else-return */
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import {
   CanActivate,
   ActivatedRouteSnapshot,
