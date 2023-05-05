@@ -1,57 +1,45 @@
 .full-page {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.712)),
-    url(../../assets/img/rafikiBora.svg);
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  background-attachment: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-
-.login-card {
-
-  width: 400px;
-  height: 700px;
-  text-align: center;
-
-}
-
-.login-field {
-  width: 100%;
-  padding-top: 10px;
-
-}
-
-.logo {
-  width: 150px;
-  height: auto;
-  align-self: center;
-  padding-top: 30px;
-}
-
-button {
-  height: 55px;
-  width: 25%;
-}
-
-button:hover {
-  background-color: rgb(179, 23, 23);
-}
-
-input[type="password"],
-input[type="email"],
-select,
-textarea {
-  width: 100%;
-  padding: 6px;
-  border-radius: 3px;
-  border: rgb(122, 82, 82);
+    background-image:
+        url(../../assets/img/login-bg.png);
+      height: 100vh;
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
 
 }
 
 .loginError{
   color: red;
+}
+
+.login-card {
+  width: 400px;
+  text-align: center;
+}
+
+.login-field {
+  width: 100%;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 6px;
+  border-radius: 4px;
+  border: rgb(82, 96, 122);
+}
+
+mat-card-title {
+  text-transform: uppercase;
+}
+.mat-icon{
+  transform: scale(2);
+  margin-bottom: 4%;
 }

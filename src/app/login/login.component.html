@@ -1,7 +1,9 @@
 <div class="full-page">
   <mat-card class="login-card">
-    <img src="../../assets/img/logo.png" class="logo" alt="" />
-    <mat-card-title> Login </mat-card-title>
+    <mat-icon>
+      account_balance
+    </mat-icon>
+    <mat-card-title> rafiki bora login </mat-card-title>
     <mat-list>
       <mat-list-item>Email: admin0@mail.com</mat-list-item>
       <mat-list-item>Password: 123456</mat-list-item>
@@ -28,9 +30,12 @@
           Login failed. Please try again
         </div>
         <mat-card-actions>
-          <button mat-raised-button color="warn" class="login-field" type="submit">
+          <button mat-raised-button color="primary" class="login-field" type="submit" *ngIf="!busy">
             Login
           </button>
+          <button mat-raised-button color="warn" class="login-field" type="submit" *ngIf="busy">
+            <mat-icon><mat-spinner diameter="20">
+              </mat-spinner></mat-icon>Loading</button>
         </mat-card-actions>
       </form>
 
