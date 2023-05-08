@@ -92,3 +92,8 @@ a {
   width: 94%;
   margin-bottom: 1%;
 }
+.active{
+  background-color: lighten($primary-color, 40%);
+  color: rgb(35, 34, 34);
+  border: 5%;
+}
