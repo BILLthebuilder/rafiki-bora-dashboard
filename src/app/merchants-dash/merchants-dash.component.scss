@@ -49,13 +49,12 @@
     width: 10%;
   }
 }
-.chart-wrapper {
-  margin-left: 2%;
-  position: relative;
-  width: 100vh;
+.chart-wrapper{
+   position: relative;
+   margin-bottom: auto;
 }
 .chart-items {
-  margin-bottom: 100px;
+  margin-bottom: 80px;
   display: flex;
   justify-content: space-between;
   .mat-card {
