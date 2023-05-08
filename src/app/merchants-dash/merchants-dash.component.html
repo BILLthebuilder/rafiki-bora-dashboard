@@ -1,56 +1,44 @@
 <div class="main-container">
     <div class="top-title">
         <h1>Overview</h1>
-        <!-- <mat-form-field appearance="outline" class="statusSelect" *ngIf="isAdmin()">
-            <mat-label>Select Merchant</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let filter of filters" [value]="filter.value">
-                    {{filter.viewValue}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field> -->
     </div>
     <div class="consumptions-container">
         <mat-card>
-            <mat-card-title>{{sale  | currency:'KES '}}</mat-card-title>
+            <mat-card-title>
+                <span class="indicator i-sale"></span>
+                {{sale  | currency:'KES '}}
+            </mat-card-title>
             <mat-card-content>Total Sales</mat-card-content>
         </mat-card>
         <mat-card>
-            <mat-card-title>{{deposit  | currency:'KES '}}</mat-card-title>
+            <mat-card-title>
+                <span class="indicator i-deposit"></span>
+                {{deposit  | currency:'KES '}}
+            </mat-card-title>
             <mat-card-content>Total Deposits</mat-card-content>
         </mat-card>
         <mat-card>
-            <mat-card-title>{{recieveMoney  | currency:'KES '}}</mat-card-title>
+            <mat-card-title>
+                <span class="indicator i-withdrawal"></span>
+                {{receiveMoney  | currency:'KES '}}
+            </mat-card-title>
             <mat-card-content>Total Recieve Money</mat-card-content>
         </mat-card>
         <mat-card>
-            <mat-card-title>{{sendMoney  | currency:'KES '}}</mat-card-title>
+            <mat-card-title>
+                <span class="indicator i-withdrawal"></span>
+                {{sendMoney  | currency:'KES '}}
+            </mat-card-title>
             <mat-card-content>Total Send Money</mat-card-content>
         </mat-card>
     </div>
     <div class="reports-header">
         <h2>Performance Reports</h2>
     </div>
-    <!-- <div class="form-fields">
-        <mat-form-field appearance="outline">
-            <mat-label>From</mat-label>
-            <input matInput [matDatepicker]="pickerFrom">
-            <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
-            <mat-datepicker #pickerFrom></mat-datepicker>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>To</mat-label>
-            <input matInput [matDatepicker]="pickerTo">
-            <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
-            <mat-datepicker #pickerTo></mat-datepicker>
-        </mat-form-field>
-    </div> -->
-    <div class="chart-items">
-        <div class="chart-wrapper">
-            <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
-                 [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
-            </canvas>
-        </div>
+    <div class="chart-wrapper">
+        <canvas id="MyChart">{{ chart }}</canvas>
+    </div>
+    <!-- <div class="chart-items">
         <mat-card>
             <mat-card-title>Graph Content</mat-card-title>
             <mat-card-content>
@@ -70,5 +58,5 @@
                 Send Money {{sendMoney | currency:'KES '}}
             </mat-card-content>
         </mat-card>
-        </div>
+        </div> -->
 </div>
