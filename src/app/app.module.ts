@@ -3,10 +3,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { AppImportsModule } from './app-imports-module/app-imports.module';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RolesComponent } from './roles/roles.component';
@@ -35,6 +33,7 @@ import { AssignComponent } from './terminals/assign/assign.component';
 import { CreditCardMaskPipe } from './services/credit-card-mask.pipe';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { AssignAComponent } from './terminals/assign-a/assign-a.component';
+import { AppImportsModule } from './app-imports-module/app-imports.module';
 
 @NgModule({
   declarations: [
@@ -69,11 +68,10 @@ import { AssignAComponent } from './terminals/assign-a/assign-a.component';
     AppImportsModule,
     CommonModule,
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    ChartsModule,
     HttpClientModule,
     CoreModule,
+    AppRoutingModule,
   ],
   providers: [RafikiBoraService],
   bootstrap: [AppComponent],
